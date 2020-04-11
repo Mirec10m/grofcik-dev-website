@@ -36,6 +36,10 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
+            // Switch APP Language according to URL language prefix
+            // --- just uncomment to make it work
+            // \App\Http\Middleware\LanguageMiddleware::class,
         ],
 
         'api' => [
