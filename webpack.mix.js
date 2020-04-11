@@ -45,6 +45,6 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
     .scripts([
         // ADMIN .js files
-        
+
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');
