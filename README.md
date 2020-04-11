@@ -34,3 +34,4 @@ Máme tu predpripravený skript na spracovanie obrázku do normálneho prevedeni
 - skript pre upload sa nachádza v app/Traits/UploadTrait
 - na použitie jeho metód stačí v controlleri použiť kód: use UploadTrait;
 - nastavenia obrázkov je takisto potrebné nastaviť v config/images.php
+- je predpripravený ImagesController v Admine na mazanie obrázkov stačí použiť route('images.delete', $image->id);
