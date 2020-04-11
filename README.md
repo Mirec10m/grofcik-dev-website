@@ -22,5 +22,15 @@ podľa prefixu v URL adrese.
 
 Ako spojazdniť viacjazyčný web:
 
-- je potrebné odkomentovať LanguageMiddleware v App/Http/Kernel.php
+- je potrebné odkomentovať LanguageMiddleware v app/Http/Kernel.php
 - je potrebné spraviť prepínanie jazykov v menu
+
+## Demi Box - Obrázky
+
+Máme tu predpripravený skript na spracovanie obrázku do normálneho prevedenia a do thumb-u.
+
+Čo potrebujete vedieť:
+
+- skript pre upload sa nachádza v app/Traits/UploadTrait
+- na použitie jeho metód stačí v controlleri použiť kód: use UploadTrait;
+- nastavenia obrázkov je takisto potrebné nastaviť v config/images.php

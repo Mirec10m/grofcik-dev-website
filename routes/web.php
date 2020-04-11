@@ -18,6 +18,14 @@ foreach(config('settings.languages') as $lang => $name){
 
 Route::get('/mapa-stranky', ['as' => 'sitemap.render', 'uses' => 'SitemapController@render']);
 
+// ADMIN Routes
+Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group(function(){
+
+
+    // Images
+    Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
+});
+
 Auth::routes([
     'register' => false,
     'reset' => false,
