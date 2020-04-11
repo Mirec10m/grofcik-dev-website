@@ -11,5 +11,40 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/assets/sass/style.scss', 'public/assets')
+    .sass('resources/assets/sass/admin.scss', 'public/assets')
+
+    .styles([
+        // WEB .css files
+
+        'public/assets/style.css' // this .css file must be last
+    ], 'public/css/style.min.css')
+
+    .styles([
+        // ADMIN - LOGIN .css files
+
+        'public/assets/admin.css' // this .css file must be last
+    ], 'public/css/login.min.css')
+
+    .styles([
+        // ADMIN .css files
+
+        'public/assets/admin.css' // this .css file must be last
+    ], 'public/css/admin.min.css')
+
+    .scripts([
+        // WEB .js files
+
+        'resources/assets/js/frontend.js' // this .js file must be last
+    ], 'public/js/frontend.min.js')
+
+    .scripts([
+        // ADMIN - LOGIN .js files
+
+    ], 'public/js/login.min.js')
+
+    .scripts([
+        // ADMIN .js files
+        
+        'resources/assets/js/admin.js' // this .js file must be last
+    ], 'public/js/admin.min.js');
