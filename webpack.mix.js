@@ -36,7 +36,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         // WEB .js files
 
         'resources/assets/js/frontend.js' // this .js file must be last
-    ], 'public/js/frontend.min.js')
+    ], 'public/js/script.min.js')
 
     .scripts([
         // ADMIN - LOGIN .js files
