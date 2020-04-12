@@ -21,6 +21,8 @@ Route::get('/mapa-stranky', ['as' => 'sitemap.render', 'uses' => 'SitemapControl
 // ADMIN Routes
 Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group(function(){
 
+    // Dashboard
+    Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
 
     // Images
     Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);

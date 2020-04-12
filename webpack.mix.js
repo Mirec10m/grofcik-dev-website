@@ -22,7 +22,10 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
     .styles([
         // ADMIN - LOGIN .css files
-
+        'resources/assets/templates/admin/css/bootstrap.min.css',
+        'resources/assets/templates/admin/css/metismenu.min.css',
+        'resources/assets/templates/admin/css/icons.css',
+        'resources/assets/templates/admin/css/style.css',
         'public/assets/admin.css' // this .css file must be last
     ], 'public/css/login.min.css')
 
@@ -40,7 +43,13 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
     .scripts([
         // ADMIN - LOGIN .js files
-
+        'resources/assets/templates/admin/js/jquery.min.js',
+        'resources/assets/templates/admin/js/bootstrap.bundle.min.js',
+        'resources/assets/templates/admin/js/metisMenu.min.js',
+        'resources/assets/templates/admin/js/jquery.slimscroll.js',
+        'resources/assets/templates/admin/js/waves.min.js',
+        'resources/assets/templates/admin/js/jquery.sparkline.min.js',
+        'resources/assets/templates/admin/js/app.js',
     ], 'public/js/login.min.js')
 
     .scripts([
