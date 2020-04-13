@@ -25,6 +25,12 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
     Route::get('/overview', ['as' => 'dashboard.overview', 'uses' => 'DashboardController@overview']);
 
+    // Settings
+    Route::get('/settings/edit', ['as' => 'settings.edit', 'uses' => 'SettingsController@edit']);
+    Route::post('settings/update', ['as' => 'settings.update', 'uses' => 'SettingsController@update']);
+    Route::get('/settings/password', ['as' => 'settings.password', 'uses' => 'SettingsController@password']);
+    Route::post('settings/change', ['as' => 'settings.change', 'uses' => 'SettingsController@change']);
+
     // Images
     Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
 });

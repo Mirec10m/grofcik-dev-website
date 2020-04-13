@@ -16,9 +16,13 @@
                         <img src="{{ asset('img/user-image.png') }}" alt="user" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                        <a href="#" class="dropdown-item">
+                        <a href="{{ route('settings.edit') }}" class="dropdown-item">
                             <i class="mdi mdi-account-circle m-r-5"></i>
                             Profil
+                        </a>
+                        <a href="{{ route('settings.password') }}" class="dropdown-item">
+                            <i class="mdi mdi-settings m-r-5"></i>
+                            Zmena heslo
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-item text-primary">
