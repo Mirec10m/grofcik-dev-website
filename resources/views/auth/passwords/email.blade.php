@@ -1,47 +1,58 @@
-@extends('layouts.app')
+@extends('layout.auth')
+@section('title', '- Zabudnuté heslo')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="wrapper-page">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center m-0">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
+                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
+                    </a>
+                </h3>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Zabudnuté heslo?</h4>
+                    <p class="text-muted text-center">Zadajte prosím Váš e-mail pre obnovu zabudnutého hesla.</p>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                    <div class="card-body">
+                        @if(session('status'))
+                            <div class="alert alert-success" role="alert">
+                                Práve Vám bol poslaný e-mail s odkazom na obnovenie hesla!
                             </div>
-                        </div>
+                        @endif
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+                        <form action="{{ route('password.email') }}" method="post" class="form-horizontal">
+                            @csrf
+
+                            <div class="form-group">
+                                <label for="email">E-mail <b>*</b></label>
+                                <input name="email" type="email" value="{{ old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
+
+                                @include('admin._partials._errors', ['column' => 'email'])
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="form-group row m-t-20">
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">
+                                        Obnoviť heslo
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        <div class="m-t-40 text-center">
+            <p>
+                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                <a href="https://www.demi.sk/" target="_blank">
+                    <b>DeMi Studio</b>.
+                </a>
+            </p>
+        </div>
     </div>
-</div>
 @endsection

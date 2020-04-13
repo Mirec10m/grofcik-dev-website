@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center m-0">
-                    <a href="{{ route('dashboard.index') }}" class="logo logo-admin">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
                         <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
                     </a>
                 </h3>
@@ -19,7 +19,7 @@
 
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input name="email" type="text" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
+                            <input name="email" type="text" value="{{ old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
 
                             @include('admin._partials._errors', ['column' => 'email'])
                         </div>
@@ -49,7 +49,7 @@
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-12 m-t-20">
-                                <a href="javascript:void(0)" class="text-muted">
+                                <a href="{{ route('password.request') }}" class="text-muted">
                                     <i class="mdi mdi-lock"></i>
                                     Zabudli ste heslo?
                                 </a>

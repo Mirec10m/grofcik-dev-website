@@ -1,65 +1,66 @@
-@extends('layouts.app')
+@extends('layout.auth')
+@section('title', '- Obnova zabudnutého hesla')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="wrapper-page">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center m-0">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
+                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
+                    </a>
+                </h3>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Obnova zabudnutého hesla</h4>
+                    <p class="text-muted text-center">Zadajte prosím Vaše nové heslo.</p>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                    <div class="card-body">
+                        <form action="{{ route('password.update') }}" method="post" class="form-horizontal">
+                            @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                            <div class="form-group">
+                                <label for="email">E-mail <b>*</b></label>
+                                <input name="email" type="email" value="{{ $email ?? old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @include('admin._partials._errors', ['column' => 'email'])
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="form-group">
+                                <label for="password">Nové heslo <b>*</b></label>
+                                <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @include('admin._partials._errors', ['column' => 'password'])
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="form-group">
+                                <label for="password-confirm">Opakujte nové heslo <b>*</b></label>
+                                <input name="password_confirmation" type="password" class="form-control" id="password-confirm">
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
+                            <div class="form-group row m-t-20">
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">
+                                        Potvrdiť
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        <div class="m-t-40 text-center">
+            <p>
+                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                <a href="https://www.demi.sk/" target="_blank">
+                    <b>DeMi Studio</b>.
+                </a>
+            </p>
+        </div>
     </div>
-</div>
 @endsection

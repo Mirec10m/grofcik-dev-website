@@ -1,28 +1,46 @@
-@extends('layouts.app')
+@extends('layout.auth')
+@section('title', '- Verifikácia emailovej adresy')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+    <div class="wrapper-page">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center m-0">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
+                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
+                    </a>
+                </h3>
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Potvrdťe svoju e-mailovú adresu</h4>
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
+                    <div class="card-body">
+                        @if(session('resent'))
+                            <div class="alert alert-success" role="alert">
+                                Práve Vám bol poslaný e-mail s odkazom na potvrdenie registrácie!
+                            </div>
+                        @endif
+
+                        Prosím skontrolujte si Vašu e-mailovú schránku.
+                        <br><br>
+                        Pokiaľ ste e-mail nedostali,
+                        <a href="{{ route('verification.resend') }}">
+                            kliknite SEM pre odoslanie ZNOVU.
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
         </div>
+
+        <div class="m-t-40 text-center">
+            <p>
+                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                <a href="https://www.demi.sk/" target="_blank">
+                    <b>DeMi Studio</b>.
+                </a>
+            </p>
+        </div>
     </div>
-</div>
 @endsection

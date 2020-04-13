@@ -1,49 +1,61 @@
-@extends('layouts.app')
+@extends('layout.auth')
+@section('title', '- Potvrdenie hesla')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
+    <div class="wrapper-page">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center m-0">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
+                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
+                    </a>
+                </h3>
 
-                <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Potvrdenie heslom</h4>
+                    <p class="text-muted text-center">Pred pokračovaním prosím zadajte Vaše heslo.</p>
 
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
+                    <div class="card-body">
+                        <form action="{{ route('password.confirm') }}" method="post" class="form-horizontal">
+                            @csrf
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="form-group">
+                                <label for="password">Heslo <b>*</b></label>
+                                <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @include('admin._partials._errors', ['column' => 'password'])
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
-                                </button>
+                            <div class="form-group row m-t-20">
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">
+                                        Potvrdiť
+                                    </button>
+                                </div>
+                            </div>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                            <div class="form-group m-t-10 mb-0 row">
+                                <div class="col-12 m-t-20">
+                                    <a href="{{ route('password.request') }}" class="text-muted">
+                                        <i class="mdi mdi-lock"></i>
+                                        Zabudli ste heslo?
                                     </a>
-                                @endif
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        <div class="m-t-40 text-center">
+            <p>
+                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                <a href="https://www.demi.sk/" target="_blank">
+                    <b>DeMi Studio</b>.
+                </a>
+            </p>
+        </div>
     </div>
-</div>
 @endsection

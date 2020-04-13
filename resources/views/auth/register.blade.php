@@ -1,77 +1,99 @@
-@extends('layouts.app')
+@extends('layout.auth')
+@section('title', '- Registrácia')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="wrapper-page">
+        <div class="card">
+            <div class="card-body">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                <h3 class="text-center m-0">
+                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
+                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Demi Studio logo">
+                    </a>
+                </h3>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <div class="p-3">
+                    <h4 class="text-muted font-18 m-b-5 text-center">Registrácia</h4>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <form action="{{ route('register') }}" method="post" class="form-horizontal m-t-30">
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label for="email">E-mail <b>*</b></label>
+                            <input name="email" type="email" value="{{ old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
+
+                            @include('admin._partials._errors', ['column' => 'email'])
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group">
+                            <label for="username">Používateľské meno <b>*</b></label>
+                            <input name="username" type="text" value="{{ old('username') }}" class="form-control {{ $errors->has('username') ? 'parsley-error' : '' }}" id="username" placeholder="Používateľské meno">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @include('admin._partials._errors', ['column' => 'username'])
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group">
+                            <label for="password">Heslo <b>*</b></label>
+                            <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @include('admin._partials._errors', ['column' => 'password'])
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                        <div class="form-group">
+                            <label for="password-confirm">Opakujte heslo <b>*</b></label>
+                            <input name="password_confirmation" type="password" class="form-control" id="password-confirm">
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="form-group">
+                            <input type="checkbox" id="gdpr" name="gdpr" value="1" class="pointer">
+                            <label for="gdpr">
+                                &nbsp;
+                                Súhlasím so spracovaním
+                                <a href="javascript:void(0)" target="_blank" class="error-color">
+                                    osobných údajov.
+                                </a>
+                                <b>*</b>
+                            </label>
+                            @include('admin._partials._errors', ['column' => 'gdpr'])
+                        </div>
+
+                        <div class="form-group row m-t-20">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">
+                                    Registrovať
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
+
+        <div class="m-t-40 text-center">
+            <p>
+                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                <a href="https://www.demi.sk/" target="_blank">
+                    <b>DeMi Studio</b>.
+                </a>
+            </p>
+        </div>
     </div>
-</div>
+@endsection
+
+@section('captcha')
+    {{-- }}
+    <script src="https://www.google.com/recaptcha/api.js?render={sem_vlozte_ID_bez_zatvoriek}"></script>
+    {{ --}}
+@endsection
+
+@section('js')
+    {{-- }}
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{sem_vlozte_ID_bez_zatvoriek}', {action: 'login'}).then(function(token) {
+                $('.form-captcha').prepend('<input type="hidden" name="captcha" value="' + token + '">');
+            });
+        });
+    </script>
+    {{ --}}
 @endsection
