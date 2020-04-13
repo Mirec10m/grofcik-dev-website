@@ -31,7 +31,18 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
     .styles([
         // ADMIN .css files
-
+        'resources/assets/templates/admin/css/morris.css',
+        'resources/assets/templates/admin/css/bootstrap-colorpicker.min.css',
+        'resources/assets/templates/admin/css/bootstrap-datepicker.min.css',
+        'resources/assets/templates/admin/css/select2.min.css',
+        'resources/assets/templates/admin/css/jquery.bootstrap-touchspin.min.css',
+        'resources/assets/templates/admin/css/dataTables.bootstrap4.min.css',
+        'resources/assets/templates/admin/css/buttons.bootstrap4.min.css',
+        'resources/assets/templates/admin/css/responsive.bootstrap4.min.css',
+        'resources/assets/templates/admin/css/bootstrap.min.css',
+        'resources/assets/templates/admin/css/metismenu.min.css',
+        'resources/assets/templates/admin/css/icons.css',
+        'resources/assets/templates/admin/css/style.css',
         'public/assets/admin.css' // this .css file must be last
     ], 'public/css/admin.min.css')
 
@@ -54,6 +65,22 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
     .scripts([
         // ADMIN .js files
-
+        'resources/assets/templates/admin/js/jquery.min.js',
+        'resources/assets/templates/admin/js/bootstrap.bundle.min.js',
+        'resources/assets/templates/admin/js/metisMenu.min.js',
+        'resources/assets/templates/admin/js/jquery.slimscroll.js',
+        'resources/assets/templates/admin/js/waves.min.js',
+        'resources/assets/templates/admin/js/jquery.sparkline.min.js',
+        'resources/assets/templates/admin/js/morris.min.js',
+        'resources/assets/templates/admin/js/raphael-min.js',
+        'resources/assets/templates/admin/js/bootstrap-colorpicker.min.js',
+        'resources/assets/templates/admin/js/bootstrap-datepicker.js',
+        'resources/assets/templates/admin/js/select2.min.js',
+        'resources/assets/templates/admin/js/bootstrap-maxlength.min.js',
+        'resources/assets/templates/admin/js/bootstrap-filestyle.min.js',
+        'resources/assets/templates/admin/js/jquery.bootstrap-touchspin.min.js',
+        'resources/assets/templates/admin/js/form-advanced.js', // form advanced init
+        'resources/assets/templates/admin/js/tinymce.min.js',
+        'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');
