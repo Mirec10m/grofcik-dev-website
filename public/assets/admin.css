@@ -82,3 +82,15 @@
   transform: translateY(-50px);
 }
 
+.custom-control-label::before {
+  top: 0.1rem;
+}
+
+.custom-control-label::after {
+  top: 0.12rem;
+}
+
+.custom-control {
+  margin-top: 8px;
+}
+

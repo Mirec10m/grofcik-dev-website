@@ -22,21 +22,21 @@
                             <input type="hidden" name="token" value="{{ $token }}">
 
                             <div class="form-group">
-                                <label for="email">E-mail <b>*</b></label>
+                                <label for="email">E-mail <b class="error-color">*</b></label>
                                 <input name="email" type="email" value="{{ $email ?? old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
 
                                 @include('admin._partials._errors', ['column' => 'email'])
                             </div>
 
                             <div class="form-group">
-                                <label for="password">Nové heslo <b>*</b></label>
+                                <label for="password">Nové heslo <b class="error-color">*</b></label>
                                 <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
                                 @include('admin._partials._errors', ['column' => 'password'])
                             </div>
 
                             <div class="form-group">
-                                <label for="password-confirm">Opakujte nové heslo <b>*</b></label>
+                                <label for="password-confirm">Opakujte nové heslo <b class="error-color">*</b></label>
                                 <input name="password_confirmation" type="password" class="form-control" id="password-confirm">
                             </div>
 

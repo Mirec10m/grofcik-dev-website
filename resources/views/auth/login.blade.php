@@ -33,9 +33,9 @@
 
                         <div class="form-group row m-t-20">
                             <div class="col-6">
-                                <div class="custom-control custom-checkbox">
-                                    <input name="remember" type="checkbox" class="custom-control-input" id="customControlInline" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="custom-control-label" for="customControlInline">
+                                <div class="custom-control custom-checkbox pointer">
+                                    <input name="remember" type="checkbox" class="custom-control-input pointer" id="customControlInline" {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="custom-control-label pointer" for="customControlInline">
                                         Zostať prihlásený
                                     </label>
                                 </div>

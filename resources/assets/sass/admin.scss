@@ -75,3 +75,16 @@
         transform: translateY(-50px);
     }
 }
+
+.custom-control-label{
+    &::before{
+        top: .10rem;
+    }
+    &::after{
+        top: .12rem;
+    }
+}
+
+.custom-control{
+    margin-top: 8px;
+}

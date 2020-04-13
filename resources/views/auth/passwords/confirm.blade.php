@@ -20,7 +20,7 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="password">Heslo <b>*</b></label>
+                                <label for="password">Heslo <b class="error-color">*</b></label>
                                 <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
                                 @include('admin._partials._errors', ['column' => 'password'])

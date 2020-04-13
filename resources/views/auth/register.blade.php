@@ -18,28 +18,28 @@
                     <form action="{{ route('register') }}" method="post" class="form-horizontal m-t-30">
 
                         <div class="form-group">
-                            <label for="email">E-mail <b>*</b></label>
+                            <label for="email">E-mail <b class="error-color">*</b></label>
                             <input name="email" type="email" value="{{ old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
 
                             @include('admin._partials._errors', ['column' => 'email'])
                         </div>
 
                         <div class="form-group">
-                            <label for="username">Používateľské meno <b>*</b></label>
+                            <label for="username">Používateľské meno <b class="error-color">*</b></label>
                             <input name="username" type="text" value="{{ old('username') }}" class="form-control {{ $errors->has('username') ? 'parsley-error' : '' }}" id="username" placeholder="Používateľské meno">
 
                             @include('admin._partials._errors', ['column' => 'username'])
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Heslo <b>*</b></label>
+                            <label for="password">Heslo <b class="error-color">*</b></label>
                             <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
 
                             @include('admin._partials._errors', ['column' => 'password'])
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm">Opakujte heslo <b>*</b></label>
+                            <label for="password-confirm">Opakujte heslo <b class="error-color">*</b></label>
                             <input name="password_confirmation" type="password" class="form-control" id="password-confirm">
                         </div>
 
@@ -51,7 +51,7 @@
                                 <a href="javascript:void(0)" target="_blank" class="error-color">
                                     osobných údajov.
                                 </a>
-                                <b>*</b>
+                                <b class="error-color">*</b>
                             </label>
                             @include('admin._partials._errors', ['column' => 'gdpr'])
                         </div>
