@@ -39,6 +39,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/css/dataTables.bootstrap4.min.css',
         'resources/assets/templates/admin/css/buttons.bootstrap4.min.css',
         'resources/assets/templates/admin/css/responsive.bootstrap4.min.css',
+        'resources/assets/templates/admin/css/magnific-popup.css',
         'resources/assets/templates/admin/css/bootstrap.min.css',
         'resources/assets/templates/admin/css/metismenu.min.css',
         'resources/assets/templates/admin/css/icons.css',
@@ -94,6 +95,8 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/dataTables.responsive.min.js',
         'resources/assets/templates/admin/js/responsive.bootstrap4.min.js',
         'resources/assets/templates/admin/js/datatables.init.js', // datatables init
+        'resources/assets/templates/admin/js/jquery.magnific-popup.min.js',
+        'resources/assets/templates/admin/js/lightbox.js',
         'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');
