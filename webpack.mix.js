@@ -73,6 +73,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/jquery.sparkline.min.js',
         'resources/assets/templates/admin/js/morris.min.js',
         'resources/assets/templates/admin/js/raphael-min.js',
+        'resources/assets/templates/admin/js/tinymce.min.js',
         'resources/assets/templates/admin/js/bootstrap-colorpicker.min.js',
         'resources/assets/templates/admin/js/bootstrap-datepicker.js',
         'resources/assets/templates/admin/js/select2.min.js',
@@ -80,7 +81,19 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/bootstrap-filestyle.min.js',
         'resources/assets/templates/admin/js/jquery.bootstrap-touchspin.min.js',
         'resources/assets/templates/admin/js/form-advanced.js', // form advanced init
-        'resources/assets/templates/admin/js/tinymce.min.js',
+        'resources/assets/templates/admin/js/jquery.dataTables.min.js',
+        'resources/assets/templates/admin/js/dataTables.bootstrap4.min.js',
+        'resources/assets/templates/admin/js/dataTables.buttons.min.js',
+        'resources/assets/templates/admin/js/buttons.bootstrap4.min.js',
+        'resources/assets/templates/admin/js/jszip.min.js',
+        'resources/assets/templates/admin/js/pdfmake.min.js',
+        'resources/assets/templates/admin/js/vfs_fonts.js',
+        'resources/assets/templates/admin/js/buttons.html5.min.js',
+        'resources/assets/templates/admin/js/buttons.print.min.js',
+        'resources/assets/templates/admin/js/buttons.colVis.min.js',
+        'resources/assets/templates/admin/js/dataTables.responsive.min.js',
+        'resources/assets/templates/admin/js/responsive.bootstrap4.min.js',
+        'resources/assets/templates/admin/js/datatables.init.js', // datatables init
         'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');
