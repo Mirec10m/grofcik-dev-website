@@ -98,3 +98,52 @@
   cursor: pointer;
 }
 
+.color-primary {
+  color: #d4455d;
+}
+
+.color-demi {
+  color: #e64a39;
+}
+
+.link-demi {
+  transition: all 0.3s ease;
+}
+
+.link-demi:hover {
+  color: #707070;
+}
+
+.admin-list {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 12px;
+  padding: 0;
+}
+
+.admin-list li {
+  display: inline-block;
+  min-width: 25px;
+  margin-right: 22px;
+}
+
+.admin-list li a {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.admin-list li a:hover {
+  color: #d4455d;
+}
+
+.relative {
+  position: relative;
+}
+
+.admin-list-logo {
+  position: absolute;
+  width: 25px;
+  top: -23px;
+  left: 0;
+}
+
