@@ -10,10 +10,10 @@ Administračné rozhranie je postavené na šablóne Lexa v 1.3.0
 Obsahuje predpripravené veci:
 - základ administračného rozhrania
 - autentifikáciu
+- [Rollbar](https://rollbar.netlify.app) - error monitoring software
 - AdminController, BaseModel
 - základný setup pre public storage
 - predpripravené viacjazyčné routes
-- [Laravel link](https://laravel.com/)
 
 ## Demi Box - Multilanguage
 
@@ -46,6 +46,7 @@ Doplnené o mnohé rozšírenia:
 - class .price-input mení hodnotu , (čiarka) na . (bodka)
 - ďalšie rozšírenia, na input formuláru môžete nájsť resources/assets/templates/admin/js/advanced.js
 - delete modal - potvrdzovacie modálne okno pri mazaní akéhokoľvek záznamu
+- pre aktiváciu Rollbaru je potrebné pridať ID do .env premenných (pýtať od projektového managera)
 
 ## Demi Box - Autentifikácia
 
