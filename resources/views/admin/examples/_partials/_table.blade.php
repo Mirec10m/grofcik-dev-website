@@ -28,15 +28,18 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="row-actions-{{-- $item->id --}}">
                         <a class="dropdown-item" href="{{ route('examples.edit') }}">
+                            <i class="fas fa-pencil-alt action-icon"></i>
                             Editovať
                         </a>
                         <a class="dropdown-item" href="{{ route('examples.gallery') }}">
+                            <i class="far fa-images action-icon"></i>
                             Galéria
                         </a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('examples.delete') }}" method="post" style="display: inline-block; width: 100%;">
                             @csrf
                             <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="delete-button dropdown-item pointer" type="button">
+                                <i class="far fa-trash-alt action-icon"></i>
                                 Vymazať
                             </button>
                         </form>
