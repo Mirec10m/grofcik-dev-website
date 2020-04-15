@@ -16,6 +16,7 @@
                     <h4 class="text-muted font-18 m-b-5 text-center">Registrácia</h4>
 
                     <form action="{{ route('register') }}" method="post" class="form-horizontal m-t-30">
+                        @csrf
 
                         <div class="form-group">
                             <label for="email">E-mail <b class="error-color">*</b></label>

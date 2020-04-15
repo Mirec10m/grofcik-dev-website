@@ -55,6 +55,7 @@ Ako konfigurovať autentifikáciu:
 - v routes/web.php stačí keď nastavíte hodnotu true/false na routes kt. bude aplikácia používať
 - overte si funkčnosť všetkých zapnutých krokov autentifiácie
 - pri zapnutej registrácii je potrebné spojazdniť Google Recaptcha 3 (predpripravené - treba si pýtať ID)
+- pri zapnutí verify je potrebné na routoch použiť middleware "verified"
 
 ## Demi Box - Ostatné
 
