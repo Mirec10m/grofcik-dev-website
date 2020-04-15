@@ -51,13 +51,18 @@
 
                 <li>
                     <a href="javascript:void(0);" class="waves-effect">
-                        <i class="mdi mdi-format-list-bulleted"></i>
-                        <span>Položky<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span>
+                        <i class="mdi mdi-table"></i>
+                        <span>Databáza<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span>
                     </a>
                     <ul class="submenu">
                         <li>
                             <a href="#">
-                                Zoznam položiek
+                                Spustiť migrácie
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Spustiť seedy
                             </a>
                         </li>
                     </ul>

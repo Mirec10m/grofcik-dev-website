@@ -45,6 +45,14 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
     // Images
     Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
+
+    // Super Admin
+    Route::middleware(['super_admin'])->group(function(){
+        // Database actions
+        Route::get('/superadmin/migrate', ['as' => 'superadmin.migrate', 'uses' => 'SuperAdminController@migrate']);
+        Route::get('/superadmin/seed', ['as' => 'superadmin.seed', 'uses' => 'SuperAdminController@seed']);
+
+    });
 });
 
 Auth::routes([
