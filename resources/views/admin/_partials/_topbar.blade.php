@@ -22,7 +22,7 @@
                         </a>
                         <a href="{{ route('settings.password') }}" class="dropdown-item">
                             <i class="mdi mdi-settings m-r-5"></i>
-                            Zmena heslo
+                            Zmena hesla
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-item text-primary">
