@@ -2,7 +2,7 @@
 
 @section('og_tags')
     <meta property="og:url"             content="" />
-    <meta property="og:type"            content="article" />
+    <meta property="og:type"            content="website" />
     <meta property="og:title"           content="{{ env('APP_NAME') }}" />
     <meta property="og:description"     content="" />
     <meta property="og:image"           content="" />
