@@ -35,7 +35,7 @@
                                 </div>
                             </div>
 
-                            <form action="{{ route('examples.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="javascript:void(0)" method="post">
                                 @csrf
                                 @include('admin.examples._partials._form')
 
