@@ -41,7 +41,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::get('/examples/create', ['as' => 'examples.create', 'uses' => 'ExamplesController@create']);
     Route::get('/examples/edit', ['as' => 'examples.edit', 'uses' => 'ExamplesController@edit']);
     Route::get('/examples/gallery', ['as' => 'examples.gallery', 'uses' => 'ExamplesController@gallery']);
-    Route::post('/examples/delete', ['as' => 'examples.delete', 'uses' => 'ExamplesController@delete']);
+    Route::post('/examples/delete', ['as' => 'examplesz.delete', 'uses' => 'ExamplesController@delete']);
 
     // Images
     Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);

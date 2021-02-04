@@ -35,11 +35,38 @@
                                 </div>
                             </div>
 
-                            <form action="javascript:void(0)" method="post">
+                            <form action="{{ route('examples.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @include('admin.examples._partials._form')
+                                <!--include('admin.examples._partials._form')-->
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-9">
 
-                                @include('admin._partials._buttons')
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Name
+                                                        </label>
+                                                        <input name="name" type="text" value="{{ old("name") }}" class="form-control {{ $errors->has("name") ? 'parsley-error' : '' }}">
+                                                        @include('admin._partials._errors', ['column' => "name"])
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Profile Image</label>
+                                                        <input name="image" type="file" value="{{ old('image') }}" class="form-control filestyle {{ $errors->has('image') ? 'parsley-error' : '' }}" data-buttonname="btn-secondary">
+                                                        @include('admin._partials._errors', ['column' => 'image'])
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    @include('admin._partials._buttons')
                             </form>
                         </div>
                     </div>
