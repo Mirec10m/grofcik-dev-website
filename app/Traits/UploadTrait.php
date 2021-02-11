@@ -21,7 +21,7 @@ trait UploadTrait{
 
         $data = [
             'basename' => $basename,
-            'path' => $dir_name,
+            'path' => 'data/' . $dir . '/' . $model->id . '/',
         ];
         if(isset($column)) $data[$column] = 1;
 
@@ -41,6 +41,10 @@ trait UploadTrait{
         // Create or update images of model
         if(isset($column) && $model->images()->where($column, 1)->count() > 0){
             $image = $model->images()->where($column, 1)->first();
+            $files = scandir($image->path);
+            foreach($files as $filename){
+                if(str_contains($filename, $image->basename)) unlink($image->path.$filename);
+            }
             $image->update($data);
         }else{
             $model->images()->create($data);
@@ -81,10 +85,13 @@ trait UploadTrait{
     private function transform($image, $settings){
         switch($settings['transformation']){
             case 'crop':
-                $image->fit($settings['width'], $settings['height']);
+                $image->resize($settings['width'], $settings['height'],function ($constraint){
+                    $constraint->aspectRatio();
+                })->resizeCanvas($settings['width'], $settings['height'], 'center', false, 'ffffff');
+                //$image->crop($settings['width'], $settings['height']);
                 break;
             case 'scale':
-                $image->resize($settings['width'], $settings['height']);
+                $image->fit($settings['width'], $settings['height']);
                 break;
         }
         return $image;
