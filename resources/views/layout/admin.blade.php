@@ -43,19 +43,21 @@
 @yield('js')
 
 <script>
+
     $(document).ready(function () {
         if($(".tinymce").length > 0){
             tinymce.init({
                 selector: "textarea.tinymce",
-                language_url: "/js/tinymce/sk.js",
+                language_url: "{{ asset("js/tinymce/sk.js") }}",
                 theme: "modern",
                 height: 300,
+                menubar: 'insert',
                 plugins: [
                     "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
                     "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                     "save table contextmenu directionality emoticons template paste textcolor"
                 ],
-                toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview fullpage | forecolor backcolor emoticons",
+                toolbar: "image code | media | insertfile | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview fullpage | forecolor backcolor emoticons",
                 style_formats: [
                     {title: 'Bold text', inline: 'b'},
                     {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
@@ -66,9 +68,16 @@
                     {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
                 ],
                 content_style: 'body {font-family: "Raleway", sans-serif; font-size: 14px;}' +
-                    'p {line-height: 1.5em; margin: 0;}'
+                    'p {line-height: 1.5em; margin: 0;}',
+                /* enable automatic uploads of images represented by blob or data URIs*/
+                image_title: true,
+                images_upload_url: "{{ route('tinymce.upload') }}",
+                automatic_uploads: true,
+                paste_data_images: true,
             });
+
         }
+
     });
 </script>
 
