@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 class ExamplesController extends AdminController
 {
 
+    public function store() {
+    }
+
     public function index(){
         return view('admin.examples.index');
     }
