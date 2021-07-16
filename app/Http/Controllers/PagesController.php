@@ -14,7 +14,7 @@ class PagesController extends Controller
     }
 
     public function send(ContactFormRequest $request) {
-        $recipient = env('MAIL_RECIPIENT', 'info@demi.sk');
+        $recipient = env('MAIL_RECIPIENT', 'support@demi.sk');
 
         Mail::to($recipient)->send(new ContactFormMail($request->all()));
 
