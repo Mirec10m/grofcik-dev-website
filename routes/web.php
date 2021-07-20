@@ -11,6 +11,9 @@ foreach(config('settings.languages') as $lang => $name){
 
     if($lang == 'sk'){
         // Here goes routes with URL in slovakian language
+
+        // Email
+        //Route::post("$prefix/kontakt", ['as' => "web.contact.send.$lang", 'uses' => 'PagesController@send']);
     }
 
 }
