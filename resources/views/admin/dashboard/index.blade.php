@@ -26,6 +26,19 @@
                             Tento administračný systém bol vytvorený v DeMi Studio, s. r. o.
                             <br>
                             <br>
+
+                            <p class="sub-title">Starostlivosť o Váš web</p>
+                            <div>
+                                Tu si môžete pozrieť ponuku balíkov starostlivosti o Váš web. Každý z našich balíkov starostlivosti okrem iného zahrňuje aj monitorovanie Vášho webu <strong>24/7</strong> pomocou externého softvéru.
+                            </div>
+                            <br>
+                            <p class="sub-title">Príklad z praxe</p>
+                            <div class="practice-text">
+                                <i>Používateľ / Zákazník príde na web / eshop a pri interakcii s aplikáciou mu vyhodí chybu. Pomocou monitorovacieho softvéru je chyba automaticky odchytená a odoslaná na náš email. K tomuto emailu majú prístup naši programátori, ktorí problém automaticky odstránia aby sa už neopakoval ďalšiemu návštevníkovi Vašich webových stránok. — V prípade, že web nie je monitorovaný, vlastník webu sa o probléme nemusí dozvedieť, až kým mu ho nenahlási niektorý z návštevníkov webových stránok.</i>
+                            </div>
+                            <ul class="admin-list offers">
+                            </ul>
+
                             Zostaňte s nami v kontakte:
                             <ul class="admin-list">
                                 <li class="relative">

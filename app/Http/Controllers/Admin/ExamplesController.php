@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Example;
+use App\Http\Requests\CreateExamplesRequest;
+use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
 
 class ExamplesController extends AdminController
 {
+
+    public function store() {
+    }
+
     public function index(){
         return view('admin.examples.index');
     }

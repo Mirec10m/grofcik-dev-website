@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Image;
+use App\Traits\DeleteTrait;
 
 class ImagesController extends AdminController
 {
+    use DeleteTrait;
+
     public function delete($id){
         $image = Image::findOrFail($id);
 
-        $image->delete();
+        $this->delete_image($image);
 
         return back();
     }
