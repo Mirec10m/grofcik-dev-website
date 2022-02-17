@@ -11,6 +11,7 @@ class TinyMceController extends Controller
     use UploadTrait;
 
     public function upload(Request $request) {
+
         $file = $request->file('file');
         $path = $file->store('tinymce');
         return response()->json(['location' => "/data/$path"]);
