@@ -59,13 +59,12 @@
                 ],
                 toolbar: "image code | media | insertfile | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview fullpage | forecolor backcolor emoticons",
                 style_formats: [
-                    {title: 'Bold text', inline: 'b'},
-                    {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-                    {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-                    {title: 'Example 1', inline: 'span', classes: 'example1'},
-                    {title: 'Example 2', inline: 'span', classes: 'example2'},
-                    {title: 'Table styles'},
-                    {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    {title: 'Nadpis', inline: 'span', styles: { fontWeight: 'bold', fontSize: '35px' } },
+                    {title: 'Podnadpis', inline: 'b', styles: { fontWeight: 'bold', fontSize: '25px' } },
+                    {title: 'Tučné písmo', inline: 'b'},
+                    {title: 'Kurzíva', inline: 'i'},
+                    {title: 'Odstavec', inline: 'span', styles: { paddingLeft: '30px'} },
+                    {title: 'Podčiarknute písmo', inline: 'span', styles: { 'text-decoration': 'underline' }},
                 ],
                 content_style: 'body {font-family: "Raleway", sans-serif; font-size: 14px;}' +
                     'p {line-height: 1.5em; margin: 0;}',
