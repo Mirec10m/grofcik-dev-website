@@ -15,9 +15,9 @@ class ErrorTrackingJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $send_mail = true;
-
     private $recipient = 'info@demi.sk';
+
+    private $send_mail;
 
     /**
      * Create a new job instance.
@@ -26,7 +26,7 @@ class ErrorTrackingJob implements ShouldQueue
      */
     public function __construct()
     {
-        //
+        $this->send_mail = env('DEMI_ERROR_TRACKING_SEND_MAIL');
     }
 
     /**
@@ -55,7 +55,7 @@ class ErrorTrackingJob implements ShouldQueue
                 fclose($handle);
 
                 $this->create_errors($errors);
-
+                
                 if($this->send_mail && sizeof($errors) > 0){
                     $this->send_mail($errors);
                 }

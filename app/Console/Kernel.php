@@ -25,9 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule
-            ->job( new ErrorTrackingJob() )
-            ->everyFiveMinutes();
+        if( env('DEMI_ERROR_TRACKING') ){
+            $schedule
+                ->job( new ErrorTrackingJob() )
+                ->everyFiveMinutes();
+        }
     }
 
     /**
