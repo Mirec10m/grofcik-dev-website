@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Jobs\ErrorTrackingJob;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        if( env('DEMI_ERROR_TRACKING') ){
+            $schedule
+                ->job( new ErrorTrackingJob() )
+                ->everyFiveMinutes();
+        }
     }
 
     /**
