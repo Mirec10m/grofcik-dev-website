@@ -18,10 +18,10 @@ class PagesController extends Controller
 
         Mail::to($recipient)->send(new ContactFormMail($request->all()));
 
-        $status = trans('Your message was sent successfully');
+        $status = trans('texts.Your message was sent successfully');
         $status_code = 'success';
-
-        if(count(Mail::failures()) > 0){
+        
+        if( ! Mail::flushMacros() ){
             $status = trans('texts.Your message could not be send');
             $status_code = 'error';
         }
