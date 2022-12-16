@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/template', fn () => view('layout.admin'));
+
 Route::get('/test', function () {
     \App\Jobs\ErrorTrackingJob::dispatchNow();
 });
@@ -70,5 +72,5 @@ Auth::routes([
     'register' => false,
     'reset' => true,
     'confirm' => false,
-    'verify' => false
+    'verify' => false,
 ]);

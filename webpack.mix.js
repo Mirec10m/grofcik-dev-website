@@ -13,6 +13,59 @@ const mix = require('laravel-mix');
 
 mix.sass('resources/assets/sass/style.scss', 'public/assets')
     .sass('resources/assets/sass/admin.scss', 'public/assets')
+    .sass('resources/assets/sass/new_admin.scss', 'public/new_css')
+
+    .styles([ // AUTH .css files
+        'resources/assets/templates/template/css/bootstrap.min.css',
+        'resources/assets/templates/template/css/icons.min.css',
+        'resources/assets/templates/template/css/app.min.css',
+        'resources/assets/templates/template/css/custom.min.css',
+        //'',
+    ], 'public/new_css/auth.min.css')
+    .scripts([ // AUTH .js files
+        'resources/assets/templates/template/js/bootstrap.bundle.min.js',
+        'resources/assets/templates/template/js/simplebar.min.js',
+        'resources/assets/templates/template/js/waves.min.js',
+        'resources/assets/templates/template/js/feather.min.js',
+        'resources/assets/templates/template/js/lord-icon-2.1.0.js',
+        'resources/assets/templates/template/js/plugins.js',
+
+        'resources/assets/templates/template/js/particles.js',
+        'resources/assets/templates/template/js/particles.app.js',
+        'resources/assets/templates/template/js/password-addon.init.js',
+        //'',
+    ], 'public/new_js/auth.min.js')
+
+    .styles([ // ADMIN .css files
+        'resources/assets/templates/template/css/bootstrap.min.css',
+        'resources/assets/templates/template/css/icons.min.css',
+        'resources/assets/templates/template/css/app.min.css',
+        'resources/assets/templates/template/css/custom.min.css',
+        'public/new_css/new_admin.css' // this .css file must be last
+    ], 'public/new_css/admin.min.css')
+    .scripts([ // ADMIN .js files
+        'resources/assets/templates/template/js/bootstrap.bundle.min.js',
+        'resources/assets/templates/template/js/simplebar.min.js',
+        'resources/assets/templates/template/js/waves.min.js',
+        'resources/assets/templates/template/js/feather.min.js',
+        'resources/assets/templates/template/js/lord-icon-2.1.0.js',
+        'resources/assets/templates/template/js/plugins.js',
+        'resources/assets/templates/template/js/app.js',
+        //'',
+    ], 'public/new_js/admin.min.js')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .styles([
         // WEB .css files
