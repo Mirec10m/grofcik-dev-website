@@ -37,7 +37,37 @@
 
                             <div class="dropdown-divider"></div>
 
-                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5 class="card-title mb-0">Obrázok</h5>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                @if(1)
+                                    <div class="col-sm-3">
+                                        <div class="image-wrapper mb-3">
+                                            <img src="{{ asset('img/image-placeholder.jpg') }}" class="img-fluid">
+
+                                            <div class="image-wrapper-back">
+                                                <div class="image-wrapper-back-actions">
+                                                    <a href="{{ asset('img/image-placeholder.jpg') }}" class="show-icon image-popup-vertical-fit">
+                                                        <i class="mdi mdi-eye-outline"></i>
+                                                    </a>
+
+                                                    <form action="javascript:void(0)" method="post">
+                                                        @csrf
+                                                        <button data-entity="{{ 'Obrázok - ' . 'image-placeholder.jpg' }}" class="delete-button delete-icon pointer" type="button">
+                                                            <i class="mdi mdi-trash-can-outline"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
