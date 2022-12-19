@@ -13,6 +13,11 @@
 
     <link rel="shortcut icon" href="{{ asset('img/admin-favicon.ico') }}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <script src="{{ asset('new_js/layout.js') }}"></script>
     <link href="{{ asset('new_css/admin.min.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
