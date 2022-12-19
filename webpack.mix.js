@@ -37,6 +37,8 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     ], 'public/new_js/auth.min.js')
 
     .styles([ // ADMIN .css files
+        'resources/assets/templates/template/css/dataTables.bootstrap5.min.css',
+        'resources/assets/templates/template/css/responsive.bootstrap.min.css',
         'resources/assets/templates/template/css/bootstrap.min.css',
         'resources/assets/templates/template/css/icons.min.css',
         'resources/assets/templates/template/css/app.min.css',
@@ -51,6 +53,10 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/feather.min.js',
         'resources/assets/templates/template/js/lord-icon-2.1.0.js',
         'resources/assets/templates/template/js/plugins.js',
+        'resources/assets/templates/template/js/jquery.dataTables.min.js',
+        'resources/assets/templates/template/js/dataTables.bootstrap5.min.js',
+        'resources/assets/templates/template/js/dataTables.responsive.min.js',
+        'resources/assets/templates/template/js/datatables.init.js',
         'resources/assets/templates/template/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/new_js/admin.min.js')
