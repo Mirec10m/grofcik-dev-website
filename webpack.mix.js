@@ -44,6 +44,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'public/new_css/new_admin.css' // this .css file must be last
     ], 'public/new_css/admin.min.css')
     .scripts([ // ADMIN .js files
+        'resources/assets/templates/template/js/jquery-3.6.2.min.js',
         'resources/assets/templates/template/js/bootstrap.bundle.min.js',
         'resources/assets/templates/template/js/simplebar.min.js',
         'resources/assets/templates/template/js/waves.min.js',
@@ -51,7 +52,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/lord-icon-2.1.0.js',
         'resources/assets/templates/template/js/plugins.js',
         'resources/assets/templates/template/js/app.js',
-        //'',
+        'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/new_js/admin.min.js')
 
 

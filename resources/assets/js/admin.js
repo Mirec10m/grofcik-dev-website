@@ -47,12 +47,12 @@ function callApiOffers() {
 function fillUpOffers(data) {
     let offers = $('.offers');
     $.each(data, function (index, offer) {
-        let htmlValue = "<li class=\"relative\">\n" +
-            "<a href=\""  + offer.path +   "\" target=\"_blank\">\n"+
-            "<i class=\"fas fa-file-pdf\"></i>\n" +
-            "</a>\n" +
-            "<p>" + offer.name + "</p>\n" +
-            "</li>"
+        let htmlValue = '<li class="list-group-item border-0 d-flex flex-column">' +
+            '<a href="' + offer.path + '" target="_blank" class="m-auto">' +
+            '<i class="bx bxs-file-pdf bx-md"></i>' +
+            '</a>' +
+            '<p class="fw-bold">' + offer.name + '</p>' +
+            '</li>';
 
         offers.append(htmlValue);
     });

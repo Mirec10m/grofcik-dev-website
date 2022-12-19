@@ -21,55 +21,8 @@
 
 /*# sourceMappingURL=custom.min.css.map */
 
-.logout-button {
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-}
-
-.admin-list {
-  list-style-type: none;
-  margin: 0;
-  margin-top: 12px;
-  padding: 0;
-}
-
-.admin-list li {
-  display: inline-block;
-  min-width: 25px;
-  margin-right: 22px;
-}
-
-.admin-list li a {
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.admin-list li a:hover {
-  color: #d4455d;
-}
-
-.offers {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-
-.offers p {
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.offers li {
-  text-align: center;
-}
-
-.practice-text {
-  width: 80%;
-}
-
-.sub-title {
-  font-weight: bold;
-  margin-bottom: 0;
+.dashboard-contact-img {
+  width: 36px;
+  padding: 5px;
 }
 

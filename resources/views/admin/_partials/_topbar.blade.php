@@ -29,20 +29,18 @@
                             <span class="align-middle">Profil</span>
                         </a>
                         <a class="dropdown-item" href="{{ route('settings.password') }}">
-                            <i class="mdi mdi-settings text-muted fs-16 align-middle me-1"></i>
+                            <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle">Zmena hesla</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-item text-danger">
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
 
-                                <button type="submit" class="logout-button">
-                                    <i class="mdi mdi-power text-primary"></i>
-                                    Odhlásiť sa
-                                </button>
-                            </form>
-                        </div>
+                            <button type="submit" class="dropdown-item">
+                                <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                                <span class="align-middle">Odhlásiť sa</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

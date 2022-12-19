@@ -2,18 +2,18 @@
     <div class="navbar-brand-box">
         <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="22">
+                <img src="{{ asset('img/admin-logo-mark.png') }}" alt="" height="40">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="17">
+                <img src="{{ asset('img/admin-logo.png') }}" alt="" height="40">
             </span>
         </a>
         <a href="{{ route('dashboard.index') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="22">
+                <img src="{{ asset('img/admin-logo-mark-white.png') }}" alt="" height="40">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="17">
+                <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="40">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -30,13 +30,13 @@
                 <li class="menu-title"><span data-key="t-menu">Webstránka</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.index') }}">
+                    <a class="nav-link menu-link" href="{{ route('dashboard.index') }}">
                         <i class="mdi mdi-home"></i> <span>Úvod</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.overview') }}">
+                    <a class="nav-link menu-link" href="{{ route('dashboard.overview') }}">
                         <i class="mdi mdi-view-dashboard"></i> <span>Prehľad</span>
                     </a>
                 </li>
