@@ -45,12 +45,11 @@
                                 @include('admin._partials._buttons')
                             </form>
 
-                            <div class="dropdown-divider"></div>
+                            <div class="border-top mb-3"></div>
 
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col-sm-12">
                                     <h5 class="card-title mb-0">Obrázok</h5>
-
                                 </div>
                             </div>
 
