@@ -20,7 +20,7 @@
 
     <script src="{{ asset('new_js/layout.js') }}"></script>
     <link href="{{ asset('new_css/admin.min.css') }}" rel="stylesheet" type="text/css">
-    @yield('css')
+    @yield('style')
 
 </head>
 

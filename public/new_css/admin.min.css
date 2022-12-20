@@ -95,3 +95,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,table.dataTable.dtr-inlin
   transform: translateY(-50px);
 }
 
+.border-left-no-radius {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+

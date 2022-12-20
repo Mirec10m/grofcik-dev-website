@@ -55,3 +55,8 @@
         transform: translateY(-50px);
     }
 }
+
+.border-left-no-radius {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

@@ -35,7 +35,7 @@
 
                                         <div>
                                             <label for="image" class="form-label">Obrázok</label>
-                                            <input name="image" class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" id="image">
+                                            <input name="image" class="form-control filestyle {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" id="image" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
                                             @include('admin._partials._errors', ['column' => 'image'])
                                         </div>
 

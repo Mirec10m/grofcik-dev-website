@@ -54,6 +54,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/feather.min.js',
         'resources/assets/templates/template/js/lord-icon-2.1.0.js',
         'resources/assets/templates/template/js/flatpickr.min.js',
+        'resources/assets/templates/template/js/bootstrap-filestyle.min.js',
         'resources/assets/templates/template/js/select2.min.js',
         'resources/assets/templates/template/js/jquery.dataTables.min.js',
         'resources/assets/templates/template/js/dataTables.bootstrap5.min.js',
