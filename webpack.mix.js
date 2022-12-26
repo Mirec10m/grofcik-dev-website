@@ -29,7 +29,6 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/feather.min.js',
         'resources/assets/templates/template/js/lord-icon-2.1.0.js',
         'resources/assets/templates/template/js/plugins.js',
-
         'resources/assets/templates/template/js/particles.js',
         'resources/assets/templates/template/js/particles.app.js',
         'resources/assets/templates/template/js/password-addon.init.js',
@@ -40,6 +39,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/css/dataTables.bootstrap5.min.css',
         'resources/assets/templates/template/css/responsive.bootstrap.min.css',
         'resources/assets/templates/template/css/select2.min.css',
+        'resources/assets/templates/template/css/sweetalert2.min.css',
         'resources/assets/templates/template/css/bootstrap.min.css',
         'resources/assets/templates/template/css/icons.min.css',
         'resources/assets/templates/template/css/app.min.css',
@@ -59,6 +59,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/jquery.dataTables.min.js',
         'resources/assets/templates/template/js/dataTables.bootstrap5.min.js',
         'resources/assets/templates/template/js/dataTables.responsive.min.js',
+        'resources/assets/templates/template/js/sweetalert2.min.js',
         'resources/assets/templates/template/js/datatables.init.js',
         'resources/assets/templates/template/js/form-pickers.init.js',
         'resources/assets/templates/template/js/select2.init.js',

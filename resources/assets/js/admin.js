@@ -1,17 +1,4 @@
 $(function(){
-    // DELETE MODAL
-    var form;
-
-    $(document).on("click", ".delete-button", function(){
-        $('.delete-name').text($(this).data('entity'));
-        form = $(this).parent();
-
-        $('.modal-delete').modal();
-    });
-
-    $(document).on("click", "#delete-confirm", function(){
-        form.submit();
-    });
 
     $('.price-input').keyup(function(){
         var text = $(this).val();
@@ -22,6 +9,7 @@ $(function(){
 
 
     callApiOffers();
+    initSweetAlerts();
 
 
 });
@@ -55,5 +43,34 @@ function fillUpOffers(data) {
             '</li>';
 
         offers.append(htmlValue);
+    });
+}
+
+function initSweetAlerts () {
+    let buildDeleteAlert = entity => (
+        '<div class="mt-3">' +
+            '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>' +
+            '<div class="mt-4 pt-2 fs-15 mx-5">' +
+                '<h4>Ste si istý ?</h4>' +
+                '<p class="text-muted mx-4 mb-0">Ste si istý, že chcete vymazať položku - ' + entity + ' ?</p>' +
+            '</div>' +
+        '</div>'
+    );
+
+    $('.alert-delete').click(function () {
+        let button = $(this);
+
+        Swal.fire({
+            title: 'Vymazať položku - ' + button.data('entity'),
+            html: buildDeleteAlert( button.data('entity') ),
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger w-xs me-2 mb-1",
+            confirmButtonText: "Áno",
+            cancelButtonClass: "btn btn-dark w-xs mb-1",
+            cancelButtonText: "Nie",
+            buttonsStyling: false,
+            showCloseButton: true
+        })
+            .then( event => event.isConfirmed ? button.parent().submit() : void 0 );
     });
 }

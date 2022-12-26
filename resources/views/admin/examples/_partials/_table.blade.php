@@ -39,7 +39,7 @@
                         <li>
                             <form action="{{ route('examples.delete') }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
-                                <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="delete-button dropdown-item pointer" type="button">
+                                <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>
                             </form>

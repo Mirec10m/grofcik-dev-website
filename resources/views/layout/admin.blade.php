@@ -44,7 +44,9 @@
 
 <script>
 
-    $(document).ready(function () {
+
+
+    /*$(document).ready(function () {
         if($(".tinymce").length > 0){
             tinymce.init({
                 selector: "textarea.tinymce",
@@ -68,7 +70,7 @@
                 ],
                 content_style: 'body {font-family: "Raleway", sans-serif; font-size: 14px;}' +
                     'p {line-height: 1.5em; margin: 0;}',
-                /* enable automatic uploads of images represented by blob or data URIs*/
+                /* enable automatic uploads of images represented by blob or data URIs/
                 image_title: true,
                 images_upload_url: "{{ route('tinymce.upload') }}",
                 automatic_uploads: true,
@@ -77,7 +79,7 @@
 
         }
 
-    });
+    });*/
 </script>
 
 </body>
