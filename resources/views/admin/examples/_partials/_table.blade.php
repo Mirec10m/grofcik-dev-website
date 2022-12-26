@@ -21,7 +21,7 @@
             <td>05. 12. 2019</td>
             <td>
                 <div class="dropdown d-inline-block">
-                    <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-soft-dark btn-sm dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Možnosti
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -35,7 +35,7 @@
                                 <i class="mdi mdi-image-multiple-outline action-icon"></i> Galéria
                             </a>
                         </li>
-                        <div class="dropdown-divider"></div>
+                        <li class="dropdown-divider"></li>
                         <li>
                             <form action="{{ route('examples.delete') }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf

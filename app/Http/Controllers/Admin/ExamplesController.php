@@ -29,8 +29,8 @@ class ExamplesController extends AdminController
         return view('admin.examples.gallery');
     }
 
-    public function delete(Request $request){
-        $this->_setFlashMessage($request, 'success', "Položka <b>name_sk</b> bola vymazaná" );
+    public function delete(){
+        $this->_setFlashMessage('success', 'Vymazaná', "Položka <b>name_sk</b> bola vymazaná");
 
         return redirect()->route('examples.index');
     }

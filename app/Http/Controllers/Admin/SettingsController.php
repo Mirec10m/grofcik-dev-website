@@ -20,7 +20,7 @@ class SettingsController extends AdminController
         $user->update($request->all());
         $user->save();
 
-        $this->_setFlashMessage($request, 'success', "Nastavenia boli úspešne uložené.");
+        $this->_setFlashMessage('success', 'Uložené', "Nastavenia boli úspešne uložené.");
 
         return back();
     }
@@ -36,7 +36,7 @@ class SettingsController extends AdminController
         $user->password =  bcrypt($request->password);
         $user->save();
 
-        $this->_setFlashMessage($request, 'success', "Vaše heslo bolo zmenené.");
+        $this->_setFlashMessage('success', 'Zmenené', "Vaše heslo bolo zmenené.");
 
         return back();
     }

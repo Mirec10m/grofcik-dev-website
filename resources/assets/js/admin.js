@@ -73,4 +73,15 @@ function initSweetAlerts () {
         })
             .then( event => event.isConfirmed ? button.parent().submit() : void 0 );
     });
+
+    let confirmed_alert = $('#alert');
+    if ( confirmed_alert.length > 0 ) {
+        Swal.fire({
+            title: confirmed_alert.data('title'),
+            html: confirmed_alert.data('message'),
+            icon: confirmed_alert.data('icon'),
+            confirmButtonClass: "btn btn-primary w-xs mt-2",
+            buttonsStyling: false
+        });
+    }
 }

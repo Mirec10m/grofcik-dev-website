@@ -50,7 +50,7 @@
         if($(".tinymce").length > 0){
             tinymce.init({
                 selector: "textarea.tinymce",
-                language_url: "{{ asset("js/tinymce/sk.js") }}",
+                language_url: "{{-- asset("js/tinymce/sk.js") --}}",
                 theme: "modern",
                 height: 300,
                 menubar: 'insert',
@@ -72,7 +72,7 @@
                     'p {line-height: 1.5em; margin: 0;}',
                 /* enable automatic uploads of images represented by blob or data URIs/
                 image_title: true,
-                images_upload_url: "{{ route('tinymce.upload') }}",
+                images_upload_url: "{{-- route('tinymce.upload') --}}",
                 automatic_uploads: true,
                 paste_data_images: true,
             });
