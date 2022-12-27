@@ -1,15 +1,10 @@
 {
     "/assets/style.css": "/assets/style.css",
     "/assets/admin.css": "/assets/admin.css",
-    "/new_css/new_admin.css": "/new_css/new_admin.css",
-    "/new_css/auth.min.css": "/new_css/auth.min.css",
-    "/new_js/auth.min.js": "/new_js/auth.min.js",
-    "/new_css/admin.min.css": "/new_css/admin.min.css",
-    "/new_js/admin.min.js": "/new_js/admin.min.js",
     "/css/style.min.css": "/css/style.min.css",
-    "/css/login.min.css": "/css/login.min.css",
+    "/css/auth.min.css": "/css/auth.min.css",
     "/css/admin.min.css": "/css/admin.min.css",
     "/js/script.min.js": "/js/script.min.js",
-    "/js/login.min.js": "/js/login.min.js",
+    "/js/auth.min.js": "/js/auth.min.js",
     "/js/admin.min.js": "/js/admin.min.js"
 }

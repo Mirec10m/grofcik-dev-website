@@ -13,8 +13,7 @@
 
     <link rel="shortcut icon" href="{{ asset('img/admin-favicon.ico') }}">
 
-    <script src="{{ asset('new_js/layout.js') }}"></script>
-    <link href="{{ asset('new_css/auth.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/auth.min.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
 
 </head>
@@ -69,7 +68,7 @@
 
 </div>
 
-<script src="{{ asset('new_js/auth.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/auth.min.js') }}" type="text/javascript"></script>
 @yield('js')
 
 </body>

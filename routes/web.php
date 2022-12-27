@@ -13,6 +13,7 @@ foreach(config('settings.languages') as $lang => $name){
         // Here goes routes with URL in slovakian language
 
         // Email
+        //Route::get("$prefix/kontakt", ['as' => "web.contact.$lang", 'uses' => 'PagesController@contact']);
         //Route::post("$prefix/kontakt", ['as' => "web.contact.send.$lang", 'uses' => 'PagesController@send']);
     }
 
@@ -42,13 +43,15 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
      */
     Route::get('/examples/index', ['as' => 'examples.index', 'uses' => 'ExamplesController@index']);
     Route::get('/examples/create', ['as' => 'examples.create', 'uses' => 'ExamplesController@create']);
+    Route::post('/examples/create', ['as' => 'examples.store', 'uses' => 'ExamplesController@store']);
     Route::get('/examples/edit', ['as' => 'examples.edit', 'uses' => 'ExamplesController@edit']);
-    Route::post('/examples', ['as' => 'examples.store', 'uses' => 'ExamplesController@store']);
-    Route::get('/examples/gallery', ['as' => 'examples.gallery', 'uses' => 'ExamplesController@gallery']);
+    Route::post('/examples/edit', ['as' => 'examples.update', 'uses' => 'ExamplesController@update']);
     Route::post('/examples/delete', ['as' => 'examples.delete', 'uses' => 'ExamplesController@delete']);
+    Route::get('/examples/gallery', ['as' => 'examples.gallery', 'uses' => 'ExamplesController@gallery']);
+    Route::post('/examples/gallery', ['as' => 'examples.upload', 'uses' => 'ExamplesController@upload']);
 
     // Images
-    Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
+    Route::post('/images/delete/{image}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
 
     // Ajax
     Route::post('/images/upload', ['as' => 'tinymce.upload', 'uses' => "TinyMceController@upload"]);

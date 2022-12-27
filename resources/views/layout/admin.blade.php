@@ -18,8 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="{{ asset('new_js/layout.js') }}"></script>
-    <link href="{{ asset('new_css/admin.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/admin.min.css') }}" rel="stylesheet" type="text/css">
     @yield('style')
 
 </head>
@@ -39,16 +38,15 @@
     </div>
 </div>
 
-<script src="{{ asset('new_js/admin.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/admin.min.js') }}" type="text/javascript"></script>
 @yield('js')
 
 <script>
-
     $(document).ready(function () {
-        if($(".tinymce").length > 0){
+        if( $(".tinymce").length > 0 ){
             tinymce.init({
                 selector: "textarea.tinymce",
-                language_url: "{{-- asset("js/tinymce/sk.js") --}}",
+                language_url: "{{ asset("js/tinymce/sk.js") }}",
                 theme: "modern",
                 height: 300,
                 menubar: 'insert',
@@ -68,7 +66,6 @@
                 ],
                 content_style: 'body {font-family: "Raleway", sans-serif; font-size: 14px;}' +
                     'p {line-height: 1.5em; margin: 0;}',
-                /* enable automatic uploads of images represented by blob or data URIs */
                 image_title: true,
                 images_upload_url: "{{ route('tinymce.upload') }}",
                 automatic_uploads: true,

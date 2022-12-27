@@ -10,10 +10,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\Request;
 
 class SettingsController extends AdminController
 {
+
     public function edit() : Factory | View | Application
     {
         $user = auth()->user();
@@ -55,4 +55,5 @@ class SettingsController extends AdminController
 
         return response()->json();
     }
+
 }
