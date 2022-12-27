@@ -10,7 +10,7 @@ $(function(){
 
     callApiOffers();
     initSweetAlerts();
-
+    initMenuOpen();
 
 });
 
@@ -84,4 +84,28 @@ function initSweetAlerts () {
             buttonsStyling: false
         });
     }
+}
+
+function initMenuOpen () {
+    $('body').hasClass('menu-pinned') ? $('html').attr('data-sidebar-size', 'sm-hover-active') : void 0 ;
+
+    $('#vertical-hover').click(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+        });
+
+        $.ajax({
+            url: $(this).data('url'),
+            method: 'post',
+            data: {
+                menu_pinned: $('html').attr('data-sidebar-size') == 'sm-hover' ? 1 : 0,
+            },
+            success: data => console.log(data),
+            error: data => console.log(data),
+        });
+    });
 }

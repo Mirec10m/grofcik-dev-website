@@ -3,12 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/template', fn () => view('layout.admin'));
-
-Route::get('/test', function () {
-    \App\Jobs\ErrorTrackingJob::dispatchNow();
-});
-
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 
@@ -58,6 +52,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
     // Ajax
     Route::post('/images/upload', ['as' => 'tinymce.upload', 'uses' => "TinyMceController@upload"]);
+    Route::post('/settings/menu', ['as' => 'settings.menu', 'uses' => "SettingsController@menu"]);
 
     // Super Admin
     Route::middleware(['super_admin'])->group(function(){

@@ -60,6 +60,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/template/js/dataTables.bootstrap5.min.js',
         'resources/assets/templates/template/js/dataTables.responsive.min.js',
         'resources/assets/templates/template/js/sweetalert2.min.js',
+        'resources/assets/templates/template/js/tinymce.min.js',
         'resources/assets/templates/template/js/datatables.init.js',
         'resources/assets/templates/template/js/form-pickers.init.js',
         'resources/assets/templates/template/js/select2.init.js',

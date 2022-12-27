@@ -27,5 +27,16 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+            <div class="col-sm-2">
+                <label class="form-label">Pripnuté menu</label>
+                <div class="form-check form-switch form-switch-success form-switch-lg" dir="ltr">
+                    <input name="menu_pinned" type="hidden" value="0">
+                    <input name="menu_pinned" type="checkbox" class="form-check-input {{ $errors->has('menu_pinned') ? 'is-invalid' : '' }}" value="1" {{ old('menu_pinned', isset($user) ? $user->menu_pinned : 0) == 1 ? 'checked' : '' }}>
+                    @include('admin._partials._errors', ['column' => 'menu_pinned'])
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
