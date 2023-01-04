@@ -42,19 +42,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebar-examples" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                        <i class="mdi mdi-format-list-bulleted"></i> <span>Examples</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebar-examples">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('examples.index') }}" class="nav-link"> Zoznam položiek </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebar-items" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
                         <i class="mdi mdi-format-list-bulleted"></i> <span>Položky</span>
                     </a>
@@ -81,6 +68,25 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link"> Spustiť seedy </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebar-examples" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="mdi mdi-format-list-bulleted"></i> <span>Examples</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebar-examples">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('examples.index') }}" class="nav-link"> Sekcia </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('examples.table') }}" class="nav-link"> Tabuľka </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('examples.form') }}" class="nav-link"> Formulár </a>
                                 </li>
                             </ul>
                         </div>

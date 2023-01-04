@@ -42,7 +42,7 @@ class ExamplesController extends AdminController
         return back();
     }
 
-    public function delete() : RedirectResponse
+    public function destroy() : RedirectResponse
     {
         $this->_setFlashMessage('success', 'Vymazaná', "Položka <b>name_sk</b> bola vymazaná");
 
@@ -56,7 +56,19 @@ class ExamplesController extends AdminController
 
     public function upload() : RedirectResponse
     {
+        $this->_setFlashMessage('success', 'Nahraný', "Obrázok položky <b>name_sk</b> bol nahraný do galérie");
+
         return redirect()->route('examples.gallery');
+    }
+
+    public function table() : Factory | View | Application
+    {
+        return view('admin.examples.table');
+    }
+
+    public function form() : Factory | View | Application
+    {
+        return view('admin.examples.form');
     }
 
 }

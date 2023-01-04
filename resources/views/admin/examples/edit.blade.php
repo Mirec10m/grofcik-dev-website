@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Examples', 'crumbs' => [ 'Demibox' ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => /* '$item->name_sk' */'Lorem ipsum', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('examples.index'), ]])
 
             <div class="row">
                 <div class="col-lg-12">
@@ -25,8 +25,9 @@
                                 </div>
                             </div>
 
-                            <form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('examples.update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('put')
 
                                 @include('admin.examples._partials._form')
 

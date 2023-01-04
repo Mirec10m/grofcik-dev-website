@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Sekcia', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Formulár', 'crumbs' => [ 'Examples', 'Demibox' ]])
 
             <div class="row">
                 <div class="col-lg-12">

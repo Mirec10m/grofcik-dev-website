@@ -50,14 +50,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
      * - remove links in _menu from admin
      * - comment or remove these routes
      */
-    Route::get("/examples/index", [ ExamplesController::class, 'index'])->name("examples.index");
-    Route::get("/examples/create", [ ExamplesController::class, 'create'])->name("examples.create");
-    Route::post("/examples/create", [ ExamplesController::class, 'store'])->name("examples.store");
-    Route::get("/examples/edit", [ ExamplesController::class, 'edit'])->name("examples.edit");
-    Route::post("/examples/edit", [ ExamplesController::class, 'update'])->name("examples.update");
-    Route::post("/examples/delete", [ ExamplesController::class, 'delete'])->name("examples.delete");
-    Route::get("/examples/gallery", [ ExamplesController::class, 'gallery'])->name("examples.gallery");
-    Route::post("/examples/gallery", [ ExamplesController::class, 'upload'])->name("examples.upload");
+    // Route::resource("/examples", ExamplesController::class)->except([ 'show' ]);
+    // Route::get("/examples/{example}/gallery", [ ExamplesController::class, 'gallery'])->name("examples.gallery");
+    // Route::post("/examples/{example}/gallery", [ ExamplesController::class, 'upload'])->name("examples.upload");
 
     // Images
     Route::post("/images/delete/{image}", [ ImagesController::class, 'delete'])->name("images.delete");
@@ -72,6 +67,24 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
         Route::get("/superadmin/migrate", [ SuperAdminController::class, 'migrate'])->name("superadmin.migrate");
         Route::get("/superadmin/seed", [ SuperAdminController::class, 'seed'])->name("superadmin.seed");
 
+        /*
+         * Examples of forms, lightbox, etc.
+         *
+         * Once you are done with developing the website/eshop please do the following:
+         * - remove links in _menu from admin
+         * - comment or remove these routes
+         */
+        Route::get("/examples", [ ExamplesController::class, 'index'])->name("examples.index");
+        Route::get("/examples/create", [ ExamplesController::class, 'create'])->name("examples.create");
+        Route::post("/examples", [ ExamplesController::class, 'store'])->name("examples.store");
+        Route::get("/examples/id/edit", [ ExamplesController::class, 'edit'])->name("examples.edit");
+        Route::put("/examples/id", [ ExamplesController::class, 'update'])->name("examples.update");
+        Route::delete("/examples/id", [ ExamplesController::class, 'destroy'])->name("examples.destroy");
+        Route::get("/examples/id/gallery", [ ExamplesController::class, 'gallery'])->name("examples.gallery");
+        Route::post("/examples/id/gallery", [ ExamplesController::class, 'upload'])->name("examples.upload");
+
+        Route::get("/example/table", [ ExamplesController::class, 'table'])->name("examples.table");
+        Route::get("/example/form", [ ExamplesController::class, 'form'])->name("examples.form");
     });
 });
 

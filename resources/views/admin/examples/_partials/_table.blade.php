@@ -7,7 +7,7 @@
         <th>Cena</th>
         <th>Kategória</th>
         <th>Dátum distribúcie</th>
-        <th>Akcie</th>
+        <th data-orderable="false">Akcie</th>
     </tr>
     </thead>
     <tbody>
@@ -37,8 +37,9 @@
                         </li>
                         <li class="dropdown-divider"></li>
                         <li>
-                            <form action="{{ route('examples.delete') }}" method="post" style="display: inline-block; width: 100%;">
+                            <form action="{{ route('examples.destroy') }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
+                                @method('delete')
                                 <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>

@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Examples', 'crumbs' => [ 'Demibox' ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => /* '$item->name_sk - Galéria' */'Lorem ipsum - Galéria', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('examples.index'), ]])
 
             <div class="row">
                 <div class="col-lg-12">
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
 
-                            <form action="javascript:void(0)" method="post">
+                            <form action="{{ route('examples.upload') }}" method="post">
                                 @csrf
 
                                 <div class="row mb-3">
