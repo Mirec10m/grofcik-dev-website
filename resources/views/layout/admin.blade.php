@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover" data-layout-width="fluid">
+<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active" data-layout-width="fluid">
 <head>
 
     <meta charset="utf-8">
@@ -17,12 +17,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <script src="{{ asset('js/layout.js') }}"></script>
     <link href="{{ asset('css/admin.min.css') }}" rel="stylesheet" type="text/css">
     @yield('style')
 
 </head>
 
-<body class="{{ session('menu_pinned', auth()->user()->menu_pinned) ? 'menu-pinned' : '' }}">
+<body>
 
 <div id="layout-wrapper">
     @include('admin._partials._topbar')
