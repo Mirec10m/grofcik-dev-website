@@ -46,24 +46,12 @@
                             <div class="row">
                                 @if(1)
                                     <div class="col-sm-3">
-                                        <div class="image-wrapper mb-3">
-                                            <img src="{{ asset('img/image-placeholder.jpg') }}" class="img-fluid">
-
-                                            <div class="image-wrapper-back">
-                                                <div class="image-wrapper-back-actions">
-                                                    <a href="{{ asset('img/image-placeholder.jpg') }}" class="show-icon image-popup-vertical-fit">
-                                                        <i class="mdi mdi-eye-outline"></i>
-                                                    </a>
-
-                                                    <form action="javascript:void(0)" method="post">
-                                                        @csrf
-                                                        <button data-entity="{{ 'Obrázok - ' . 'image-placeholder.jpg' }}" class="delete-button delete-icon pointer" type="button">
-                                                            <i class="mdi mdi-trash-can-outline"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @include('admin._partials._image', [
+                                            'thumb' => asset('img/image-placeholder.jpg'),
+                                            'image' => asset('img/image-placeholder.jpg'),
+                                            'delete' => 'javascript:void(0)',
+                                            'entity' => 'image-placeholder.jpg',
+                                        ])
                                     </div>
                                 @endif
                             </div>
