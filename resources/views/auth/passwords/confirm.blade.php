@@ -11,7 +11,7 @@
                     <div class="text-center mt-4 mb-4 text-white-50">
                         <div>
                             <a href="https://www.demi.sk/" class="d-inline-block auth-logo">
-                                <img src="{{ asset('img/admin-logo.png') }}" alt="" height="100">
+                                <img src="{{ asset('img/admin-logo.svg') }}" alt="" height="100">
                             </a>
                         </div>
                     </div>

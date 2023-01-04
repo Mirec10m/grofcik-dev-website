@@ -19,7 +19,7 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('dashboard.index') }}" type="button" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('dashboard.index') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="fa fa-reply pr-2"></i> Späť na úvod
                                     </a>
                                 </div>

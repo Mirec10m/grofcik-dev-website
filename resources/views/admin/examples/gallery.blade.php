@@ -19,13 +19,11 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('examples.index') }}" type="button" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="fa fa-list pr-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>
-
-                            @include('admin._partials._alert')
 
                             <form action="javascript:void(0)" method="post">
                                 @csrf

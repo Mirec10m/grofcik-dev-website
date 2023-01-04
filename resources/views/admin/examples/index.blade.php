@@ -19,7 +19,7 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('examples.create') }}" type="button" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('examples.create') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="mdi mdi-plus pr-2"></i> Pridať položku
                                     </a>
                                 </div>
@@ -27,8 +27,6 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin._partials._alert')
-
                                     @include('admin.examples._partials._table')
                                 </div>
                             </div>
