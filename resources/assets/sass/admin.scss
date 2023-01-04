@@ -24,7 +24,7 @@
     &-back{
         position: absolute;
         z-index: 2;
-        background-color: #282727;
+        background-color: #eee;
         width: 100%;
         left: 0;
         right: 0;
@@ -35,19 +35,20 @@
             bottom: 12px;
             left: 50%;
             transform: translateX(-50%);
+            display: flex;
             a, button, form{
                 display: inline-block;
                 border: 0;
             }
             .show-icon{
-                padding: 3px 6px;
-                background-color: #4c87b9;
-                color: #fff;
+                margin-right: 4px;
             }
-            .delete-icon{
-                padding: 3px 8px;
-                background-color: #e7505a;
-                color: #fff;
+            .show-icon, .delete-icon{
+                width: 30px;
+                height: 30px;
+                border-radius: 0;
+                padding: 0;
+                line-height: 30px;
             }
         }
     }

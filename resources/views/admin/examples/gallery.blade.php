@@ -61,13 +61,13 @@
 
                                             <div class="image-wrapper-back">
                                                 <div class="image-wrapper-back-actions">
-                                                    <a href="{{ asset('img/image-placeholder.jpg') }}" class="show-icon image-popup-vertical-fit">
-                                                        <i class="mdi mdi-eye-outline"></i>
+                                                    <a href="{{ asset('img/image-placeholder.jpg') }}" class="show-icon image-popup-vertical-fit btn btn-info">
+                                                        <i class="mdi mdi-magnify"></i>
                                                     </a>
 
                                                     <form action="javascript:void(0)" method="post">
                                                         @csrf
-                                                        <button data-entity="{{ 'Obrázok - ' . 'image-placeholder.jpg' }}" class="delete-button delete-icon pointer" type="button">
+                                                        <button data-entity="{{ 'Obrázok - ' . 'image-placeholder.jpg' }}" class="delete-button delete-icon pointer btn btn-danger" type="button">
                                                             <i class="mdi mdi-trash-can-outline"></i>
                                                         </button>
                                                     </form>
