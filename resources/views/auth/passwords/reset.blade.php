@@ -1,66 +1,63 @@
 @extends('layout.auth')
-@section('title', '- Obnova zabudnutého hesla')
+
+@section('title', 'Obnova zabudnutého hesla')
 
 @section('content')
-    <div class="wrapper-page">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="text-center m-0">
-                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
-                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
-                    </a>
-                </h3>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="card mt-5">
 
-                <div class="p-3">
-                    <h4 class="text-muted font-18 m-b-5 text-center">Obnova zabudnutého hesla</h4>
-                    <p class="text-muted text-center">Zadajte prosím Vaše nové heslo.</p>
+                <div class="card-body p-4">
+                    <div class="text-center mt-4 mb-4 text-white-50">
+                        <div>
+                            <a href="https://www.demi.sk/" class="d-inline-block auth-logo">
+                                <img src="{{ asset('img/admin-logo.png') }}" alt="" height="100">
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="card-body">
-                        <form action="{{ route('password.update') }}" method="post" class="form-horizontal">
+                    <div class="text-center mt-2">
+                        <h5 class="text-primary">Obnova zabudnutého hesla</h5>
+                        <p class="text-muted">Zadajte prosím Vaše nové heslo.</p>
+                    </div>
+
+                    <div class="p-2">
+                        <form action="{{ route('password.update') }}">
+
                             @csrf
 
                             <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="form-group">
-                                <label for="email">E-mail <b class="error-color">*</b></label>
-                                <input name="email" type="email" value="{{ $email ?? old('email') }}" class="form-control {{ $errors->has('email') ? 'parsley-error' : '' }}" id="email" placeholder="E-mail">
-
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input name="email" type="text" value="{{ $email ?? old('email') }}" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" placeholder="E-mail">
                                 @include('admin._partials._errors', ['column' => 'email'])
                             </div>
 
-                            <div class="form-group">
-                                <label for="password">Nové heslo <b class="error-color">*</b></label>
-                                <input name="password" type="password" class="form-control {{ $errors->has('password') ? 'parsley-error' : '' }}" id="password" placeholder="Heslo">
-
-                                @include('admin._partials._errors', ['column' => 'password'])
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password-confirm">Opakujte nové heslo <b class="error-color">*</b></label>
-                                <input name="password_confirmation" type="password" class="form-control" id="password-confirm">
-                            </div>
-
-                            <div class="form-group row m-t-20">
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">
-                                        Potvrdiť
-                                    </button>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Heslo <b class="text-danger">*</b></label>
+                                <div class="position-relative auth-pass-inputgroup">
+                                    <input name="password" type="password" class="form-control pe-5 password-input {{ $errors->has('password') ? 'is-invalid' : '' }}" onpaste="return false" placeholder="Heslo" id="password" aria-describedby="passwordInput">
+                                    <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none shadow-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                    @include('admin._partials._errors', ['column' => 'password'])
                                 </div>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="password-confirm">Opakujte heslo <b class="text-danger">*</b></label>
+                                <div class="position-relative auth-pass-inputgroup">
+                                    <input name="password_confirmation" type="password" class="form-control pe-5 password-input {{ $errors->has('password') ? 'is-invalid' : '' }}" onpaste="return false" id="password-confirm" aria-describedby="passwordInput">
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <button class="btn btn-success w-100" type="submit">Potvrdiť</button>
+                            </div>
+
                         </form>
                     </div>
-
                 </div>
             </div>
-        </div>
-
-        <div class="m-t-40 text-center">
-            <p>
-                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
-                <a href="https://www.demi.sk/" target="_blank">
-                    <b>DeMi Studio</b>.
-                </a>
-            </p>
         </div>
     </div>
 @endsection

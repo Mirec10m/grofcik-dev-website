@@ -15,7 +15,7 @@ class SuperAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!auth()->check() || !auth()->user()->super_admin){
+        if ( ! auth()->check() || ! auth()->user()->super_admin ){
             return abort(404);
         }
 

@@ -7,19 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {
-    public function getFormattedCreatedAtAttribute(){
+
+    public function getFormattedCreatedAtAttribute() : string
+    {
         return Carbon::parse($this->created_at)->format('d.m.Y H:i:s');
     }
 
-    public function getFormattedUpdatedAdAttribute(){
+    public function getFormattedUpdatedAdAttribute() : string
+    {
         return Carbon::parse($this->updated_at)->format('d.m.Y H:i:s');
     }
 
-    protected function _translateProperty($property, $return_null = false){
+    protected function _translateProperty($property, $return_null = false) : mixed
+    {
         $translated_string = $this->{$property . '_' . app()->getLocale()};
 
         $result = $return_null ? null : $this->{$property . '_sk'};
 
         return isset($translated_string) && $translated_string != "" ? $translated_string : $result;
     }
+
 }

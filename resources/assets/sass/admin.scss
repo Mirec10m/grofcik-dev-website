@@ -1,35 +1,15 @@
-$primary: #d4455d;
-$demi: #e64a39;
+//$primary: #d4455d;
+//$demi: #e64a39;
 
-.logout-button{
-    border: none;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-}
-
-.pointer{
-    cursor: pointer;
-}
-
-.error-color{
-    color: #d95a6f !important;
+.dashboard-contact-img {
+    width: 36px;
+    padding: 5px;
 }
 
 .tab-content{
-    border-left: 1px solid #dee2e6;
-    border-right: 1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.img-responsive{
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.max-width-800{
-    max-width: 800px !important;
+    border-left: 1px solid #f2f2f7;
+    border-right: 1px solid #f2f2f7;
+    border-bottom: 1px solid #f2f2f7;
 }
 
 .image-wrapper{
@@ -79,90 +59,12 @@ $demi: #e64a39;
     }
 }
 
-.custom-control-label{
-    &::before{
-        top: .10rem;
-    }
-    &::after{
-        top: .12rem;
-    }
+.border-left-no-radius {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
-.custom-control{
-    margin-top: 8px;
-}
-
-.btn{
-    cursor: pointer;
-}
-
-.color-primary{
-    color: $primary;
-}
-
-.color-demi{
-    color: $demi;
-}
-
-.link-demi{
-    transition: all .3s ease;
-    &:hover{
-        color: #707070;
-    }
-}
-
-.admin-list{
-    list-style-type: none;
-    margin: 0;
-    margin-top: 12px;
-    padding: 0;
-    li{
-        display: inline-block;
-        min-width: 25px;
-        margin-right: 22px;
-        a{
-            display: block;
-            transition: all .3s ease;
-            &:hover{
-                color: $primary;
-            }
-        }
-    }
-}
-
-.relative{
-    position: relative;
-}
-
-.admin-list-logo{
-    position: absolute;
-    width: 25px;
-    top: -23px;
-    left: 0;
-}
-
-.action-icon{
-    margin-right: 4px;
-}
-
-.practice-text {
-    width: 80%;
-}
-.offers {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.offers p {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.offers li {
-    text-align: center;
-}
-
-.sub-title {
-    font-weight: bold;
-    margin-bottom: 0;
+html[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-brand-box {
+    padding-left: 0;
+    padding-right: 0;
 }

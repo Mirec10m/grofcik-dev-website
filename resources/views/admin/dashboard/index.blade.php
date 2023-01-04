@@ -1,82 +1,61 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="content">
+    <div class="page-content">
         <div class="container-fluid">
-
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title color-primary">Demi Box v 3.0</h4>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">
-                                Vitajte vo Vašej administrácii
-                            </li>
-                        </ol>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Demi Box v 3.0</h6>
+                            <p>Vitajte vo Vašej administrácii</p>
 
-                    </div>
-                </div>
-            </div>
+                            <h6 class="card-title">Úvod</h6>
+                            <p>Tento administračný systém bol vytvorený v DeMi Studio, s. r. o.</p>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Úvod</h4>
-                        <div>
-                            Tento administračný systém bol vytvorený v DeMi Studio, s. r. o.
-                            <br>
-                            <br>
+                            <h6 class="card-subtitle fw-bold">Starostlivosť o Váš web</h6>
+                            <p>Tu si môžete pozrieť ponuku balíkov starostlivosti o Váš web. Každý z našich balíkov starostlivosti okrem iného zahrňuje aj monitorovanie Vášho webu <strong>24/7</strong> pomocou externého softvéru.</p>
 
-                            <p class="sub-title">Starostlivosť o Váš web</p>
-                            <div>
-                                Tu si môžete pozrieť ponuku balíkov starostlivosti o Váš web. Každý z našich balíkov starostlivosti okrem iného zahrňuje aj monitorovanie Vášho webu <strong>24/7</strong> pomocou externého softvéru.
-                            </div>
-                            <br>
-                            <p class="sub-title">Príklad z praxe</p>
-                            <div class="practice-text">
-                                <i>Používateľ / Zákazník príde na web / eshop a pri interakcii s aplikáciou mu vyhodí chybu. Pomocou monitorovacieho softvéru je chyba automaticky odchytená a odoslaná na náš email. K tomuto emailu majú prístup naši programátori, ktorí problém automaticky odstránia aby sa už neopakoval ďalšiemu návštevníkovi Vašich webových stránok. — V prípade, že web nie je monitorovaný, vlastník webu sa o probléme nemusí dozvedieť, až kým mu ho nenahlási niektorý z návštevníkov webových stránok.</i>
-                            </div>
-                            <ul class="admin-list offers">
-                            </ul>
+                            <h6 class="card-subtitle fw-bold">Príklad z praxe</h6>
+                            <p><i>Používateľ / Zákazník príde na web / eshop a pri interakcii s aplikáciou mu vyhodí chybu. Pomocou monitorovacieho softvéru je chyba automaticky odchytená a odoslaná na náš email. K tomuto emailu majú prístup naši programátori, ktorí problém automaticky odstránia aby sa už neopakoval ďalšiemu návštevníkovi Vašich webových stránok. — V prípade, že web nie je monitorovaný, vlastník webu sa o probléme nemusí dozvedieť, až kým mu ho nenahlási niektorý z návštevníkov webových stránok.</i></p>
 
-                            Zostaňte s nami v kontakte:
-                            <ul class="admin-list">
-                                <li class="relative">
-                                    <a href="https://www.demi.sk/" target="_blank" class="admin-list-logo">
-                                        <img src="{{ asset('img/znak.svg') }}" class="img-responsive" alt="Demi Studio logo" />
+                            <ul class="list-group list-group-horizontal offers"></ul>
+
+                            <p>Zostaňte s nami v kontakte:</p>
+
+                            <ul class="list-group list-group-horizontal mb-3">
+                                <li class="list-group-item border-0">
+                                    <a href="https://www.demi.sk/" target="_blank">
+                                        <img src="{{ asset('img/znak.svg') }}" class="img-responsive dashboard-contact-img" alt="Demi Studio logo"/>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="list-group-item border-0">
                                     <a href="https://www.facebook.com/Demi-Studio-114844622479287/" target="_blank">
-                                        <i class="fab fa-facebook fa-2x"></i>
+                                        <i class="bx bxl-facebook-square bx-md"></i>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="list-group-item border-0">
                                     <a href="https://www.instagram.com/demi__studio/" target="_blank">
-                                        <i class="fab fa-instagram fa-2x"></i>
+                                        <i class="bx bxl-instagram bx-md"></i>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="list-group-item border-0">
                                     <a href="https://www.linkedin.com/company/demi-studio/" target="_blank">
-                                        <i class="fab fa-linkedin fa-2x"></i>
+                                        <i class="bx bxl-linkedin-square bx-md"></i>
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Potrebujete pomoc?</h4>
-                        <div>
-                            V prípade potreby nás prosím kontaktujte e-mailom.
-                            <br><br>
-                            E-mail: <b>support@demi.sk</b>
-                            <br>
-                            Tel. č.: <b>+421 918 735 863</b>
+
+                            <h6 class="card-title">Potrebujete pomoc?</h6>
+                            <p>
+                                V prípade potreby nás prosím kontaktujte e-mailom.
+                                <br><br>
+                                E-mail: <b>support@demi.sk</b>
+                                <br>
+                                Tel. č.: <b>+421 918 735 863</b>
+                            </p>
+
                         </div>
                     </div>
                 </div>

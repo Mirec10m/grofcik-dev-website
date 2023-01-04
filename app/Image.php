@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+
 class Image extends BaseModel
 {
     protected $fillable = [
@@ -12,11 +14,13 @@ class Image extends BaseModel
         'profile',
     ];
 
-    public function imageable(){
+    public function imageable() : MorphTo
+    {
         return $this->morphTo('imageable');
     }
 
-    public function get_type($type = 'basename'){
+    public function get_type($type = 'basename') : string
+    {
         return $this->path . $this->$type;
     }
 
