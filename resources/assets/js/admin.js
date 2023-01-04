@@ -104,7 +104,7 @@ function initMenuOpen () {
             data: {
                 menu_pinned: $('html').attr('data-sidebar-size') == 'sm-hover' ? 1 : 0,
             },
-            success: data => console.log(data),
+            success: () => void 0,
             error: data => console.log(data),
         });
     });

@@ -26,7 +26,7 @@
                             <ul class="list-group list-group-horizontal mb-3">
                                 <li class="list-group-item border-0">
                                     <a href="https://www.demi.sk/" target="_blank">
-                                        <img src="{{ asset('img/znak.svg') }}" class="img-responsive dashboard-contact-img" alt="Demi Studio logo" />
+                                        <img src="{{ asset('img/znak.svg') }}" class="img-responsive dashboard-contact-img" alt="Demi Studio logo"/>
                                     </a>
                                 </li>
                                 <li class="list-group-item border-0">

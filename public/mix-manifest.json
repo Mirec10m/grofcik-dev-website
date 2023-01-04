@@ -1,5 +1,6 @@
 {
     "/assets/style.css": "/assets/style.css",
+    "/assets/auth.css": "/assets/auth.css",
     "/assets/admin.css": "/assets/admin.css",
     "/css/style.min.css": "/css/style.min.css",
     "/css/auth.min.css": "/css/auth.min.css",

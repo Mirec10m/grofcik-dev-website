@@ -1,11 +1,5 @@
 @extends('layout.admin')
 
-@section('style')
-    <link href="{{ asset('new_css/dashboard/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('new_css/dashboard/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-
-
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
@@ -1529,9 +1523,5 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('new_js/dashboard/apexcharts.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('new_js/dashboard/jsvectormap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('new_js/dashboard/world-merc.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('new_js/dashboard/swiper-bundle.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('new_js/dashboard/dashboard-ecommerce.init.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/dashboard/dashboard-ecommerce.init.js') }}" type="text/javascript"></script>
 @endsection

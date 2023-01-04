@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.sass('resources/assets/sass/style.scss', 'public/assets')
+    .sass('resources/assets/sass/auth.scss', 'public/assets')
     .sass('resources/assets/sass/admin.scss', 'public/assets')
 
     .styles([ // WEB .css files
@@ -23,10 +24,12 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/css/icons.min.css',
         'resources/assets/templates/admin/css/app.min.css',
         'resources/assets/templates/admin/css/custom.min.css',
-        //'' // this .css file must be last
+        'public/assets/auth.css' // this .css file must be last
     ], 'public/css/auth.min.css')
 
     .styles([ // ADMIN .css files
+        'resources/assets/templates/admin/css/jsvectormap.min.css', // Overview dashboard
+        'resources/assets/templates/admin/css/swiper-bundle.min.css', // Overview dashboard
         'resources/assets/templates/admin/css/dataTables.bootstrap5.min.css',
         'resources/assets/templates/admin/css/responsive.bootstrap.min.css',
         'resources/assets/templates/admin/css/select2.min.css',
@@ -35,7 +38,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/css/icons.min.css',
         'resources/assets/templates/admin/css/app.min.css',
         'resources/assets/templates/admin/css/custom.min.css',
-        'public/css/new_admin.css' // this .css file must be last
+        'public/assets/admin.css' // this .css file must be last
     ], 'public/css/admin.min.css')
 
 
@@ -49,7 +52,6 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/waves.min.js',
         'resources/assets/templates/admin/js/feather.min.js',
         'resources/assets/templates/admin/js/lord-icon-2.1.0.js',
-        'resources/assets/templates/admin/js/plugins.js',
         'resources/assets/templates/admin/js/particles.js',
         'resources/assets/templates/admin/js/particles.app.js',
         'resources/assets/templates/admin/js/password-addon.init.js',
@@ -74,6 +76,10 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/datatables.init.js',
         'resources/assets/templates/admin/js/form-pickers.init.js',
         'resources/assets/templates/admin/js/select2.init.js',
+        'resources/assets/templates/admin/js/apexcharts.min.js', // Overview dashboard
+        'resources/assets/templates/admin/js/jsvectormap.min.js', // Overview dashboard
+        'resources/assets/templates/admin/js/world-merc.js', // Overview dashboard
+        'resources/assets/templates/admin/js/swiper-bundle.min.js', // Overview dashboard
         'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');

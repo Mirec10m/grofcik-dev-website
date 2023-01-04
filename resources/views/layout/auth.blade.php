@@ -13,6 +13,10 @@
 
     <link rel="shortcut icon" href="{{ asset('img/admin-favicon.ico') }}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link href="{{ asset('css/auth.min.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
 
@@ -20,7 +24,7 @@
 
 <body>
 
-<div class="auth-page-wrapper pt-5">
+<div class="auth-page-wrapper">
     <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
         <div class="bg-overlay"></div>
 
@@ -33,18 +37,6 @@
 
     <div class="auth-page-content">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center mt-sm-5 mb-4 text-white-50">
-                        <div>
-                            <a href="https://www.demi.sk/" class="d-inline-block auth-logo">
-                                <img src="{{ asset('img/admin-logo.png') }}" alt="" height="100">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             @yield('content')
         </div>
     </div>

@@ -63,3 +63,8 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+html[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-brand-box {
+    padding-left: 0;
+    padding-right: 0;
+}
