@@ -27,8 +27,6 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin._partials._alert')
-
                                     @include('admin.examples._partials._table')
                                 </div>
                             </div>

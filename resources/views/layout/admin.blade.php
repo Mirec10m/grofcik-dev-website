@@ -25,6 +25,8 @@
 
 <body>
 
+@include('admin._partials._alert')
+
 <div id="layout-wrapper">
     @include('admin._partials._topbar')
     @include('admin._partials._menu')

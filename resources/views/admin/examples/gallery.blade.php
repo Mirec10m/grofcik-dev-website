@@ -25,8 +25,6 @@
                                 </div>
                             </div>
 
-                            @include('admin._partials._alert')
-
                             <form action="javascript:void(0)" method="post">
                                 @csrf
 
