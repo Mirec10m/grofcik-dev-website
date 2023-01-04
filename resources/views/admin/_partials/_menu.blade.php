@@ -2,10 +2,10 @@
     <div class="navbar-brand-box">
         <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ asset('img/admin-logo-mark.png') }}" alt="" height="40">
+                <img src="{{ asset('img/admin-logo-mark.svg') }}" alt="" height="40">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('img/admin-logo.png') }}" alt="" height="40">
+                <img src="{{ asset('img/admin-logo.svg') }}" alt="" height="40">
             </span>
         </a>
         <a href="{{ route('dashboard.index') }}" class="logo logo-light">
