@@ -30,6 +30,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     .styles([ // ADMIN .css files
         'resources/assets/templates/admin/css/jsvectormap.min.css', // Overview dashboard
         'resources/assets/templates/admin/css/swiper-bundle.min.css', // Overview dashboard
+        'resources/assets/templates/admin/css/nouislider.min.css',
         'resources/assets/templates/admin/css/dataTables.bootstrap5.min.css',
         'resources/assets/templates/admin/css/responsive.bootstrap.min.css',
         'resources/assets/templates/admin/css/select2.min.css',
@@ -66,6 +67,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/feather.min.js',
         'resources/assets/templates/admin/js/lord-icon-2.1.0.js',
         'resources/assets/templates/admin/js/flatpickr.min.js',
+        'resources/assets/templates/admin/js/flatpickr_lang/sk.js',
         'resources/assets/templates/admin/js/bootstrap-filestyle.min.js',
         'resources/assets/templates/admin/js/select2.min.js',
         'resources/assets/templates/admin/js/jquery.dataTables.min.js',
@@ -80,6 +82,8 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/jsvectormap.min.js', // Overview dashboard
         'resources/assets/templates/admin/js/world-merc.js', // Overview dashboard
         'resources/assets/templates/admin/js/swiper-bundle.min.js', // Overview dashboard
+        'resources/assets/templates/admin/js/nouislider.min.js',
+        'resources/assets/templates/admin/js/wNumb.min.js',
         'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');

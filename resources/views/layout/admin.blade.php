@@ -44,6 +44,13 @@
 @yield('js')
 
 <script>
+    $('.datepicker').flatpickr({
+        'altInput': true,
+        'altFormat': 'd. m. Y',
+        'dateFormat': 'Y-m-d',
+        'locale': 'sk',
+    });
+
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({

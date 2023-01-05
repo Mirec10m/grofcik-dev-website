@@ -10,6 +10,8 @@ $(function(){
 
     callApiOffers();
     initSweetAlerts();
+    initNoUiSlider();
+    initFlatpickr();
 
 });
 
@@ -83,4 +85,40 @@ function initSweetAlerts () {
             buttonsStyling: false
         });
     }
+}
+
+function initNoUiSlider () {
+    console.log('init');
+    let formatter = wNumb({
+        decimals: 2,
+        mark: ',',
+        thousand: ' ',
+        suffix: ' €',
+    });
+
+    $('.slider-min-max').each(function () {
+        let e = $(this);
+
+        noUiSlider.create(this, {
+            start: [e.data('start-min'), e.data('start-max')],
+            tooltips: [true, true],
+            range: {
+                'min': e.data('min'),
+                'max': e.data('max'),
+            },
+            connect: true,
+            format: formatter,
+        });
+
+        this.noUiSlider.on('update', (v, h) => $(e.data( h ? 'input-max' : 'input-min' )).val(formatter.from(v[h])) );
+    })
+}
+
+function initFlatpickr () {
+    $('.datepicker').flatpickr({
+        'altInput': true,
+        'altFormat': 'd. m. Y',
+        'dateFormat': 'Y-m-d',
+        'locale': 'sk',
+    });
 }
