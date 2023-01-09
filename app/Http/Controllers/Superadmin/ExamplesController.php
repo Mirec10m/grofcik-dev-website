@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Superadmin;
 
 use App\Example;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Requests\CreateExamplesRequest;
-use App\Traits\UploadTrait;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -15,24 +15,24 @@ class ExamplesController extends AdminController
 
     public function index() : Factory | View | Application
     {
-        return view('admin.examples.index');
+        return view('admin.superadmin.examples.index');
     }
 
     public function create() : Factory | View | Application
     {
-        return view('admin.examples.create');
+        return view('admin.superadmin.examples.create');
     }
 
     public function store() : RedirectResponse
     {
         $this->_setFlashMessage('success', 'Vytvorená', "Položka <b>name_sk</b> bola vytvorená");
 
-        return redirect()->route('examples.index');
+        return redirect()->route('superadmin.examples.index');
     }
 
     public function edit() : Factory | View | Application
     {
-        return view('admin.examples.edit');
+        return view('admin.superadmin.examples.edit');
     }
 
     public function update() : RedirectResponse
@@ -46,29 +46,19 @@ class ExamplesController extends AdminController
     {
         $this->_setFlashMessage('success', 'Vymazaná', "Položka <b>name_sk</b> bola vymazaná");
 
-        return redirect()->route('examples.index');
+        return redirect()->route('superadmin.examples.index');
     }
 
     public function gallery() : Factory | View | Application
     {
-        return view('admin.examples.gallery');
+        return view('admin.superadmin.examples.gallery');
     }
 
     public function upload() : RedirectResponse
     {
         $this->_setFlashMessage('success', 'Nahraný', "Obrázok položky <b>name_sk</b> bol nahraný do galérie");
 
-        return redirect()->route('examples.gallery');
-    }
-
-    public function table() : Factory | View | Application
-    {
-        return view('admin.examples.table');
-    }
-
-    public function form() : Factory | View | Application
-    {
-        return view('admin.examples.form');
+        return redirect()->route('superadmin.examples.gallery');
     }
 
 }

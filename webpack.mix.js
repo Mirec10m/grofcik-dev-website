@@ -31,6 +31,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/css/jsvectormap.min.css', // Overview dashboard
         'resources/assets/templates/admin/css/swiper-bundle.min.css', // Overview dashboard
         'resources/assets/templates/admin/css/nouislider.min.css',
+        'resources/assets/templates/admin/css/classic.min.css',
         'resources/assets/templates/admin/css/dataTables.bootstrap5.min.css',
         'resources/assets/templates/admin/css/responsive.bootstrap.min.css',
         'resources/assets/templates/admin/css/select2.min.css',
@@ -68,6 +69,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/lord-icon-2.1.0.js',
         'resources/assets/templates/admin/js/flatpickr.min.js',
         'resources/assets/templates/admin/js/flatpickr_lang/sk.js',
+        'resources/assets/templates/admin/js/pickr.min.js',
         'resources/assets/templates/admin/js/bootstrap-filestyle.min.js',
         'resources/assets/templates/admin/js/select2.min.js',
         'resources/assets/templates/admin/js/jquery.dataTables.min.js',
