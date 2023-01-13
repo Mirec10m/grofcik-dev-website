@@ -10,8 +10,13 @@ $(function(){
 function initButtonLoading () {
     // On form submit all submit buttons show loader
     $('form').submit(function () {
-        $(this).find('button[type="submit"]').addClass('button-loading');
-        $(this).find('button[type="submit"]').prop('disabled', true);
+        let buttons = $.merge(
+            $(this).find('button[type="submit"]'), // Buttons inside form
+            $('button[type="submit"][form="' + $(this).prop('id') + '"]') // Buttons referencing form
+        );
+
+        buttons.addClass('button-loading');
+        buttons.prop('disabled', true);
     });
     // On non-submit button click show loader
     $(document).on('click', '.button-loader', function () {

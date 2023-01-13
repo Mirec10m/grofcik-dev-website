@@ -21,7 +21,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._partials._filters')
+                                    @include('admin.superadmin.pages._partials._filters')
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._partials._table_advanced')
+                                    @include('admin.superadmin.pages._partials._table_advanced')
                                 </div>
                             </div>
                         </div>

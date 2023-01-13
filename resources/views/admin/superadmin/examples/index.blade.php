@@ -19,7 +19,7 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('examples.create') }}" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('superadmin.examples.create') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="mdi mdi-plus pr-2"></i> Pridať položku
                                     </a>
                                 </div>
@@ -27,7 +27,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._partials._table')
+                                    @include('admin.superadmin.examples._partials._table')
                                 </div>
                             </div>
                         </div>

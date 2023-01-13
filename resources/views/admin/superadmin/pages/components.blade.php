@@ -22,7 +22,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._ui_partials._buttons')
+                                    @include('admin.superadmin.pages._partials._buttons')
                                 </div>
                             </div>
                         </div>
@@ -30,6 +30,29 @@
 
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-sm-6">
+                                    <h5 class="card-title mb-0">Button Loader</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @include('admin.superadmin.pages._partials._button_loader')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection

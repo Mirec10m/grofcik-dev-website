@@ -26,18 +26,18 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a href="{{ route('examples.edit') }}" class="dropdown-item">
+                            <a href="{{ route('superadmin.examples.edit') }}" class="dropdown-item">
                                 <i class="mdi mdi-lead-pencil action-icon"></i> Editovať
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('examples.gallery') }}" class="dropdown-item">
+                            <a href="{{ route('superadmin.examples.gallery') }}" class="dropdown-item">
                                 <i class="mdi mdi-image-multiple-outline action-icon"></i> Galéria
                             </a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li>
-                            <form action="{{ route('examples.destroy') }}" method="post" style="display: inline-block; width: 100%;">
+                            <form action="{{ route('superadmin.examples.destroy') }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
                                 @method('delete')
                                 <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="alert-delete dropdown-item pointer" type="button">
