@@ -76,7 +76,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 });
 
 Auth::routes([
-    'register' => true,
+    'register' => false,
     'reset' => true,
     'confirm' => false,
     'verify' => false,
