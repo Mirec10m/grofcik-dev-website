@@ -53,6 +53,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('superadmin.pages.form') }}" class="nav-link"> Formulár </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('superadmin.pages.invoice') }}" class="nav-link" target="_blank"> Faktúra </a>
+                                </li>
                             </ul>
                         </div>
                     </li>

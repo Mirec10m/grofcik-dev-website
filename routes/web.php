@@ -78,6 +78,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
         Route::get("/pages/table", [ ExamplePagesController::class, 'table'])->name("superadmin.pages.table");
         Route::get("/pages/form", [ ExamplePagesController::class, 'form'])->name("superadmin.pages.form");
+        Route::get("/pages/invoice", [ ExamplePagesController::class, 'invoice'])->name("superadmin.pages.invoice");
         Route::get("/pages/components", [ ExamplePagesController::class, 'components'])->name("superadmin.pages.components");
         Route::get("/pages/icons", [ ExamplePagesController::class, 'icons'])->name("superadmin.pages.icons");
         Route::get("/pages/overview", [ ExamplePagesController::class, 'overview'])->name("superadmin.pages.overview");
