@@ -60,7 +60,30 @@
 
 </div>
 
+<style>
+    .button-loading {
+        color: transparent;
+    }
+    .button-loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 25px;
+        height: 25px;
+        transform: translate(-50%, -50%);
+        border: 4px dashed;
+        border-radius: 50%;
+        border-color: #fff;
+    }
+</style>
+
 <script src="{{ asset('js/auth.min.js') }}" type="text/javascript"></script>
+<script>
+    $('form').submit(function () {
+        $(this).find('button[type="submit"]').addClass('button-loading');
+    });
+</script>
 @yield('js')
 
 </body>

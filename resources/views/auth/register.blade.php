@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="p-2 mt-4">
-                        <form class="needs-validation" action="{{ route('register') }}">
+                        <form class="needs-validation" action="{{ route('register') }}" method="post">
 
                             @csrf
 
