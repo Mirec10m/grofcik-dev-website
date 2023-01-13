@@ -47,6 +47,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     ], 'public/js/script.min.js')
 
     .scripts([ // AUTH .js files
+        'resources/assets/templates/admin/js/jquery-3.6.2.min.js',
         'resources/assets/templates/admin/js/bootstrap.bundle.min.js',
         'resources/assets/templates/admin/js/simplebar.min.js',
         'resources/assets/templates/admin/js/waves.min.js',
@@ -55,7 +56,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/particles.js',
         'resources/assets/templates/admin/js/particles.app.js',
         'resources/assets/templates/admin/js/password-addon.init.js',
-        //'' // this .css file must be last
+        'resources/assets/js/auth.js' // this .css file must be last
     ], 'public/js/auth.min.js')
 
     .scripts([ // ADMIN .js files

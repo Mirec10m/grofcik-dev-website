@@ -34,7 +34,7 @@
                             <div class="mb-3">
                                 <label for="username" class="form-label">Používateľské meno <span class="text-danger">*</span></label>
                                 <input name="username" type="text" value="{{ old('username') }}" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" id="username" placeholder="Používateľské meno">
-                                @include('admin._partials._errors', [ 'column' => 'email' ])
+                                @include('admin._partials._errors', [ 'column' => 'username' ])
                             </div>
 
                             <div class="mb-3">

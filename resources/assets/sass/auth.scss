@@ -1,3 +1,29 @@
+// Button Loading Effect
+.button-loading, .button-loading:hover, .button-loading:active {
+    color: transparent !important;
+    transition: color 0s !important;
+}
+.button-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    border: 3px dashed #fff;
+    border-radius: 50%;
+    animation: button-loading 3s linear infinite;
+}
+@keyframes button-loading {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 .auth-one-bg {
     background-image: none;
 }
