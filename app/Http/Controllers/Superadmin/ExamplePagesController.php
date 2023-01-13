@@ -7,6 +7,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Response;
 
 class ExamplePagesController extends AdminController
 {
@@ -26,7 +27,7 @@ class ExamplePagesController extends AdminController
         return view('admin.superadmin.pages.form');
     }
 
-    public function invoice()
+    public function invoice() : Response
     {
         $pdf = Pdf::loadView('admin.superadmin.pages.invoice');
 
