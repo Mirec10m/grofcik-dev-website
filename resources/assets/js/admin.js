@@ -1,4 +1,5 @@
 $(function(){
+    initButtonLoading();
     initPriceInput();
     callApiOffers();
     initSweetAlerts();
@@ -6,7 +7,20 @@ $(function(){
     initFlatpickr();
 });
 
-function callApiOffers () {
+function initButtonLoading () {
+    // On form submit all submit buttons show loader
+    $('form').submit(function () {
+        $(this).find('button[type="submit"]').addClass('button-loading');
+        $(this).find('button[type="submit"]').prop('disabled', true);
+    });
+    // On non-submit button click show loader
+    $(document).on('click', '.button-loader', function () {
+        $(this).addClass('button-loading');
+        $(this).prop('disabled', true);
+    });
+}
+
+function callApiOffers() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -64,7 +78,7 @@ function initSweetAlerts () {
             title: 'Vymazať položku - ' + button.data('entity'),
             html: buildDeleteAlert( button.data('entity') ),
             showCancelButton: true,
-            confirmButtonClass: "btn btn-danger w-xs me-2 mb-1",
+            confirmButtonClass: "btn btn-danger button-loader w-xs me-2 mb-1",
             confirmButtonText: "Áno",
             cancelButtonClass: "btn btn-dark w-xs mb-1",
             cancelButtonText: "Nie",
@@ -79,7 +93,7 @@ function initSweetAlerts () {
             title: confirmed_alert.data('title'),
             html: confirmed_alert.data('message'),
             icon: confirmed_alert.data('icon'),
-            confirmButtonClass: "btn btn-primary w-xs mt-2",
+            confirmButtonClass: "btn btn-primary button-loader w-xs mt-2",
             buttonsStyling: false
         });
     }
