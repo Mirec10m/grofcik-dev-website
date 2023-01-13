@@ -5,6 +5,7 @@ $(function(){
     initSweetAlerts();
     initNoUiSlider();
     initFlatpickr();
+    initColorPickr();
 });
 
 function initButtonLoading () {
@@ -148,7 +149,9 @@ function initPriceInput () {
 }
 
 function initColorPickr () {
+    console.log('init');
     $('.colorpicker').each(function () {
+        console.log($(this));
         Pickr.create({
             el: this,
             theme: "classic",
