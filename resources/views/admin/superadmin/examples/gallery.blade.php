@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Examples', 'crumbs' => [ 'Demibox' ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => /* '$item->name_sk - Galéria' */'Lorem ipsum - Galéria', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('examples.index'), ]])
 
             <div class="row">
                 <div class="col-lg-12">
@@ -15,20 +15,30 @@
                         <div class="card-body">
                             <div class="row mb-4">
                                 <div class="col-sm-6">
-                                    <h5 class="card-title mb-0">Editovať položku - {{-- $item->name_sk --}}Lorem ipsum</h5>
+                                    <h5 class="card-title mb-0">Galéria položky - {{-- $item->name_sk --}}Lorem ipsum</h5>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
                                     <a href="{{ route('examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam položiek
+                                        <i class="fa fa-list pr-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>
 
-                            <form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('examples.upload') }}" method="post">
                                 @csrf
 
-                                @include('admin.examples._partials._form')
+                                <div class="row mb-3">
+                                    <div class="col-sm-4">
+
+                                        <div>
+                                            <label for="image" class="form-label">Obrázok</label>
+                                            <input name="image" class="form-control filestyle {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" id="image" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
+                                            @include('admin._partials._errors', ['column' => 'image'])
+                                        </div>
+
+                                    </div>
+                                </div>
 
                                 @include('admin._partials._buttons')
                             </form>
@@ -42,7 +52,7 @@
                             </div>
 
                             <div class="row">
-                                @if(1)
+                                @foreach(range(1, 8) as $i)
                                     <div class="col-sm-3">
                                         @include('admin._partials._image', [
                                             'thumb' => asset('img/image-placeholder.jpg'),
@@ -51,7 +61,7 @@
                                             'entity' => 'image-placeholder.jpg',
                                         ])
                                     </div>
-                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>

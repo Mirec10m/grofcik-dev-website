@@ -44,6 +44,35 @@
 @yield('js')
 
 <script>
+
+    /*let buildConfirmAlert = entity => (
+        '<div class="mt-3">' +
+        '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>' +
+        '<div class="mt-4 pt-2 fs-15 mx-5">' +
+        '<h4>Ste si istý ?</h4>' +
+        '<p class="text-muted mx-4 mb-0">Ste si istý, že chcete vymazať položku - ' + entity + ' ?</p>' +
+        '</div>' +
+        '</div>'
+    );*/
+
+    $('.alert-confirm').click(function () {
+        let button = $(this);
+
+        Swal.fire({
+            title: button.data('action'),
+            //html: buildConfirmAlert( button.data('entity') ),
+            html: 'Ste si istý, že chcete vykonať akciu - <b>' + button.data('action') + '</b> ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger w-xs me-2 mb-1",
+            confirmButtonText: "Áno",
+            cancelButtonClass: "btn btn-dark w-xs mb-1",
+            cancelButtonText: "Nie",
+            buttonsStyling: false,
+            showCloseButton: true
+        }).then( event => event.isConfirmed && false ? button.parent().submit() : void 0 );
+    });
+
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({

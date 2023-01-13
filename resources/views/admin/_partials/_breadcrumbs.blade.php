@@ -5,8 +5,8 @@
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    @foreach($crumbs as $crumb)
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">{{ $crumb }}</a></li>
+                    @foreach($crumbs as $crumb => $redirect)
+                        <li class="breadcrumb-item"><a href="{{ $redirect ?? 'javascript:void(0);' }}">{{ $crumb }}</a></li>
                     @endforeach
                     <li class="breadcrumb-item active">{{ $title }}</li>
                 </ol>

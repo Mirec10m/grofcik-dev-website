@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Superadmin;
 
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 
-class SuperAdminController extends AdminController
+class DatabaseController extends AdminController
 {
 
     public function migrate() : RedirectResponse
