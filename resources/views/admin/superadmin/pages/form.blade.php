@@ -22,7 +22,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._lang_tabs')
+                                    @include('admin.superadmin.pages._partials._lang_tabs')
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._select2')
+                                    @include('admin.superadmin.pages._partials._select2')
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._tinymce')
+                                    @include('admin.superadmin.pages._partials._tinymce')
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._switches')
+                                    @include('admin.superadmin.pages._partials._switches')
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._pickers')
+                                    @include('admin.superadmin.pages._partials._pickers')
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.examples._form_partials._others')
+                                    @include('admin.superadmin.pages._partials._others')
                                 </div>
                             </div>
                         </div>

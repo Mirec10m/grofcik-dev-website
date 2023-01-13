@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => /* '$item->name_sk - Galéria' */'Lorem ipsum - Galéria', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('examples.index'), ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => /* '$item->name_sk - Galéria' */'Lorem ipsum - Galéria', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('superadmin.examples.index'), ]])
 
             <div class="row">
                 <div class="col-lg-12">
@@ -19,13 +19,13 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="fa fa-list pr-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>
 
-                            <form action="{{ route('examples.upload') }}" method="post">
+                            <form action="{{ route('superadmin.examples.upload') }}" method="post">
                                 @csrf
 
                                 <div class="row mb-3">

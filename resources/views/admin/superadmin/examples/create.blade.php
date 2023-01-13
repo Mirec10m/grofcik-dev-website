@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Nová položka', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('examples.index'), ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Nová položka', 'crumbs' => [ 'Demibox' => null, 'Examples' => null, 'Sekcia' => route('superadmin.examples.index'), ]])
 
             <div class="row">
                 <div class="col-lg-12">
@@ -19,16 +19,16 @@
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                                    <a href="{{ route('superadmin.examples.create') }}" class="btn btn-primary waves-effect waves-light float-end">
                                         <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>
 
-                            <form action="{{ route('examples.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('superadmin.examples.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
-                                @include('admin.examples._partials._form')
+                                @include('admin.superadmin.examples._partials._form')
 
                                 @include('admin._partials._buttons')
                             </form>
