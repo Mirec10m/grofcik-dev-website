@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -25,6 +26,14 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
+    public function register()
+    {
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->is('admin/*')) return view('errors.admin.404');
+            return view('errors.web.404');
+        })->renderable();
+    }
 
     /**
      * Report or log an exception.
