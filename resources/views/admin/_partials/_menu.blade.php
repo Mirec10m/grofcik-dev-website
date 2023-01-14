@@ -56,6 +56,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('superadmin.pages.invoice') }}" class="nav-link" target="_blank"> Faktúra </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('superadmin.orders.index') }}" class="nav-link"> Objednávky </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
