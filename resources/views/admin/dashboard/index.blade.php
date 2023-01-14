@@ -3,11 +3,12 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Úvod', 'crumbs' => []])
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Demi Box v 3.0</h6>
                             <p>Vitajte vo Vašej administrácii</p>
 
                             <h6 class="card-title">Úvod</h6>

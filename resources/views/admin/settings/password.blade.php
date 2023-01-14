@@ -7,7 +7,10 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Nastavenia', 'crumbs' => [ 'Demibox' ]])
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Zmena hesla', 'crumbs' => [
+                'Úvod' => route('dashboard.index'),
+                'Nastavenia' => null,
+            ]])
 
             <div class="row">
                 <div class="col-lg-12">

@@ -3,6 +3,9 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Prehľad', 'crumbs' => [
+                'Úvod' => route('dashboard.index'),
+            ]])
 
             <div class="row">
                 <div class="col">

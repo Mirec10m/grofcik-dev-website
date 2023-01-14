@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Superadmin;
 
-use App\Example;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Requests\CreateExamplesRequest;
+use App\Http\Requests\Superadmin\CreateExamplesRequest;
+use App\Http\Requests\Superadmin\UpdateExamplesRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,7 +23,7 @@ class ExamplesController extends AdminController
         return view('admin.superadmin.examples.create');
     }
 
-    public function store() : RedirectResponse
+    public function store(CreateExamplesRequest $request) : RedirectResponse
     {
         $this->_setFlashMessage('success', 'Vytvorená', "Položka <b>name_sk</b> bola vytvorená");
 
@@ -35,7 +35,7 @@ class ExamplesController extends AdminController
         return view('admin.superadmin.examples.edit');
     }
 
-    public function update() : RedirectResponse
+    public function update(UpdateExamplesRequest $request) : RedirectResponse
     {
         $this->_setFlashMessage('success', 'Zmenená', "Položka <b>name_sk</b> bola zmenená");
 
