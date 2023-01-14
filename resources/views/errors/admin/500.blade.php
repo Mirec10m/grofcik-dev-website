@@ -8,10 +8,9 @@
                     <img src="{{ asset('img/error.svg') }}" alt="" class="error-basic-img move-animation">
                 </div>
                 <div class="mt-n4">
-                    <h1 class="display-1 fw-medium">404</h1>
-                    <h3 class="text-uppercase">Stránka nebola nájdená</h3>
-                    <p class="text-muted mb-4">The page you are looking for not available!</p>
-                    <a href="index.html" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Back to home</a>
+                    <h1 class="display-1 fw-medium">500</h1>
+                    <h3 class="text-uppercase">Chyba servera</h3>
+                    <a href="{{ route('dashboard.index') }}" class="btn btn-success"><i class="mdi mdi-home me-1"></i>Späť na domov</a>
                 </div>
             </div>
         </div>

@@ -29,10 +29,17 @@ class Handler extends ExceptionHandler
 
     public function register()
     {
-        $this->renderable(function (NotFoundHttpException $e, $request) {
-            if ($request->is('admin/*')) return view('errors.admin.404');
-            return view('errors.web.404');
-        })->renderable();
+        $ui = fn ($request) => $request->is('admin/*') ? 'admin' : 'web';
+
+        $this->renderable(function (NotFoundHttpException $e, $request) use ($ui) {
+            return response()->view("errors." . $ui($request) . ".404");
+        })->renderable(function (\Exception $e, $request) use ($ui) {
+            if ( in_array($e->getCode(), [ 419, 500 ]) ){
+                return response()->view("errors." . $ui($request) . "." . $e->getCode());
+            }
+
+            return parent::render($request, $e);
+        });
     }
 
     /**
