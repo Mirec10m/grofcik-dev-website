@@ -54,7 +54,7 @@
                                         <i class="mdi mdi-printer pr-2"></i> Print
                                     </a>
 
-                                    <a href="#" class="btn btn-primary waves-effect waves-light">
+                                    <a href="#" class="btn btn-success waves-effect waves-light">
                                         <i class="mdi mdi-plus pr-2"></i> Add
                                     </a>
                                 </div>

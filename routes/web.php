@@ -11,6 +11,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Superadmin\OrdersController;
 
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
@@ -75,6 +76,12 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
         Route::delete("/examples/id", [ ExamplesController::class, 'destroy'])->name("superadmin.examples.destroy");
         Route::get("/examples/id/gallery", [ ExamplesController::class, 'gallery'])->name("superadmin.examples.gallery");
         Route::post("/examples/id/gallery", [ ExamplesController::class, 'upload'])->name("superadmin.examples.upload");
+
+        Route::get('/orders', [ OrdersController::class, 'index' ])->name("superadmin.orders.index");
+        Route::get('/orders/id/show', [ OrdersController::class, 'show' ])->name("superadmin.orders.show");
+        Route::get('/orders/id/invoice', [ OrdersController::class, 'invoice' ])->name("superadmin.orders.invoice");
+        Route::delete('/orders/id', [ OrdersController::class, 'destroy' ])->name("superadmin.orders.destroy");
+        Route::post('/orders/id/status', [ OrdersController::class, 'status' ])->name("superadmin.orders.status");
 
         Route::get("/pages/table", [ ExamplePagesController::class, 'table'])->name("superadmin.pages.table");
         Route::get("/pages/form", [ ExamplePagesController::class, 'form'])->name("superadmin.pages.form");
