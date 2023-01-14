@@ -10,8 +10,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   transform: translate(-50%, -50%);
   border: 3px dashed #fff;
   border-radius: 50%;
