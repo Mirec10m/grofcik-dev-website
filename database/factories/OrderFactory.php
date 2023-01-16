@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Order;
+use App\OrderItem;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Order>
+ * @extends Factory<Order>
  */
 class OrderFactory extends Factory
 {
@@ -18,8 +21,9 @@ class OrderFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
+     * @throws Exception
      */
-    public function definition()
+    public function definition() : array
     {
         return [
             'number' => now()->year . sprintf('%05d', self::$number++),
@@ -37,4 +41,12 @@ class OrderFactory extends Factory
             'price' => random_int(100000, 1000000) / 100,
         ];
     }
+
+    public function items() : OrderFactory
+    {
+        return $this->afterMaking(function (Order $order) {
+            $order->setRelation('order_items', OrderItem::factory(5)->make());
+        });
+    }
+
 }

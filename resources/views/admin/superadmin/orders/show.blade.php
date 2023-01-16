@@ -75,23 +75,32 @@
                                 <u>Aktuálny stav</u>: <i class="{{ $order->status_class }}">{{ $order->formatted_status }}</i> <br><br>
 
                                 <div class="d-flex">
-                                    @if( $order->status != 'storno' || true )
-                                        <form action="{{ route('superadmin.orders.status') }}" method="post">
+                                    @if( $order->status != 'storno' )
+                                        <form action="{{ route('superadmin.orders.status') }}" method="post" class="me-auto">
                                             @csrf
 
                                             <input type="hidden" name="status" value="storno">
 
-                                            <button class="btn btn-danger me-auto" style="margin-right: 5px;">Storno</button>
+                                            <button class="btn btn-danger alert-confirm" type="button"
+                                                    data-title="Storno Objednávka č. {{ $order->number }}"
+                                                    data-message="Naozaj chcete stornovať <b>Objednávka č. {{ $order->number }}</b>?"
+                                                    data-confirm-class="danger">
+                                                Storno
+                                            </button>
                                         </form>
                                     @endif
 
-                                    @if( $order->status == 'received' || true )
+                                    @if( $order->status == 'received' )
                                         <form action="{{ route('superadmin.orders.status') }}" method="post">
                                             @csrf
 
                                             <input type="hidden" name="status" value="shipped">
 
-                                            <button class="btn btn-primary" style="margin-right: 5px;">Odoslaná</button>
+                                            <button class="btn btn-primary alert-confirm" type="button"
+                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - odoslaná"
+                                                    data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na odoslaná?">
+                                                Odoslaná
+                                            </button>
                                         </form>
                                     @elseif( $order->status == 'shipped' )
                                         <form action="{{ route('superadmin.orders.status') }}" method="post">
@@ -99,7 +108,11 @@
 
                                             <input type="hidden" name="status" value="closed">
 
-                                            <button class="btn btn-primary" style="margin-right: 5px;">Vybavená</button>
+                                            <button class="btn btn-primary alert-confirm" type="button"
+                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - uzavretá"
+                                                    data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na uzavretá?">
+                                                Uzavretá
+                                            </button>
                                         </form>
                                     @endif
                                 </div>
@@ -110,12 +123,12 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title">Položky objednávky</h6>
 
-                            <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                            <table id="" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th>Produkt</th>
@@ -125,12 +138,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($order_items as $order_item)
+                                @foreach($order->order_items as $order_item)
                                     <tr>
-                                        <td>{{ $order_items->name }}</td>
-                                        <td>{{ $order_items->formatted_unit_price }}</td>
-                                        <td>{{ $order_items->amount }}</td>
-                                        <td>{{ $order_items->formatted_price }}</td>
+                                        <td>{{ $order_item->name }}</td>
+                                        <td>{{ $order_item->formatted_unit_price }} €</td>
+                                        <td>{{ $order_item->quantity }}</td>
+                                        <td>{{ $order_item->formatted_full_price }} €</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -140,6 +153,41 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Položky objednávky</h6>
+
+                            <div class="row justify-content-end">
+                                <div class="col-lg-3">
+                                    Cena objednávky:
+                                    <br>
+                                    Doprava a platba:
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <b>{{ $order->formatted_items_price }} €</b>
+                                    <br>
+                                    <b>{{ $order->formatted_delivery_payment_price }} €</b>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row justify-content-end">
+                                <div class="col-lg-3 fs-4">
+                                    Total price:
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <b>{{ $order->formatted_full_price }} €</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
