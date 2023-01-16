@@ -25,7 +25,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    @include('admin.superadmin.pages._partials._buttons')
+                                    @include('admin.superadmin.pages._partials._icons')
                                 </div>
                             </div>
                         </div>
@@ -35,4 +35,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/superadmin/materialdesign.list.js') }}"></script>
 @endsection

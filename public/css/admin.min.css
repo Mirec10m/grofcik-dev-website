@@ -53,6 +53,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,table.dataTable.dtr-inlin
 
 /*# sourceMappingURL=custom.min.css.map */
 
+@charset "UTF-8";
+
 .button-loading,
 .button-loading:hover,
 .button-loading:active {
@@ -61,17 +63,18 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,table.dataTable.dtr-inlin
 }
 
 .button-loading::after {
-  content: "";
+  content: "\F0772";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 22px;
   height: 22px;
   transform: translate(-50%, -50%);
-  border: 3px dashed #fff;
-  border-radius: 50%;
-  -webkit-animation: button-loading 3s linear infinite;
-          animation: button-loading 3s linear infinite;
+  -webkit-animation: button-loading 2s linear infinite;
+          animation: button-loading 2s linear infinite;
+  font: normal normal normal 24px/1 "Material Design Icons";
+  display: inline-block;
+  color: #fff;
 }
 
 @-webkit-keyframes button-loading {
