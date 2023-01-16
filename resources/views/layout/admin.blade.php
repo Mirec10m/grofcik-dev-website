@@ -35,8 +35,6 @@
 
     <div class="main-content">
         @yield('content')
-
-        @include('admin._partials._footer')
     </div>
 </div>
 
