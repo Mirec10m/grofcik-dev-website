@@ -7,16 +7,17 @@
     transition: color 0s !important;
 }
 .button-loading::after {
-    content: '';
+    content: "\f0772";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 22px;
     height: 22px;
     transform: translate(-50%, -50%);
-    border: 3px dashed #fff;
-    border-radius: 50%;
-    animation: button-loading 3s linear infinite;
+    animation: button-loading 2s linear infinite;
+    font: normal normal normal 24px/1 "Material Design Icons";
+    display: inline-block;
+    color: #fff;
 }
 @keyframes button-loading {
     0% {
