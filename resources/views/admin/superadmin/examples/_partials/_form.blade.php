@@ -59,7 +59,7 @@
 
             <div class="col-sm-2">
                 <label class="form-label">Zobraziť</label>
-                <div class="form-check form-switch form-switch-success form-switch-lg" dir="ltr">
+                <div class="form-check form-switch form-switch-info form-switch-lg" dir="ltr">
                     <input name="show" type="hidden" value="0">
                     <input name="show" id="show-check" type="checkbox" class="form-check-input {{ $errors->has('show') ? 'is-invalid' : '' }}" value="1" {{ old('show') == 1 ? 'checked' : (isset($item) && $item->show ? 'checked' : '') }}>
                     @include('admin._partials._errors', ['column' => 'show'])

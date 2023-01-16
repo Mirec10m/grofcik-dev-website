@@ -4,7 +4,7 @@
         <div class="row mb-3">
             <div class="col-sm-6">
                 <label class="form-label">Default switch</label>
-                <div class="form-check form-switch form-switch-success form-switch-lg">
+                <div class="form-check form-switch form-switch-info form-switch-lg">
                     <input name="input6" type="hidden" value="0">
                     <input name="input6" type="checkbox" class="form-check-input {{ $errors->has('input6') ? 'is-invalid' : '' }}" value="1" {{ old('input6') == 1 ? 'checked' : (isset($item) && $item->input6 ? 'checked' : '') }}>
                 </div>
