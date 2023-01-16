@@ -80,6 +80,22 @@
     }
 }
 
+.admin-footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: transparent;
+    padding: 0.625rem 1.5rem;
+    height: unset;
+    color: #abb9e8;
+    border-top: 1px solid;
+}
+.page-content {
+    padding-bottom: 0 !important;
+}
+
 .image-wrapper:hover{
     img{
         transform: translateY(-50px);

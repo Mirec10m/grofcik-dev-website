@@ -113,5 +113,7 @@
         </div>
     </div>
 
+    @include('admin._partials._footer')
+
     <div class="sidebar-background"></div>
 </div>
