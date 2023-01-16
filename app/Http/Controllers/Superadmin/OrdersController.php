@@ -23,18 +23,16 @@ class OrdersController extends AdminController
 
     public function show() : Factory | View | Application
     {
-        $order = Order::factory()->make();
-        $order_items = [];
+        $order = Order::factory()->items()->make();
 
-        return view('admin.superadmin.orders.show', compact('order', 'order_items'));
+        return view('admin.superadmin.orders.show', compact('order'));
     }
 
     public function invoice() : Response
     {
-        $order = Order::factory()->make();
-        $order_items = [];
+        $order = Order::factory()->items()->make();
 
-        $pdf = Pdf::loadView('admin.superadmin.orders.invoice', compact('order', 'order_items'));
+        $pdf = Pdf::loadView('admin.superadmin.orders.invoice', compact('order'));
 
         return $pdf->stream();
     }
