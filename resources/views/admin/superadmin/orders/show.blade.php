@@ -81,7 +81,7 @@
 
                                             <input type="hidden" name="status" value="storno">
 
-                                            <button class="btn btn-danger alert-confirm" type="button"
+                                            <button class="btn btn-danger alert-confirm-status" type="button"
                                                     data-title="Storno Objednávka č. {{ $order->number }}"
                                                     data-message="Naozaj chcete stornovať <b>Objednávka č. {{ $order->number }}</b>?"
                                                     data-confirm-class="danger">
@@ -96,7 +96,7 @@
 
                                             <input type="hidden" name="status" value="shipped">
 
-                                            <button class="btn btn-primary alert-confirm" type="button"
+                                            <button class="btn btn-primary alert-confirm-status" type="button"
                                                     data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - odoslaná"
                                                     data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na odoslaná?">
                                                 Odoslaná
@@ -108,7 +108,7 @@
 
                                             <input type="hidden" name="status" value="closed">
 
-                                            <button class="btn btn-primary alert-confirm" type="button"
+                                            <button class="btn btn-primary alert-confirm-status" type="button"
                                                     data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - uzavretá"
                                                     data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na uzavretá?">
                                                 Uzavretá
