@@ -30,8 +30,9 @@ class CreateExamplesRequest extends FormRequest
             'description_sk' => 'required|string',
             'price' => 'nullable',
             'show' => 'in:1,0',
-            'category_id' => '',
+            'category_id' => 'required|integer|between:1,5',
             'distribution_date' => 'nullable|date_format:Y-m-d',
+            'profile' => 'required|file',
         ];
     }
 }
