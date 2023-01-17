@@ -12,6 +12,7 @@ use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Superadmin\OrdersController;
+use App\Http\Controllers\Admin\UsersController;
 
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
@@ -43,6 +44,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::post("/settings/update", [ SettingsController::class, 'update'])->name("settings.update");
     Route::get("/settings/password", [ SettingsController::class, 'password'])->name("settings.password");
     Route::post("/settings/change", [ SettingsController::class, 'change'])->name("settings.change");
+
+    // Users
+    Route::resource("/users", UsersController::class)->except([ 'show' ]);
 
     /*
      * Examples of forms, lightbox, etc.
