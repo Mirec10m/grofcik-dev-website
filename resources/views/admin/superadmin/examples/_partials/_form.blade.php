@@ -120,26 +120,5 @@
                 </div>
             </div>
         </div>
-
-        <div class="border-top mb-3"></div>
-
-        <div class="row mb-3">
-            <div class="col-sm-12">
-                <h5 class="card-title mb-0">Obrázok</h5>
-            </div>
-        </div>
-
-        <div class="row">
-            @if(1)
-                <div class="col-sm-3">
-                    @include('admin._partials._image', [
-                        'thumb' => asset('img/image-placeholder.jpg'),
-                        'image' => asset('img/image-placeholder.jpg'),
-                        'delete' => 'javascript:void(0)',
-                        'entity' => 'image-placeholder.jpg',
-                    ])
-                </div>
-            @endif
-        </div>
     </div>
 </div>

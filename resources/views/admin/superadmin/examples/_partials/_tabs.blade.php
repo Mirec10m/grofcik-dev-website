@@ -12,7 +12,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ has_errors($errors, ['image']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#profile" role="tab" aria-selected="false">
+        <a class="nav-link {{ has_errors($errors, ['profile']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#profile" role="tab" aria-selected="false">
             Profilový obrázok
         </a>
     </li>

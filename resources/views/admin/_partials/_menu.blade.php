@@ -35,7 +35,24 @@
                     </a>
                 </li>
 
-                @if(auth()->user()->super_admin)
+                @if( auth()->user()->admin )
+                    <li class="menu-title"><i class="ri-more-fill"></i> <span>Admin</span></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                            <i class="mdi mdi-format-list-bulleted"></i> <span>Administrácia</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebar-users">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                @endif
+
+                @if( auth()->user()->super_admin )
                     <li class="menu-title"><i class="ri-more-fill"></i> <span>Super Admin</span></li>
 
                     <li class="nav-item">

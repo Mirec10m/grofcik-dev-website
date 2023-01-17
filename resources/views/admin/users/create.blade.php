@@ -1,42 +1,43 @@
 @extends('layout.admin')
 
 @section('page-title')
-    Examples
+    Používatelia
 @endsection
 
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Nová položka', 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Nová používateľ', 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
-                'Examples' => route('superadmin.examples.index'),
+                'Používatelia' => route('users.index'),
             ]])
 
             <div class="row">
                 <div class="col-lg-12">
-                    @include('admin.superadmin.examples._partials._tabs')
+                    @include('admin.users._partials._tabs')
 
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-4">
                                 <div class="col-sm-6">
-                                    <h5 class="card-title mb-0">Nová položka</h5>
+                                    <h5 class="card-title mb-0">Nový používateľ</h5>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam položiek
+                                    <a href="{{ route('users.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                                        <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam používateľov
                                     </a>
                                 </div>
                             </div>
 
-                            <form action="{{ route('superadmin.examples.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
-                                @include('admin.superadmin.examples._partials._form')
+                                @include('admin.users._partials._form')
 
                                 @include('admin._partials._buttons')
                             </form>
+
                         </div>
                     </div>
                 </div>

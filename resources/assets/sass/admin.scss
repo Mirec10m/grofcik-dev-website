@@ -44,7 +44,7 @@
     background-color: #fff;
     border-bottom: 1px solid #e9ebec;
 
-    .active {
+    &.active {
         border-bottom: 1px solid #fff;
     }
 }
