@@ -9,7 +9,7 @@ class UpdateExamplesRequest extends CreateExamplesRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize () : bool
     {
         return true;
     }
@@ -19,9 +19,11 @@ class UpdateExamplesRequest extends CreateExamplesRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules () : array
     {
         $rules = parent::rules();
+
+        $rules['profile'] = 'nullable|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif';
 
         return $rules;
     }

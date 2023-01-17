@@ -6,6 +6,7 @@ $(function(){
     initNoUiSlider();
     initFlatpickr();
     initColorPickr();
+    initVatParser();
 });
 
 function initButtonLoading () {
@@ -201,4 +202,18 @@ function initColorPickr () {
             }
         }).on('change', color => $( $(this).data('input') ).val(color.toHEXA().toString()) );
     });
+}
+
+function initVatParser () {
+    let vat_parser = () => {
+        let vat_checked = $('input[type="checkbox"][name="vat"]').is(':checked');
+        let price_vat = $('input[name="price"]').val() * 1.2;
+        let input_price_vat = $('input[name="price_vat"]');
+
+        input_price_vat.val( vat_checked && price_vat != 0 ? Math.round( price_vat * 100 ) / 100 : '' );
+        input_price_vat.prop('disabled', ! vat_checked);
+    }
+
+    $('input[type="checkbox"][name="vat"]').change(vat_parser).trigger('change');
+    $('input[name="price"]').change(vat_parser);
 }
