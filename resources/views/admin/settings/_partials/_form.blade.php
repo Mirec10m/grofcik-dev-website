@@ -24,7 +24,7 @@
 
             <div class="col-sm-6">
                 <label class="form-label">E-mail</label>
-                <input name="email" type="text" value="{{ old("email", $user->email ?? '') }}" class="form-control">
+                <input disabled type="text" value="{{ $user->email ?? '' }}" class="form-control">
                 @include('admin._partials._errors', ['column' => "email"])
             </div>
         </div>

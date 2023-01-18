@@ -23,7 +23,6 @@ class UpdateUserRequest extends CreateUserRequest
     {
         $rules = parent::rules();
 
-        $rules['username'] = '';
         $rules['email'] = '';
         $rules['password'] = '';
 

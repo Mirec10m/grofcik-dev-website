@@ -36,14 +36,6 @@
                     <div class="row mb-3">
                         <div class="col-sm-6">
                             <label class="form-label">
-                                Používateľské meno <span class="text-danger">*</span>
-                            </label>
-                            <input name="username" type="text" value="{{ old("username", $user->username ?? '') }}" class="form-control {{ $errors->has("username") ? 'is-invalid' : '' }}">
-                            @include('admin._partials._errors', ['column' => "username"])
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label class="form-label">
                                 E-mail <span class="text-danger">*</span>
                             </label>
                             <input name="email" type="text" value="{{ old("email", $user->email ?? '') }}" class="form-control {{ $errors->has("email") ? 'is-invalid' : '' }}">

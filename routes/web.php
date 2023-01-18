@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Superadmin\OrdersController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Auth\LogoutController;
 
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
@@ -105,3 +106,4 @@ Auth::routes([
     'confirm' => false,
     'verify' => false,
 ]);
+Route::get('/logout', LogoutController::class)->name('logout');

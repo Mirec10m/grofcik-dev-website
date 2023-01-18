@@ -32,12 +32,6 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="username" class="form-label">Používateľské meno <span class="text-danger">*</span></label>
-                                <input name="username" type="text" value="{{ old('username') }}" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" id="username" placeholder="Používateľské meno">
-                                @include('admin._partials._errors', [ 'column' => 'username' ])
-                            </div>
-
-                            <div class="mb-3">
                                 <label class="form-label" for="password">Heslo <b class="text-danger">*</b></label>
                                 <div class="position-relative auth-pass-inputgroup">
                                     <input name="password" type="password" class="form-control pe-5 password-input {{ $errors->has('password') ? 'is-invalid' : '' }}" onpaste="return false" placeholder="Heslo" id="password" aria-describedby="passwordInput">

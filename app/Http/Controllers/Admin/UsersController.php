@@ -27,8 +27,8 @@ class UsersController extends AdminController
 
     public function store (CreateUserRequest $request) : RedirectResponse
     {
-        $user = new User( $request->only([ 'username', 'name', 'surname', 'email', 'password' ]) );
-        //$user = User::create( $request->only([ 'username', 'name', 'surname', 'email', 'password' ]) );
+        $user = new User( $request->only([ 'name', 'surname', 'email', 'password' ]) );
+        //$user = User::create( $request->only([ 'name', 'surname', 'email', 'password' ]) );
 
         $this->_setFlashMessage('success', 'Vytvorený', "Používateľ <b>$user->full_name</b> bol vytvorený");
 
