@@ -28,7 +28,7 @@ class SettingsController extends AdminController
     {
         $user = auth()->user();
 
-        $user->update( $request->only([ 'name', 'surname', 'email', 'position' ]) );
+        $user->update( $request->only([ 'name', 'surname', 'position' ]) );
 
         $this->_setFlashMessage('success', 'Uložené', "Nastavenia boli úspešne uložené.");
 

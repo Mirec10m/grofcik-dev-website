@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="card-body p-4">
-                            <div class="tab-content">
+                            <div class="tab-content border-0">
                                 <div class="tab-pane active" id="profile" role="tabpanel">
                                     <form action="{{ route('settings.profile') }}" method="post" enctype="multipart/form-data">
                                         @csrf

@@ -162,7 +162,6 @@ return [
         // Other
         'name' => 'Meno/Názov',
         'surname' => 'Priezvisko',
-        'username' => 'Používateľské meno',
         'email' => 'E-mail',
         'password' => 'Heslo',
         'price' => 'Cena',
