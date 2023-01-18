@@ -55,7 +55,7 @@
 
 .custom-tabs > .nav-item > .nav-link {
   background-color: #fff;
-  border-bottom: 1px solid #e9ebec;
+  border: 1px solid #e9ebec;
 }
 
 .custom-tabs > .nav-item > .nav-link.active {

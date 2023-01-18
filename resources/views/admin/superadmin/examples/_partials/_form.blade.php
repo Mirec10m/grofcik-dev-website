@@ -1,5 +1,17 @@
 <div class="tab-content custom-tab-content mb-4">
     <div class="tab-pane p-3 active" id="general" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Všeobecné</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 @include('admin._partials._lang_tabs', [ 'inputs' => ['name', 'type', 'short'] ])
@@ -42,6 +54,18 @@
     </div>
 
     <div class="tab-pane p-3" id="description" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Popis</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 @include('admin._partials._lang_tabs', [ 'inputs' => ['description'] ])
@@ -70,6 +94,18 @@
     </div>
 
     <div class="tab-pane p-3" id="pricing" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Cena</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 <div class="row mb-3">
@@ -119,6 +155,18 @@
     </div>
 
     <div class="tab-pane p-3" id="image" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Obrázok</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 <div class="row mb-3">
@@ -137,6 +185,18 @@
     </div>
 
     <div class="tab-pane p-3" id="other" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Ostatné</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 <div class="row mb-3">
@@ -194,6 +254,18 @@
     </div>
 
     <div class="tab-pane p-3" id="seo" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - SEO</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
+                </a>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 @include('admin._partials._lang_tabs', [ 'inputs' => ['seo.url', 'seo.title', 'seo.description', 'seo.canonical', 'seo.image'] ])
