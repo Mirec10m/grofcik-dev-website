@@ -39,16 +39,25 @@
                     <li class="menu-title"><i class="ri-more-fill"></i> <span>Admin</span></li>
 
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                        <a class="nav-link menu-link" href="#sidebar-administration" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPages">
                             <i class="mdi mdi-account"></i> <span>Administrácia</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebar-users">
+                        <div class="collapse menu-dropdown" id="sidebar-administration">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
+                                    <a href="#sidebar-users" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProfile">
+                                        Používatelia
+                                    </a>
+                                    <div class="collapse menu-dropdown" id="sidebar-users">
+                                        <ul class="nav nav-sm flex-column">
+                                            <li class="nav-item">
+                                                <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +102,7 @@
                                     <a href="{{ route('superadmin.pages.components') }}" class="nav-link"> Buttons </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('superadmin.pages.icons') }}" class="nav-link"> Ikony </a>
+                                    <a href="{{ route('superadmin.pages.icons') }}" class="nav-link"> Icons </a>
                                 </li>
                             </ul>
                         </div>

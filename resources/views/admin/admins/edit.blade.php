@@ -18,23 +18,11 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <div class="row mb-4">
-                                <div class="col-sm-6">
-                                    <h5 class="card-title mb-0">Editovať administrátora - {{ $admin->full_name }}</h5>
-                                </div>
-
-                                <div class="col-sm-6 text-right">
-                                    <a href="{{ route('admins.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam administrátorov
-                                    </a>
-                                </div>
-                            </div>
-
                             <form action="{{ route('admins.update', $admin) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
 
-                                @include('admin.admins._partials._form')
+                                @include('admin.admins._partials._form', [ 'card_title' => "Editovať administrátora - $admin->full_name" ])
 
                                 @include('admin._partials._buttons')
                             </form>

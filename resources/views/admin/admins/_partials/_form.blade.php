@@ -1,5 +1,17 @@
 <div class="tab-content custom-tab-content mb-4">
     <div class="tab-pane p-3 active" id="info" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Všeobecné</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('admins.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam administrátorov
+                </a>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-12 col-md-9">
                 <div class="row mb-3">
