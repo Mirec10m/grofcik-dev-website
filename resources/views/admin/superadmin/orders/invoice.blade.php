@@ -125,6 +125,9 @@
         .mt-30{
             margin-top: 30px;
         }
+        .mt-50{
+            margin-top: 50px;
+        }
         .page-break{
             page-break-after: always;
         }
@@ -238,7 +241,7 @@
         </div>
     </div>
 
-    <div class="row mt-30">
+    <div class="row mt-50">
         <div class="col-12 text-right">
             <!-- img src="{{-- asset('signature.png') --}}" alt="" width="44"-->
 

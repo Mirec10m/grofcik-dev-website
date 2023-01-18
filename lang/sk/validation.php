@@ -146,6 +146,34 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        // Seo
+        'seo.title_sk' => 'Titulok SK',
+        'seo.description_sk' => 'Popis SK',
+        'seo.canonical_sk' => 'Kanonická URL SK',
+        'seo.image_sk' => 'Obrázok SK',
+
+        // Localized
+        'name_sk' => 'Meno/Názov SK',
+        'type_sk' => 'Typ SK',
+        'short_sk' => 'Krátky popis SK',
+        'description_sk' => 'Podrobný popis SK',
+
+        // Other
+        'name' => 'Meno/Názov',
+        'surname' => 'Priezvisko',
+        'username' => 'Používateľské meno',
+        'email' => 'E-mail',
+        'password' => 'Heslo',
+        'price' => 'Cena',
+        'price_vat' => 'Cena s DPH',
+        'vat' => 'DPH',
+        'discount' => 'Zľava',
+        'profile' => 'Profilový obrázok',
+        'category_id' => 'Kategória',
+        'in_stock' => 'Na sklade',
+        'stored_date' => 'Dátum naskladnenia',
+        'visible' => 'Zobraziť',
+    ],
 
 ];

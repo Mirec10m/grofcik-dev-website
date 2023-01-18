@@ -27,10 +27,10 @@ class Order extends BaseModel
     public function getStatusClassAttribute() : string
     {
         return [
-            'received' => 'text-info',
-            'shipped' => 'text-warning',
-            'closed' => 'text-success',
-            'storno' => 'text-danger',
+            'received' => 'info',
+            'shipped' => 'warning',
+            'closed' => 'success',
+            'storno' => 'danger',
         ][$this->status];
     }
 

@@ -69,8 +69,8 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     // Super Admin
     Route::middleware(['super_admin'])->prefix('superadmin')->group(function(){
         // Database actions
-        Route::get("/migrate", [ DatabaseController::class, 'migrate'])->name("superadmin.migrate");
-        Route::get("/seed", [ DatabaseController::class, 'seed'])->name("superadmin.seed");
+        Route::post("/migrate", [ DatabaseController::class, 'migrate'])->name("superadmin.migrate");
+        Route::post("/seed", [ DatabaseController::class, 'seed'])->name("superadmin.seed");
 
         Route::get("/examples", [ ExamplesController::class, 'index'])->name("superadmin.examples.index");
         Route::get("/examples/create", [ ExamplesController::class, 'create'])->name("superadmin.examples.create");

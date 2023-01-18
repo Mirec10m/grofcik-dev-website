@@ -23,7 +23,7 @@
 
                                 <div class="col-sm-6 text-right">
                                     <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="fa fa-list pr-2"></i> Zoznam položiek
+                                        <i class="fa fa-list pe-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>

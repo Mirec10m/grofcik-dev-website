@@ -19,8 +19,8 @@
             <td>
                 <i>{{ $order->payment_type }}</i>
             </td>
-            <td class="{{ $order->status_class }}">
-                <b>{{ $order->formatted_status }}</b>
+            <td>
+                <span class="badge badge-soft-{{ $order->status_class }}">{{ $order->formatted_status }}</span>
             </td>
             <td>{{ $order->formatted_price }} €</td>
             <td>
@@ -37,11 +37,6 @@
                         <li>
                             <a href="{{ route('superadmin.orders.invoice') }}" class="dropdown-item" target="_blank">
                                 <i class="mdi mdi-file-pdf-box action-icon"></i> Invoice
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('superadmin.orders.invoice') }}" class="dropdown-item">
-                                <i class="mdi mdi-file-pdf-box action-icon"></i> Status
                             </a>
                         </li>
                         <li class="dropdown-divider"></li>

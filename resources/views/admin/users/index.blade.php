@@ -22,7 +22,7 @@
 
                                 <div class="col-sm-6 text-right">
                                     <a href="{{ route('users.create') }}" class="btn btn-success waves-effect waves-light float-end">
-                                        <i class="mdi mdi-plus pr-2"></i> Pridať používateľa
+                                        <i class="mdi mdi-plus pe-2"></i> Pridať používateľa
                                     </a>
                                 </div>
                             </div>
