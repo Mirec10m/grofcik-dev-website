@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -19,11 +20,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'username',
+        'email',
         'name',
         'surname',
-        'email',
-        'password',
-        'admin',
+        'position',
         'order',
         'menu_pinned',
     ];
@@ -46,6 +46,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function images() : MorphMany
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function getProfileImageAttribute() : Image | bool
+    {
+        return $this->images->where('profile', 1)->sortByDesc('created_at')->first() ?? false;
+    }
 
     public function scopeNoSuperadmin(Builder $query) : void
     {

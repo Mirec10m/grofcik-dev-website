@@ -1,37 +1,40 @@
 @extends('layout.admin')
 
 @section('page-title')
-    Nastavenia
+    Používatelia
 @endsection
 
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Profil', 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Úprava administrátora - ' . str($admin->full_name)->limit(30), 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
-                'Nastavenia' => null,
+                'Administrátori' => route('admins.index'),
             ]])
 
             <div class="row">
                 <div class="col-lg-12">
+                    @include('admin.admins._partials._tabs')
+
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-4">
                                 <div class="col-sm-6">
-                                    <h5 class="card-title mb-0">Editovať profil</h5>
+                                    <h5 class="card-title mb-0">Editovať administrátora - {{ $admin->full_name }}</h5>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <a href="{{ route('dashboard.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="fa fa-reply pr-2"></i> Späť na úvod
+                                    <a href="{{ route('admins.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                                        <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam administrátorov
                                     </a>
                                 </div>
                             </div>
 
-                            <form action="{{ route('settings.update') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admins.update', $admin) }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                @method('put')
 
-                                @include('admin.settings._partials._form')
+                                @include('admin.admins._partials._form')
 
                                 @include('admin._partials._buttons')
                             </form>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Superadmin\OrdersController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\AdminsController;
 
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
@@ -40,13 +41,14 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::get("/", [ DashboardController::class, 'index'])->name("dashboard.index");
 
     // Settings
-    Route::get("/settings/edit", [ SettingsController::class, 'edit'])->name("settings.edit");
-    Route::post("/settings/update", [ SettingsController::class, 'update'])->name("settings.update");
-    Route::get("/settings/password", [ SettingsController::class, 'password'])->name("settings.password");
-    Route::post("/settings/change", [ SettingsController::class, 'change'])->name("settings.change");
+    Route::get("/settings", [ SettingsController::class, 'index'])->name("settings.index");
+    Route::post("/settings/profile", [ SettingsController::class, 'profile'])->name("settings.profile");
+    Route::post("/settings/password", [ SettingsController::class, 'password'])->name("settings.password");
+    Route::post("/settings/image", [ SettingsController::class, 'image'])->name("settings.image");
 
     // Users
     Route::resource("/users", UsersController::class)->except([ 'show' ]);
+    Route::resource("/admins", AdminsController::class)->except([ 'show' ]);
 
     /*
      * Examples of forms, lightbox, etc.

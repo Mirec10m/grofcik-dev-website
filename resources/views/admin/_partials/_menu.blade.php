@@ -47,6 +47,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
+                                </li>
                             </ul>
                         </div>
                     </li>

@@ -7,7 +7,7 @@
                         <label class="form-label">
                             Meno <span class="text-danger">*</span>
                         </label>
-                        <input name="name" type="text" value="{{ old("name", $user->name ?? '') }}" class="form-control {{ $errors->has("name") ? 'is-invalid' : '' }}">
+                        <input name="name" type="text" value="{{ old("name", $admin->name ?? '') }}" class="form-control {{ $errors->has("name") ? 'is-invalid' : '' }}">
                         @include('admin._partials._errors', ['column' => "name"])
                     </div>
 
@@ -15,18 +15,18 @@
                         <label class="form-label">
                             Priezvisko <span class="text-danger">*</span>
                         </label>
-                        <input name="surname" type="text" value="{{ old("surname", $user->surname ?? '') }}" class="form-control {{ $errors->has("surname") ? 'is-invalid' : '' }}">
+                        <input name="surname" type="text" value="{{ old("surname", $admin->surname ?? '') }}" class="form-control {{ $errors->has("surname") ? 'is-invalid' : '' }}">
                         @include('admin._partials._errors', ['column' => "surname"])
                     </div>
                 </div>
 
-                @if( ! isset($user) )
+                @if( ! isset($admin) )
                     <div class="row mb-3">
                         <div class="col-sm-6">
                             <label class="form-label">
                                 Používateľské meno <span class="text-danger">*</span>
                             </label>
-                            <input name="username" type="text" value="{{ old("username", $user->username ?? '') }}" class="form-control {{ $errors->has("username") ? 'is-invalid' : '' }}">
+                            <input name="username" type="text" value="{{ old("username", $admin->username ?? '') }}" class="form-control {{ $errors->has("username") ? 'is-invalid' : '' }}">
                             @include('admin._partials._errors', ['column' => "username"])
                         </div>
 
@@ -34,7 +34,7 @@
                             <label class="form-label">
                                 E-mail <span class="text-danger">*</span>
                             </label>
-                            <input name="email" type="text" value="{{ old("email", $user->email ?? '') }}" class="form-control {{ $errors->has("email") ? 'is-invalid' : '' }}">
+                            <input name="email" type="text" value="{{ old("email", $admin->email ?? '') }}" class="form-control {{ $errors->has("email") ? 'is-invalid' : '' }}">
                             @include('admin._partials._errors', ['column' => "email"])
                         </div>
                     </div>
