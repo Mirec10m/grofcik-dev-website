@@ -9,12 +9,12 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($users as $user)
+    @foreach($admins as $admin)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $user->full_name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->formatted_created_at }}</td>
+            <td>{{ $admin->full_name }}</td>
+            <td>{{ $admin->email }}</td>
+            <td>{{ $admin->formatted_created_at }}</td>
             <td>
                 <div class="dropdown d-inline-block">
                     <button class="btn btn-soft-dark btn-sm dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,16 +22,16 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a href="{{ route('users.edit', $user) }}" class="dropdown-item">
+                            <a href="{{ route('admins.edit', $admin) }}" class="dropdown-item">
                                 <i class="mdi mdi-lead-pencil action-icon"></i> Editovať
                             </a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li>
-                            <form action="{{ route('users.destroy', $user) }}" method="post" style="display: inline-block; width: 100%;">
+                            <form action="{{ route('admins.destroy', $admin) }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
                                 @method('delete')
-                                <button data-entity="{{ "Používateľ $user->full_name" }}" class="alert-delete dropdown-item pointer" type="button">
+                                <button data-entity="{{ "Administrátor $admin->full_name" }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>
                             </form>

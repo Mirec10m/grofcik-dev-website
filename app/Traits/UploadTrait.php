@@ -4,12 +4,12 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 trait UploadTrait{
 
-    public function upload_image(Request $request, $file_input, $dir, Model $model, $column = null){
+    public function upload_image(Request $request, $file_input, $dir, Authenticatable | Model $model, $column = null){
         $config = $this->settings($dir);
 
         $file = $request->hasFile($file_input) ? $request->file($file_input) : null;

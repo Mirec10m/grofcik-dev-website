@@ -42,7 +42,6 @@
 @yield('js')
 
 <script>
-
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({
@@ -74,7 +73,6 @@
             });
 
         }
-
     });
 </script>
 

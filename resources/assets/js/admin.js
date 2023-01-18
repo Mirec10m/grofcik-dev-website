@@ -7,6 +7,7 @@ $(function(){
     initFlatpickr();
     initColorPickr();
     initVatParser();
+    initSettingsProfileImageForm();
 });
 
 function initButtonLoading () {
@@ -216,4 +217,10 @@ function initVatParser () {
 
     $('input[type="checkbox"][name="vat"]').change(vat_parser).trigger('change');
     $('input[name="price"]').change(vat_parser);
+}
+
+function initSettingsProfileImageForm () {
+    $('#profile-img-file-input').change(
+        () => $('#profile-img-file-form').submit()
+    );
 }

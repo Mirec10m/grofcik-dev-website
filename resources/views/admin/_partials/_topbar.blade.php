@@ -9,20 +9,16 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="{{ asset('img/user-image.png') }}" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ auth()->user()->name . " " . auth()->user()->surname }}</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ auth()->user()->admin ? 'Administrátor' : 'Používateľ' }}</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ auth()->user()->full_name }}</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ auth()->user()->position ?? 'Zamestnanec' }}</span>
                             </span>
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <h6 class="dropdown-header">Vitajte {{ auth()->user()->name }}!</h6>
-                        <a class="dropdown-item" href="{{ route('settings.edit') }}">
-                            <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-                            <span class="align-middle">Profil</span>
-                        </a>
-                        <a class="dropdown-item" href="{{ route('settings.password') }}">
+                        <a class="dropdown-item" href="{{ route('settings.index') }}">
                             <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
-                            <span class="align-middle">Zmena hesla</span>
+                            <span class="align-middle">Nastavenia</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="post">
