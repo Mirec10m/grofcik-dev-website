@@ -25,7 +25,7 @@
 
                                 <div class="col-sm-6 text-right">
                                     <a href="{{ route('superadmin.examples.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam položiek
+                                        <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam položiek
                                     </a>
                                 </div>
                             </div>

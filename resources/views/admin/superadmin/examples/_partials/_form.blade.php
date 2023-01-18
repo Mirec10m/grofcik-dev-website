@@ -2,7 +2,7 @@
     <div class="tab-pane p-3 active" id="general" role="tabpanel">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
-                @include('admin._partials._lang_tabs')
+                @include('admin._partials._lang_tabs', [ 'inputs' => ['name', 'type', 'short'] ])
 
                 <div class="tab-content mb-4">
                     @foreach(config('settings.languages') as $key => $lang)
@@ -44,7 +44,7 @@
     <div class="tab-pane p-3" id="description" role="tabpanel">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
-                @include('admin._partials._lang_tabs')
+                @include('admin._partials._lang_tabs', [ 'inputs' => ['description'] ])
 
                 <div class="tab-content mb-4">
                     @foreach(config('settings.languages') as $key => $lang)
@@ -125,7 +125,7 @@
                     <div class="col-sm-6">
                         <div>
                             <label class="form-label">
-                                Obrázok <span class="text-danger">*</span>
+                                Profilový obrázok <span class="text-danger">*</span>
                             </label>
                             <input name="profile" class="form-control filestyle {{ $errors->has('profile') ? 'is-invalid' : '' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
                             @include('admin._partials._errors', ['column' => 'profile'])
@@ -196,7 +196,7 @@
     <div class="tab-pane p-3" id="seo" role="tabpanel">
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
-                @include('admin._partials._lang_tabs')
+                @include('admin._partials._lang_tabs', [ 'inputs' => ['seo.url', 'seo.title', 'seo.description', 'seo.canonical', 'seo.image'] ])
 
                 <div class="tab-content mb-4">
                     @foreach(config('settings.languages') as $key => $lang)
@@ -211,7 +211,7 @@
 
                                 <div class="col-sm-6">
                                     <label class="form-label">
-                                        Titulok <span class="text-uppercase">{{ $key }}</span>
+                                        Titulok <span class="text-uppercase">{{ $key }}</span> (title)
                                     </label>
                                     <input name="seo[title_{{ $key }}]" type="text" value="{{ old("seo.title_$key", $item->seo->{"title_$key"} ?? '') }}" class="form-control {{ $errors->has("seo.title_$key") ? 'is-invalid' : '' }}">
                                     @include('admin._partials._errors', ['column' => "seo.title_$key"])
@@ -221,7 +221,7 @@
                             <div class="row mb-3">
                                 <div class="col-sm-12">
                                     <label class="form-label">
-                                        Popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov)
+                                        Popis <span class="text-uppercase">{{ $key }}</span> (meta description) (max. 255 znakov)
                                     </label>
                                     <textarea name="seo[description_{{ $key }}]" class="form-control {{ $errors->has("seo.description_$key") ? 'is-invalid' : '' }}">{{ old("seo.description_$key", $item->seo->{"description_$key"} ?? '') }}</textarea>
                                     @include('admin._partials._errors', ['column' => "seo.description_$key"])
@@ -231,7 +231,7 @@
                             <div class="row mb-3">
                                 <div class="col-sm-6">
                                     <label class="form-label">
-                                        Kanonická URL <span class="text-uppercase">{{ $key }}</span>
+                                        Kanonická URL <span class="text-uppercase">{{ $key }}</span> (canonical)
                                     </label>
                                     <input name="seo[canonical_{{ $key }}]" type="text" value="{{ old("seo.canonical_$key", $item->seo->{"canonical_$key"} ?? '') }}" class="form-control {{ $errors->has("seo.canonical_$key") ? 'is-invalid' : '' }}">
                                     @include('admin._partials._errors', ['column' => "seo.canonical_$key"])
@@ -239,7 +239,7 @@
 
                                 <div class="col-sm-6">
                                     <label class="form-label">
-                                        Obrázok <span class="text-uppercase">{{ $key }}</span>
+                                        Obrázok - náhľad <span class="text-uppercase">{{ $key }}</span> (OG image)
                                     </label>
                                     <input name="seo[image_{{ $key }}]" class="form-control filestyle {{ $errors->has("seo.image_$key") ? 'is-invalid' : '' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
                                     @include('admin._partials._errors', ['column' => "seo.image_$key"])

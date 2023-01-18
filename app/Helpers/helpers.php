@@ -1,9 +1,9 @@
 <?php
 
-function has_language_errors ($errors, $needles) : bool
+function has_language_errors ($errors, $needles, $language = false) : bool
 {
     return array_reduce(
-        array_keys( config('settings.languages') ),
+        $language ? [ $language ] : array_keys( config('settings.languages') ),
         function ($carry, $lang) use ($errors, $needles) {
             return has_errors( $errors, array_map(function ($key) use ($lang, $needles){
                 return $key . '_' . $lang;

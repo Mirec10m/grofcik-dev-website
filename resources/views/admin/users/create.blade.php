@@ -25,7 +25,7 @@
 
                                 <div class="col-sm-6 text-right">
                                     <a href="{{ route('users.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                                        <i class="mdi mdi-format-list-bulleted pr-2"></i> Zoznam používateľov
+                                        <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam používateľov
                                     </a>
                                 </div>
                             </div>

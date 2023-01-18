@@ -72,7 +72,7 @@
 
                                 <hr>
 
-                                <u>Aktuálny stav</u>: <i class="{{ $order->status_class }}">{{ $order->formatted_status }}</i> <br><br>
+                                <u>Aktuálny stav</u>: <i class="text-{{ $order->status_class }}">{{ $order->formatted_status }}</i> <br><br>
 
                                 <div class="d-flex">
                                     @if( $order->status != 'storno' )

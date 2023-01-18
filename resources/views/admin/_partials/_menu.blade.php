@@ -40,7 +40,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="mdi mdi-format-list-bulleted"></i> <span>Administrácia</span>
+                            <i class="mdi mdi-account"></i> <span>Administrácia</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebar-users">
                             <ul class="nav nav-sm flex-column">
@@ -57,7 +57,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebar-examples" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="mdi mdi-format-list-bulleted"></i> <span>Examples</span>
+                            <i class="ri-stack-line"></i> <span>Examples</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebar-examples">
                             <ul class="nav nav-sm flex-column">
@@ -65,16 +65,10 @@
                                     <a href="{{ route('superadmin.examples.index') }}" class="nav-link"> Sekcia </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('superadmin.pages.table') }}" class="nav-link"> Tabuľka </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('superadmin.pages.form') }}" class="nav-link"> Formulár </a>
+                                    <a href="{{ route('superadmin.orders.index') }}" class="nav-link"> Objednávky </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('superadmin.pages.invoice') }}" class="nav-link" target="_blank"> Faktúra </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('superadmin.orders.index') }}" class="nav-link"> Objednávky </a>
                                 </li>
                             </ul>
                         </div>
@@ -82,12 +76,18 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebar-ui" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="mdi mdi-format-list-bulleted"></i> <span>UI</span>
+                            <i class="ri-pencil-ruler-2-line"></i> <span>UI komponenty</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebar-ui">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('superadmin.pages.components') }}" class="nav-link"> Komponenty </a>
+                                    <a href="{{ route('superadmin.pages.table') }}" class="nav-link"> Table with filters </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('superadmin.pages.form') }}" class="nav-link"> Form </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('superadmin.pages.components') }}" class="nav-link"> Buttons </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('superadmin.pages.icons') }}" class="nav-link"> Ikony </a>
@@ -98,18 +98,19 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('superadmin.pages.overview') }}">
-                            <i class="mdi mdi-view-dashboard"></i> <span>Prehľad</span>
+                            <i class="ri-pie-chart-line"></i> <span>Prehľad</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebar-superadmin" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="mdi mdi-table"></i> <span>Databáza</span>
+                            <i class="mdi mdi-database"></i> <span>Databáza</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebar-superadmin">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <form action="{{ route('superadmin.migrate') }}" method="post">
+                                        @csrf
                                         <button class="nav-link border-0 bg-transparent alert-confirm" type="button" data-action="{{ 'Spustiť migrácie' }}">
                                             Spustiť migrácie
                                         </button>
@@ -117,6 +118,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <form action="{{ route('superadmin.seed') }}" method="post">
+                                        @csrf
                                         <button class="nav-link border-0 bg-transparent alert-confirm" type="button" data-action="{{ 'Spustiť seedy' }}">
                                             Spustiť seedy
                                         </button>
