@@ -42,6 +42,12 @@
 @yield('js')
 
 <script>
+
+    let lightbox = GLightbox({
+        selector: '.image-popup',
+        title: false
+    });
+
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({

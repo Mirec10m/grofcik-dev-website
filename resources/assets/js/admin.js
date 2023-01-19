@@ -102,7 +102,7 @@ function initSweetAlerts () {
         let button = $(this);
 
         Swal.fire({
-            title: 'Vymazať záznam ' + button.data('entity'),
+            title: 'Vymazať záznam - ' + button.data('type'),
             html: 'Naozaj chcete vymazať záznam <b>' + button.data('entity') + '</b> ?',
             iconHtml: '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>',
             customClass: { icon: 'border-0' },

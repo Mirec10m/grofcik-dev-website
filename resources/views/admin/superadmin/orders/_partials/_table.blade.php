@@ -44,7 +44,7 @@
                             <form action="{{ route('superadmin.orders.destroy') }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
                                 @method('delete')
-                                <button data-entity="{{ 'Položka - ' . 'Lorem ipsum' }}" class="alert-delete dropdown-item pointer" type="button">
+                                <button data-type="{{ 'Položka' }}" data-entity="{{ 'Lorem ipsum' }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>
                             </form>

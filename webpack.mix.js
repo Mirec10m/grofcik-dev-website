@@ -30,6 +30,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     .styles([ // ADMIN .css files
         'resources/assets/templates/admin/css/jsvectormap.min.css', // Overview dashboard
         'resources/assets/templates/admin/css/swiper-bundle.min.css', // Overview dashboard
+        'resources/assets/templates/admin/css/glightbox.min.css', // Gallery CSS
         'resources/assets/templates/admin/css/nouislider.min.css',
         'resources/assets/templates/admin/css/classic.min.css',
         'resources/assets/templates/admin/css/dataTables.bootstrap5.min.css',
@@ -87,6 +88,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/swiper-bundle.min.js', // Overview dashboard
         'resources/assets/templates/admin/js/nouislider.min.js',
         'resources/assets/templates/admin/js/wNumb.min.js',
+        'resources/assets/templates/admin/js/glightbox.min.js', // Gallery JS
         'resources/assets/templates/admin/js/app.js',
         'resources/assets/js/admin.js' // this .js file must be last
     ], 'public/js/admin.min.js');

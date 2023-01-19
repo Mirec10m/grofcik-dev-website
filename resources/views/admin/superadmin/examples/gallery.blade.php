@@ -62,6 +62,7 @@
                                             'image' => asset('img/image-placeholder.jpg'),
                                             'delete' => 'javascript:void(0)',
                                             'entity' => 'image-placeholder.jpg',
+                                            'gallery' => 'gallery_id',
                                         ])
                                     </div>
                                 @endforeach

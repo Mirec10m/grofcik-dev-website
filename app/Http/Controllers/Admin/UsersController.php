@@ -15,7 +15,7 @@ class UsersController extends AdminController
 
     public function index () : Factory | View | Application
     {
-        $users = User::noSuperadmin()->get();
+        $users = User::noSuperadmin()->where('admin', 0)->get();
 
         return view('admin.users.index', compact('users'));
     }
