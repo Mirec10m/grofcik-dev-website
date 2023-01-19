@@ -8,6 +8,7 @@ $(function(){
     initColorPickr();
     initVatParser();
     initSettingsProfileImageForm();
+    initDatatables();
 });
 
 function initButtonLoading () {
@@ -223,4 +224,24 @@ function initSettingsProfileImageForm () {
     $('#profile-img-file-input').change(
         () => $('#profile-img-file-form').submit()
     );
+}
+
+function initDatatables () {
+    let language = {
+        "language": {
+            "emptyTable": "Pre tabuľku zatiaľ neexistujú žiadne dáta",
+            "search": "Hľadať:",
+            "lengthMenu": "Zobraziť _MENU_ záznamov",
+            "info": "Zobrazené od _START_ do _END_ z _TOTAL_ záznamov",
+            "infoEmpty": "Zobrazené od 0 do 0 z 0 záznamov",
+            "paginate": {
+                "first":      "Prvá",
+                "last":       "Posledná",
+                "next":       "Nasledujúca",
+                "previous":   "Predchádzajúca"
+            }
+        }
+    };
+
+    $('.datatable').DataTable(language);
 }
