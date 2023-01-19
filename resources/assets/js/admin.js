@@ -67,7 +67,7 @@ function initSweetAlerts () {
 
         Swal.fire({
             title: button.data('action'),
-            html: 'Ste si istý, že chcete vykonať akciu - <b>' + button.data('action') + '</b> ?',
+            html: 'Naozaj chcete vykonať akciu - <b>' + button.data('action') + '</b> ?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonClass: "btn btn-info button-loader w-xs me-2 mb-1",
@@ -98,27 +98,19 @@ function initSweetAlerts () {
     });
 
     // Delete Alert
-    let buildDeleteAlert = entity => (
-        '<div class="mt-3">' +
-        '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>' +
-        '<div class="mt-4 pt-2 fs-15 mx-5">' +
-        '<h4>Ste si istý ?</h4>' +
-        '<p class="text-muted mx-4 mb-0">Ste si istý, že chcete vymazať položku - ' + entity + ' ?</p>' +
-        '</div>' +
-        '</div>'
-    );
-
     $('.alert-delete').click(function () {
         let button = $(this);
 
         Swal.fire({
-            title: 'Vymazať položku - ' + button.data('entity'),
-            html: buildDeleteAlert( button.data('entity') ),
+            title: 'Vymazať záznam ' + button.data('entity'),
+            html: 'Naozaj chcete vymazať záznam <b>' + button.data('entity') + '</b> ?',
+            iconHtml: '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>',
+            customClass: { icon: 'border-0' },
             showCancelButton: true,
             confirmButtonClass: "btn btn-danger button-loader w-xs me-2 mb-1",
-            confirmButtonText: "Áno",
+            confirmButtonText: "Vymazať",
             cancelButtonClass: "btn btn-dark w-xs mb-1",
-            cancelButtonText: "Nie",
+            cancelButtonText: "Zrušiť",
             buttonsStyling: false,
             showCloseButton: true
         }).then( event => event.isConfirmed ? button.parent().submit() : void 0 );

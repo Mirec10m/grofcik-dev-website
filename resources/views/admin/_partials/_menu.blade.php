@@ -36,7 +36,7 @@
                 </li>
 
                 @if( auth()->user()->admin )
-                    <li class="menu-title"><i class="ri-more-fill"></i> <span>Admin</span></li>
+                    <li class="menu-title"><i class="ri-more-fill"></i> <span>Administrácia</span></li>
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
