@@ -1,4 +1,4 @@
-<table id="example" data-order='[[1, "asc"]]' class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+<table id="" data-order='[[1, "asc"]]' class="datatable table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
     <thead>
     <tr>
         <th data-orderable="false">
