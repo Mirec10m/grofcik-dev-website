@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MenuSettingsRequest;
+use App\Http\Requests\Settings\MenuSettingsRequest;
 use App\Http\Requests\Settings\UpdateImageRequest;
 use App\Http\Requests\Settings\UpdateProfileRequest;
 use App\Http\Requests\Settings\UpdatePasswordRequest;
+use App\Http\Requests\Settings\UpdateSettingsRequest;
 use App\Traits\UploadTrait;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -54,6 +55,20 @@ class SettingsController extends AdminController
         $this->upload_image($request, 'image', 'users', $user, 'profile');
 
         $this->_setFlashMessage('success', 'Nahratý', "Vaša profilová fotka bola nahratá.");
+
+        return back();
+    }
+
+    public function settings(UpdateSettingsRequest $request) : RedirectResponse
+    {
+        $user = auth()->user();
+
+        $user->menu_pinned = $request->menu_pinned;
+        $user->save();
+
+        session( $request->only([ 'menu_pinned' ]) );
+
+        $this->_setFlashMessage('success', 'Zmenené', "Vaše nastavenia boli zmenené.");
 
         return back();
     }

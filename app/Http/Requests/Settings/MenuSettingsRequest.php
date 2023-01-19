@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class MenuSettingsRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize () : bool
     {
         return true;
     }
@@ -19,12 +20,13 @@ class MenuSettingsRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function rules()
+    public function rules () : array
     {
         return [
             'menu_pinned' => 'required|in:1,0',
         ];
     }
+
 }
