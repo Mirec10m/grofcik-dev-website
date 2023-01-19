@@ -197,6 +197,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,table.dataTable.dtr-inlin
   border-top: 1px solid;
 }
 
+.footer-demi-text {
+  color: #e64a39;
+  transition: color 0.15s ease;
+}
+
+.footer-demi-text:hover {
+  color: #fff;
+}
+
 .page-content {
   padding-bottom: 0 !important;
 }

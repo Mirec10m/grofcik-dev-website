@@ -119,6 +119,15 @@
     color: #abb9e8;
     border-top: 1px solid;
 }
+.footer-demi-text {
+    color: #e64a39;
+    transition: color .15s ease;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
 .page-content {
     padding-bottom: 0 !important;
 }

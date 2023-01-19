@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                © {{ \Carbon\Carbon::now()->year }} DemiAdmin
+                © {{ now()->year }} <b class="text-white">DemiAdmin</b>
                 <br>
-                Verzia 1.0.0
+                Version <span class="text-white">1.0.0</span>
                 <br>
-                Vytvorila spoločnosť
-                <a href="https://www.demi.sk/" target="_blank" class="text-secondary">
-                    <b>DeMi Studio</b>
+                Developed by
+                <a href="https://www.demi.sk/" target="_blank" class="footer-demi-text">
+                    <b>Demi Studio</b>
                 </a>
             </div>
         </div>
