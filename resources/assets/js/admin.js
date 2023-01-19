@@ -2,6 +2,7 @@ $(function(){
     initButtonLoading();
     initPriceInput();
     callApiOffers();
+    callApiDashboard();
     initSweetAlerts();
     initNoUiSlider();
     initFlatpickr();
@@ -9,6 +10,8 @@ $(function(){
     initVatParser();
     initSettingsProfileImageForm();
     initDatatables();
+    initGlightbox();
+    initMenuPin();
 });
 
 function initButtonLoading () {
@@ -58,6 +61,32 @@ function fillUpOffers (data) {
     let offers = $('.offers');
 
     $.each(data, (index, offer) => offers.append( buildOffer(offer) ));
+}
+
+function callApiDashboard () {
+    let default_dashboard = (
+        '<h6 class="card-title">Úvod</h6>' +
+        '<p>Tento administračný systém bol vytvorený v DeMi Studio, s. r. o.</p>' +
+        '<h6 class="card-subtitle fw-bold">Starostlivosť o Váš web</h6>' +
+        '<p>Tu si môžete pozrieť ponuku balíkov starostlivosti o Váš web. Každý z našich balíkov starostlivosti okrem iného zahrňuje aj monitorovanie Vášho webu <strong>24/7</strong> pomocou externého softvéru.</p>' +
+        '<h6 class="card-subtitle fw-bold">Príklad z praxe</h6>' +
+        '<p><i>Používateľ / Zákazník príde na web / eshop a pri interakcii s aplikáciou mu vyhodí chybu. Pomocou monitorovacieho softvéru je chyba automaticky odchytená a odoslaná na náš email. K tomuto emailu majú prístup naši programátori, ktorí problém automaticky odstránia aby sa už neopakoval ďalšiemu návštevníkovi Vašich webových stránok. — V prípade, že web nie je monitorovaný, vlastník webu sa o probléme nemusí dozvedieť, až kým mu ho nenahlási niektorý z návštevníkov webových stránok.</i></p>'
+    );
+    let printDashboard = html => $('#dashboard-demi-text').append(html);
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Content-Type' : 'application/json',
+        }
+    });
+
+    $.ajax({
+        url: 'https://www.demi.sk/api/dashboard',
+        method: 'get',
+        success: data => printDashboard(data.dashboard ?? default_dashboard),
+        error: () => printDashboard(default_dashboard),
+    });
 }
 
 function initSweetAlerts () {
@@ -236,4 +265,37 @@ function initDatatables () {
     };
 
     $('.datatable').DataTable(language);
+}
+
+function initGlightbox () {
+    let lightbox = GLightbox({
+        selector: '.image-popup',
+        title: false
+    });
+}
+
+function initMenuPin () {
+    $('#menu-pin').click(function () {
+        let html = $('html');
+
+        let pinned = html.attr('data-menu-pinned') !== 'true';
+
+        html.attr('data-menu-pinned', pinned);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        });
+
+        $.ajax({
+            url: $(this).data('url'),
+            method: 'post',
+            data: { 'menu_pinned': pinned ? 1 : 0 },
+            success: () => void 0,
+            error: (e) => console.log(e.responseText),
+        });
+    });
 }

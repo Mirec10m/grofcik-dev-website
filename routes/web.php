@@ -46,6 +46,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::post("/settings/profile", [ SettingsController::class, 'profile'])->name("settings.profile");
     Route::post("/settings/password", [ SettingsController::class, 'password'])->name("settings.password");
     Route::post("/settings/image", [ SettingsController::class, 'image'])->name("settings.image");
+    Route::post("/settings/settings", [ SettingsController::class, 'settings'])->name("settings.settings");
+
+    Route::post("/settings/menu", [ SettingsController::class, 'menu'])->name("settings.menu");
 
     // Users
     Route::resource("/users", UsersController::class)->except([ 'show' ]);
@@ -67,7 +70,6 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
     // Ajax
     Route::post("/images/upload", [ TinyMceController::class, 'upload'])->name("tinymce.upload");
-    Route::post("/settings/menu", [ SettingsController::class, 'menu'])->name("settings.menu");
 
     // Super Admin
     Route::middleware(['super_admin'])->prefix('superadmin')->group(function(){

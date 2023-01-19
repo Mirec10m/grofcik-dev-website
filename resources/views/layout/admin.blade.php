@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid">
+<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid" data-menu-pinned="{{ session('menu_pinned') ? 'true' : 'false' }}">
 <head>
 
     <meta charset="utf-8">
@@ -43,9 +43,28 @@
 
 <script>
 
-    let lightbox = GLightbox({
-        selector: '.image-popup',
-        title: false
+    $('#menu-pin').click(function () {
+        let html = $('html');
+
+        let pinned = html.attr('data-menu-pinned') === 'true' ? false : true;
+
+        html.attr('data-menu-pinned', pinned);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        });
+
+        $.ajax({
+            url: '{{ route('settings.menu') }}',
+            method: 'post',
+            data: { 'menu_pinned': pinned ? 1 : 0 },
+            success: () => void 0,
+            error: (e) => console.log(e.responseText),
+        });
     });
 
     $(document).ready(function () {

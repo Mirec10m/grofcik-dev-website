@@ -53,6 +53,11 @@
                                         <i class="far fa-user"></i> Zmena hesla
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#settings" role="tab">
+                                        <i class="far fa-home"></i> Nastavenia
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 
@@ -73,6 +78,16 @@
                                         @csrf
 
                                         @include('admin.settings._partials._form_password')
+
+                                        @include('admin._partials._buttons')
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane" id="settings" role="tabpanel">
+                                    <form action="{{ route('settings.settings') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
+
+                                        @include('admin.settings._partials._form_settings')
 
                                         @include('admin._partials._buttons')
                                     </form>

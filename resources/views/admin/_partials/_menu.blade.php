@@ -1,3 +1,69 @@
+<style>
+    #menu-pin {
+        display: block;
+    }
+    [data-menu-pinned="true"] #menu-pin i::before {
+        content: "\f05a";
+    }
+    [data-menu-pinned="false"] #menu-pin i::before {
+        content: none;
+    }
+    [data-menu-pinned="false"] .app-menu:hover #menu-pin i::before {
+        content: "\eb7d";
+    }
+    [data-menu-pinned="false"] .app-menu {
+        width: 70px;
+    }
+    [data-menu-pinned="false"] .app-menu:hover {
+        width: 250px;
+    }
+    [data-menu-pinned="false"] #page-topbar {
+        left: 70px;
+    }
+    [data-menu-pinned="false"] .main-content {
+        margin-left: 70px;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .logo-sm {
+        display: block;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .logo-lg {
+        display: none;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .menu-title span {
+        display: none;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .menu-title:not(:first-child) {
+        content: "\ef78";
+        font-family: 'remixicon' !important;
+        font-style: normal;
+        text-align: center;
+        font-size: 1rem;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .menu-title:not(:first-child)::before {
+        content: "\ef78";
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .nav-item span {
+        display: none;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .nav-link::after {
+        display: none;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .nav-item>.menu-dropdown {
+        display: none;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .nav-link i {
+        font-size: 22px;
+    }
+    [data-menu-pinned="false"] .app-menu:not(:hover) .navbar-brand-box {
+        padding: 0;
+    }
+
+    .admin-footer {
+        width: 100%;
+        background-color: #405189;
+    }
+</style>
+
 <div class="app-menu navbar-menu">
     <div class="navbar-brand-box">
         <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
@@ -16,6 +82,10 @@
                 <img src="{{ asset('img/admin-logo-white.png') }}" alt="" height="40">
             </span>
         </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                id="menu-pin" data-url="{{ route('settings.menu') }}">
+            <i class="ri-record-circle-line"></i>
+        </button>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover" data-url="{{ route('settings.menu') }}">
             <i class="ri-record-circle-line"></i>
         </button>

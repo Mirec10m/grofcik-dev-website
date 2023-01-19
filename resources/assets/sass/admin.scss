@@ -151,3 +151,92 @@ html[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-brand-box {
 .mr-6 {
     margin-right: 6px !important;
 }
+
+.dashboard-linkedin {
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 0 #aaa;
+    display: inline-block;
+    padding: 3px 8px 5px;
+    transition: all .3s ease;
+
+    &:hover {
+        color: #000;
+        background-color: rgba(0,0,0,.08);
+    }
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 26px;
+    }
+    div {
+        display: inline-block;
+        padding: 5px 0 5px 4px;
+        transition: all .3s ease;
+    }
+}
+
+#menu-pin {
+    display: block;
+}
+[data-menu-pinned="true"] #menu-pin i::before {
+    content: "\f05a";
+}
+[data-menu-pinned="false"] #menu-pin i::before {
+    content: none;
+}
+[data-menu-pinned="false"] .app-menu:hover #menu-pin i::before {
+    content: "\eb7d";
+}
+[data-menu-pinned="false"] .app-menu {
+    width: 70px;
+}
+[data-menu-pinned="false"] .app-menu:hover {
+    width: 250px;
+}
+[data-menu-pinned="false"] #page-topbar {
+    left: 70px;
+}
+[data-menu-pinned="false"] .main-content {
+    margin-left: 70px;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .logo-sm {
+    display: block;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .logo-lg {
+    display: none;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .menu-title span {
+    display: none;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .menu-title:not(:first-child) {
+    content: "\ef78";
+    font-family: 'remixicon' !important;
+    font-style: normal;
+    text-align: center;
+    font-size: 1rem;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .menu-title:not(:first-child)::before {
+    content: "\ef78";
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .nav-item span {
+    display: none;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .nav-link::after {
+    display: none;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .nav-item>.menu-dropdown {
+    display: none;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .nav-link i {
+    font-size: 22px;
+}
+[data-menu-pinned="false"] .app-menu:not(:hover) .navbar-brand-box {
+    padding: 0;
+}
+
+.admin-footer {
+    width: 100%;
+    background-color: #405189;
+}
