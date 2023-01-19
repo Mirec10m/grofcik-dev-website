@@ -31,7 +31,7 @@
                             <form action="{{ route('admins.destroy', $admin) }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
                                 @method('delete')
-                                <button data-entity="{{ "Administrátor $admin->full_name" }}" class="alert-delete dropdown-item pointer" type="button">
+                                <button data-type="{{ "Administrátor" }}" data-entity="{{ $admin->full_name }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>
                             </form>

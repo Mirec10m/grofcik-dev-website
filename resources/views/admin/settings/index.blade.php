@@ -17,7 +17,9 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                    <img src="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                    <a href="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="image-popup" data-gallery="user-profile-photo">
+                                        <img src="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                    </a>
                                     <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                         <form id="profile-img-file-form" action="{{ route('settings.image') }}" method="post" enctype="multipart/form-data">
                                             @csrf
