@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
     <script src="{{ asset('js/layout.js') }}"></script>
     <link href="{{ asset('css/admin.min.css') }}" rel="stylesheet" type="text/css">
@@ -42,30 +43,6 @@
 @yield('js')
 
 <script>
-
-    $('#menu-pin').click(function () {
-        let html = $('html');
-
-        let pinned = html.attr('data-menu-pinned') === 'true' ? false : true;
-
-        html.attr('data-menu-pinned', pinned);
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'X-Requested-With': 'XMLHttpRequest',
-                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        });
-
-        $.ajax({
-            url: '{{ route('settings.menu') }}',
-            method: 'post',
-            data: { 'menu_pinned': pinned ? 1 : 0 },
-            success: () => void 0,
-            error: (e) => console.log(e.responseText),
-        });
-    });
 
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){

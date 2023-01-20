@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->tinyInteger('menu_pinned')->default(0);
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('menu_pinned');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->tinyInteger('menu_pinned')->default(1);
         });
     }
 
@@ -25,8 +28,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('menu_pinned');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->tinyInteger('menu_pinned')->default(0);
         });
     }
 };
