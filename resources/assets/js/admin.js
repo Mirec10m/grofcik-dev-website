@@ -191,6 +191,17 @@ function initFlatpickr () {
         'dateFormat': 'Y-m-d',
         'locale': 'sk',
     });
+
+    $('.datepicker-range').each(function () {
+        $(this).flatpickr({
+            'mode': 'range',
+            'altInput': true,
+            'altFormat': 'd. m. Y',
+            'dateFormat': 'Y-m-d',
+            'locale': 'sk',
+            'defaultDate': [ $(this).data('start-date'), $(this).data('end-date') ],
+        });
+    });
 }
 
 function initPriceInput () {
@@ -278,7 +289,7 @@ function initMenuPin () {
     $('#menu-pin').click(function () {
         let html = $('html');
 
-        let pinned = html.attr('data-menu-pinned') !== 'true';
+        let pinned = html.attr('data-menu-pinned') === 'true' ? false : true;
 
         html.attr('data-menu-pinned', pinned);
 

@@ -23,7 +23,7 @@
                                             <div class="row g-3 mb-0 align-items-center">
                                                 <div class="col-sm-auto">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control border-0 dash-filter-picker shadow" data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-deafult-date="01 Jan 2022 to 31 Jan 2022">
+                                                        <input type="text" class="form-control border-0 dash-filter-picker shadow datepicker-range" data-start-date="2022-01-01" data-end-date="2022-01-31">
                                                         <div class="input-group-text bg-primary border-primary text-white">
                                                             <i class="ri-calendar-2-line"></i>
                                                         </div>
@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="559.25">0</span>k €</h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="number-counter" data-goal="559250" data-decimals="2"></span> €</h4>
                                                 <a href="" class="text-decoration-underline">Zobraziť čisté zárobky</a>
                                             </div>
                                             <div class="avatar-sm flex-shrink-0">
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="number-counter" data-goal="36894"></span></h4>
                                                 <a href="" class="text-decoration-underline">Zobraziť všetky objednávky</a>
                                             </div>
                                             <div class="avatar-sm flex-shrink-0">
@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="number-counter" data-goal="183350000"></span></h4>
                                                 <a href="" class="text-decoration-underline">Zobraziť detaily</a>
                                             </div>
                                             <div class="avatar-sm flex-shrink-0">
@@ -142,7 +142,7 @@
                                         </div>
                                         <div class="d-flex align-items-end justify-content-between mt-4">
                                             <div>
-                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="165.89">0</span>k €</h4>
+                                                <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="number-counter" data-goal="165890" data-decimals="2"></span> €</h4>
                                                 <a href="" class="text-decoration-underline">Vytiahnuť peniaze</a>
                                             </div>
                                             <div class="avatar-sm flex-shrink-0">
@@ -181,25 +181,25 @@
                                         <div class="row g-0 text-center">
                                             <div class="col-6 col-sm-3">
                                                 <div class="p-3 border border-dashed border-start-0">
-                                                    <h5 class="mb-1"><span class="counter-value" data-target="7585">0</span></h5>
+                                                    <h5 class="mb-1"><span class="number-counter" data-goal="7585"></span></h5>
                                                     <p class="text-muted mb-0">Objednávky</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-sm-3">
                                                 <div class="p-3 border border-dashed border-start-0">
-                                                    <h5 class="mb-1"><span class="counter-value" data-target="22.89">0</span>k €</h5>
+                                                    <h5 class="mb-1"><span class="number-counter" data-goal="22890" data-decimals="2"></span> €</h5>
                                                     <p class="text-muted mb-0">Zárobky</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-sm-3">
                                                 <div class="p-3 border border-dashed border-start-0">
-                                                    <h5 class="mb-1"><span class="counter-value" data-target="367">0</span></h5>
+                                                    <h5 class="mb-1"><span class="number-counter" data-goal="367"></span></h5>
                                                     <p class="text-muted mb-0">Reklamácie</p>
                                                 </div>
                                             </div>
                                             <div class="col-6 col-sm-3">
                                                 <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                                    <h5 class="mb-1 text-success"><span class="counter-value" data-target="18.92">0</span>%</h5>
+                                                    <h5 class="mb-1 text-success"><span class="number-counter" data-goal="18.92" data-decimals="2"></span>%</h5>
                                                     <p class="text-muted mb-0">Konverzný pomer</p>
                                                 </div>
                                             </div>
@@ -317,7 +317,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Stolička z ohýbaného dreva</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Drevená stolička</a></h5>
                                                                 <span class="text-muted">19.03.2021</span>
                                                             </div>
                                                         </div>
@@ -346,7 +346,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Papierový pohár Borosil</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Pohár Borosil</a></h5>
                                                                 <span class="text-muted">01 Mar 2021</span>
                                                             </div>
                                                         </div>
@@ -375,7 +375,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Jednomiestna pohovka</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Kreslo</a></h5>
                                                                 <span class="text-muted">11 Feb 2021</span>
                                                             </div>
                                                         </div>
@@ -742,7 +742,7 @@
                                                     </td>
                                                     <td>Micro Design</td>
                                                     <td>
-                                                        <span class="badge badge-soft-warning">Čaká na spracovanie</span>
+                                                        <span class="badge badge-soft-warning">V spracovaní</span>
                                                     </td>
                                                     <td>
                                                         <h5 class="fs-14 fw-medium mb-0">4,5<span class="text-muted fs-11 ms-1">(61 hlasov)</span></h5>
@@ -760,7 +760,7 @@
                                                             <div class="flex-grow-1">Ayaan Bowen</div>
                                                         </div>
                                                     </td>
-                                                    <td>Cyklistické príslušenstvo</td>
+                                                    <td>Cykl. príslušenstvo</td>
                                                     <td>
                                                         <span class="text-success">215,00€</span>
                                                     </td>
@@ -1261,5 +1261,24 @@
 @endsection
 
 @section('js')
+    <script>
+        function formatNumber (number, decimals = 0) {
+            return Number(number)
+                .toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+                .replaceAll(',', ' ')
+                .replaceAll('.', ',');
+        }
+
+        $('.number-counter').each(function () {
+            (function counter (element) {
+                let goal = +element.data("goal"), current = + (element.data("current") ?? 0), decimals = +(element.data('decimals') ?? 0), diff = goal / 250, target;
+
+                ( target = (current + diff) ) > goal
+                    ? element.html( formatNumber(goal, decimals) )
+                    : element.html( formatNumber(target, decimals) ), element.data('current', target), setTimeout( () => counter(element), 1 );
+            })( $(this) );
+        });
+    </script>
+
     <script src="{{ asset('js/dashboard/dashboard-ecommerce.init.js') }}" type="text/javascript"></script>
 @endsection

@@ -134,8 +134,8 @@
   right: 0;
   left: 0;
   bottom: 0;
-  width: 250px;
-  background-color: transparent;
+  width: 100%;
+  background-color: #405189;
   padding: 0.625rem 1.5rem;
   height: unset;
   color: #abb9e8;
@@ -276,8 +276,11 @@ html[data-sidebar-size=sm-hover] .navbar-menu:not(:hover) .navbar-brand-box {
   padding: 0;
 }
 
-.admin-footer {
-  width: 100%;
-  background-color: #405189;
+[data-menu-pinned=false] .app-menu:not(:hover) .navbar-brand-box {
+  padding: 0;
+}
+
+[data-menu-pinned=false] .app-menu:not(:hover) .admin-footer {
+  display: none;
 }
 
