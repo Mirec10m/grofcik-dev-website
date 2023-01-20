@@ -23,7 +23,7 @@
                                             <div class="row g-3 mb-0 align-items-center">
                                                 <div class="col-sm-auto">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control border-0 dash-filter-picker shadow" data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-deafult-date="01 Jan 2022 to 31 Jan 2022">
+                                                        <input type="text" class="form-control border-0 dash-filter-picker shadow datepicker-range" data-start-date="2022-01-01" data-end-date="2022-01-31">
                                                         <div class="input-group-text bg-primary border-primary text-white">
                                                             <i class="ri-calendar-2-line"></i>
                                                         </div>
@@ -317,7 +317,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Stolička z ohýbaného dreva</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Drevená stolička</a></h5>
                                                                 <span class="text-muted">19.03.2021</span>
                                                             </div>
                                                         </div>
@@ -346,7 +346,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Papierový pohár Borosil</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Pohár Borosil</a></h5>
                                                                 <span class="text-muted">01 Mar 2021</span>
                                                             </div>
                                                         </div>
@@ -375,7 +375,7 @@
                                                                 <img src="{{ asset('img/image-placeholder.jpg') }}" alt="" class="img-fluid d-block" />
                                                             </div>
                                                             <div>
-                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Jednomiestna pohovka</a></h5>
+                                                                <h5 class="fs-14 my-1"><a href="#" class="text-reset">Kreslo</a></h5>
                                                                 <span class="text-muted">11 Feb 2021</span>
                                                             </div>
                                                         </div>
@@ -742,7 +742,7 @@
                                                     </td>
                                                     <td>Micro Design</td>
                                                     <td>
-                                                        <span class="badge badge-soft-warning">Čaká na spracovanie</span>
+                                                        <span class="badge badge-soft-warning">V spracovaní</span>
                                                     </td>
                                                     <td>
                                                         <h5 class="fs-14 fw-medium mb-0">4,5<span class="text-muted fs-11 ms-1">(61 hlasov)</span></h5>
@@ -760,7 +760,7 @@
                                                             <div class="flex-grow-1">Ayaan Bowen</div>
                                                         </div>
                                                     </td>
-                                                    <td>Cyklistické príslušenstvo</td>
+                                                    <td>Cykl. príslušenstvo</td>
                                                     <td>
                                                         <span class="text-success">215,00€</span>
                                                     </td>

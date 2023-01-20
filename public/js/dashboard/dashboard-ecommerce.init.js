@@ -120,7 +120,7 @@ var options, chart, worldemapmarkers, overlay, linechartcustomerColors = getChar
     }, (chart = new ApexCharts(document.querySelector("#customer_impression_charts"), options)).render()), getChartColorsArray("store-visits-source")),
     vectorMapWorldMarkersColors = (chartDonutBasicColors && (options = {
         series: [44, 55, 41, 17, 15],
-        labels: ["Direct", "Social", "Email", "Other", "Referrals"],
+        labels: ["Priame", "Socialne sieťe", "Email", "Ostatné", "Referencie"],
         chart: {
             height: 333,
             type: "donut"
@@ -154,16 +154,16 @@ var options, chart, worldemapmarkers, overlay, linechartcustomerColors = getChar
         },
         markersSelectable: !0,
         markers: [{
-            name: "Palestine",
+            name: "Palestína",
             coords: [31.9474, 35.2272]
         }, {
-            name: "Russia",
+            name: "Rusko",
             coords: [61.524, 105.3188]
         }, {
-            name: "Canada",
+            name: "Kanada",
             coords: [56.1304, -106.3468]
         }, {
-            name: "Greenland",
+            name: "Grónsko",
             coords: [71.7069, -42.6043]
         }],
         markerStyle: {
@@ -177,9 +177,14 @@ var options, chart, worldemapmarkers, overlay, linechartcustomerColors = getChar
         labels: {
             markers: {
                 render: function(e) {
-                    return e.name
+                    return e.name;
                 }
             }
+        },
+        onRegionTooltipShow(event, tooltip) {
+            let translator = new Intl.DisplayNames(['sk'], { type: 'region' });
+
+            event.getElement().innerHTML = translator.of(tooltip);
         }
     })), new Swiper(".vertical-swiper", {
         slidesPerView: 2,
