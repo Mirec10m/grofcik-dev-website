@@ -39,12 +39,12 @@
     <div class="row mb-3">
         <div class="col-sm-6">
             <label class="form-label">Range slider</label>
-            <div class="slider slider-min-max"
+            <div class="slider-min-max"
                  data-start-min="{{ request('input5_min') }}" data-min="0" data-input-min="#input5-min"
                  data-start-max="{{ request('input5_max') }}" data-max="1000" data-input-max="#input5-max">
-                <input type="hidden" name="input5_min" id="input5-min" value="{{ request('input5_min') }}">
-                <input type="hidden" name="input5_max" id="input5-max" value="{{ request('input5_max') }}">
             </div>
+            <input type="hidden" name="input5_min" id="input5-min" value="{{ request('input5_min') }}">
+            <input type="hidden" name="input5_max" id="input5-max" value="{{ request('input5_max') }}">
         </div>
     </div>
 
