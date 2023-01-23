@@ -97,8 +97,8 @@
                                             <input type="hidden" name="status" value="shipped">
 
                                             <button class="btn btn-primary alert-confirm-status" type="button"
-                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - odoslaná"
-                                                    data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na odoslaná?">
+                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }}"
+                                                    data-message="Naozaj chcete zmeniť stav pre Objednávka č. {{ $order->number }} na <b>odoslaná</b>?">
                                                 Odoslaná
                                             </button>
                                         </form>
@@ -109,8 +109,8 @@
                                             <input type="hidden" name="status" value="closed">
 
                                             <button class="btn btn-primary alert-confirm-status" type="button"
-                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }} - uzavretá"
-                                                    data-message="Naozaj chcete zmeniť stav pre <b>Objednávka č. {{ $order->number }}</b> na uzavretá?">
+                                                    data-title="Zmeniť stav pre Objednávka č. {{ $order->number }}"
+                                                    data-message="Naozaj chcete zmeniť stav pre Objednávka č. {{ $order->number }} na <b>uzavretá</b>?">
                                                 Uzavretá
                                             </button>
                                         </form>

@@ -173,6 +173,7 @@ return [
         'in_stock' => 'Na sklade',
         'stored_date' => 'Dátum naskladnenia',
         'visible' => 'Zobraziť',
+        'image' => 'Obrázok',
     ],
 
 ];
