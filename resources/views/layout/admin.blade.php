@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid" data-menu-pinned="{{ session('menu_pinned') ? 'true' : 'false' }}">
+<html lang="sk" data-layout="vertical" data-layout-style="default" data-layout-position="fixed" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid" data-menu-pinned="{{ session('menu_pinned', auth()->user()->menu_pinned ) ? 'true' : 'false' }}">
 <head>
 
     <meta charset="utf-8">

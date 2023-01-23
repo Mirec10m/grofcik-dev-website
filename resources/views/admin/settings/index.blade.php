@@ -16,22 +16,27 @@
                     <div class="card">
                         <div class="card-body p-4">
                             <div class="text-center">
-                                <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                    <a href="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="image-popup" data-gallery="user-profile-photo">
-                                        <img src="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
-                                    </a>
-                                    <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                        <form id="profile-img-file-form" action="{{ route('settings.image') }}" method="post" enctype="multipart/form-data">
-                                            @csrf
-                                            <input id="profile-img-file-input" name="image" type="file" class="profile-img-file-input">
-                                        </form>
-                                        <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
+                                <div class="mb-4">
+                                    <div class="profile-user position-relative d-inline-block mx-auto">
+                                        <a href="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="image-popup" data-gallery="user-profile-photo">
+                                            <img src="{{ asset( $user->profile_image ? $user->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                        </a>
+                                        <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
+                                            <form id="profile-img-file-form" action="{{ route('settings.image') }}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                <input id="profile-img-file-input" name="image" type="file" class="profile-img-file-input">
+                                            </form>
+                                            <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
                                             <span class="avatar-title rounded-circle bg-light text-body">
                                                 <i class="ri-camera-fill"></i>
                                             </span>
-                                        </label>
+                                            </label>
+                                        </div>
                                     </div>
+
+                                    @include('admin._partials._errors', [ 'column' => "image" ])
                                 </div>
+
                                 <h5 class="fs-16 mb-1">{{ $user->full_name }}</h5>
                                 <p class="text-muted mb-0">{{ $user->position ?? 'Zamestnanec' }}</p>
                             </div>

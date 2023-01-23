@@ -10,7 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 trait UploadTrait{
 
     public function upload_image(Request $request, $file_input, $dir, Authenticatable | Model $model, $column = null){
-        $config = $this->settings($dir);
+        $config = $this->__settings($dir);
 
         $file = $request->hasFile($file_input) ? $request->file($file_input) : null;
         if(!isset($file)) return;
@@ -31,7 +31,7 @@ trait UploadTrait{
 
             $img = Image::make($dir_name . $basename); // Open image
 
-            $img = $this->transform($img, $settings);
+            $img = $this->__transform($img, $settings);
 
             $img->save($dir_name . $type_name); // Save image
 
@@ -57,7 +57,7 @@ trait UploadTrait{
      * @param $key string
      * @return array
      */
-    private function settings($key){
+    private function __settings($key){
         $images = config('images');
         $default = $images['_default'];
 
@@ -82,7 +82,7 @@ trait UploadTrait{
      * @param $settings array
      * @return \Intervention\Image\Image
      */
-    private function transform($image, $settings){
+    private function __transform($image, $settings){
         switch($settings['transformation']){
             case 'crop':
                 $image->resize($settings['width'], $settings['height'],function ($constraint){

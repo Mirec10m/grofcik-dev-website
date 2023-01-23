@@ -54,7 +54,7 @@ class SettingsController extends AdminController
 
         $this->upload_image($request, 'image', 'users', $user, 'profile');
 
-        $this->_setFlashMessage('success', 'Nahratý', "Vaša profilová fotka bola nahratá.");
+        $this->_setFlashMessage('success', 'Nahratá', "Vaša profilová fotka bola nahratá.");
 
         return back();
     }
