@@ -284,3 +284,7 @@ html[data-sidebar-size=sm-hover] .navbar-menu:not(:hover) .navbar-brand-box {
   display: none;
 }
 
+.mb-20px {
+  margin-bottom: 20px;
+}
+

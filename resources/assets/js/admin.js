@@ -185,11 +185,26 @@ function initNoUiSlider () {
 }
 
 function initFlatpickr () {
+    let flatpickr_SK = {
+        weekdays: {
+            shorthand: [ "Ne", "Po", "Ut", "St", "Št", "Pi", "So" ],
+            longhand: [ "Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota" ],
+        },
+        months: {
+            shorthand: [ "Jan", "Feb", "Mar", "Apr", "Máj", "Jún", "Júl", "Aug", "Sep", "Okt", "Nov", "Dec" ],
+            longhand: [ "Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December" ],
+        },
+        firstDayOfWeek: 1,
+        rangeSeparator: " do ",
+        time_24hr: true,
+        ordinal: () => ".",
+    };
+
     $('.datepicker').flatpickr({
         'altInput': true,
         'altFormat': 'd. m. Y',
         'dateFormat': 'Y-m-d',
-        'locale': 'sk',
+        'locale': flatpickr_SK,
     });
 
     $('.datepicker-range').each(function () {
@@ -198,7 +213,7 @@ function initFlatpickr () {
             'altInput': true,
             'altFormat': 'd. m. Y',
             'dateFormat': 'Y-m-d',
-            'locale': 'sk',
+            'locale': flatpickr_SK,
             'defaultDate': [ $(this).data('start-date'), $(this).data('end-date') ],
         });
     });
