@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="text-center mt-2">
-                        <h5 class="text-primary">Admin - Prihlásenie</h5>
+                        <h5 class="text-primary">Administrácia - Prihlásenie</h5>
                     </div>
 
                     <div class="p-2 mt-4">

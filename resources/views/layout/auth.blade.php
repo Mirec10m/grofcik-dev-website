@@ -48,9 +48,9 @@
                 <div class="col-lg-12">
                     <div class="text-center">
                         <p class="mb-0 text-muted">
-                            © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
+                            © {{ \Carbon\Carbon::now()->year }} DemiAdmin. Developed by
                             <a href="https://www.demi.sk/" target="_blank">
-                                <b>DeMi Studio</b>.
+                                <b>Demi Studio</b>.
                             </a>
                         </p>
                     </div>

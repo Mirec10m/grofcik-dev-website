@@ -23,7 +23,7 @@
                                 <u>Adresa</u>: {{ $order->address }} <br>
                                 <u>Mesto</u>: {{ $order->city }} <br>
                                 <u>PSČ</u>: {{ $order->postal_code }} <br><br>
-                                <u>Telefón: <a href="tel:{ { $order->phone }}" class="phone-number">{{ $order->phone }}</a></u> <br>
+                                <u>Telefón:</u> <a href="tel:{ { $order->phone }}" class="phone-number">{{ $order->phone }}</a> <br>
                                 <u>E-mail</u>: <a href="mailto:{ { $order->email }}" class="storno">{{ $order->email }}</a>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                 <u>Platba</u>: {{ $order->payment_type }} <br><br>
                                 <u>Cena dopravy</u>: {{ $order->formatted_delivery_price }} € <br>
                                 <u>Cena platby</u>: {{ $order->formatted_payment_price }} € <br>
-                                <u>Spolu:</u>: {{ $order->formatted_delivery_payment_price }} €
+                                <u>Spolu</u>: {{ $order->formatted_delivery_payment_price }} €
                             </div>
                         </div>
                     </div>
@@ -126,15 +126,15 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Položky objednávky</h6>
+                            <h6 class="card-title mb-20px">Položky objednávky</h6>
 
                             <table id="" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th>Produkt</th>
-                                    <th>Jednotková cena</th>
-                                    <th>Množstvo</th>
                                     <th>Cena</th>
+                                    <th>Množstvo</th>
+                                    <th>Spolu</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -157,7 +157,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Položky objednávky</h6>
+                            <h6 class="card-title mb-20px">Zhrnutie objednávky</h6>
 
                             <div class="row justify-content-end">
                                 <div class="col-lg-3">
@@ -176,8 +176,8 @@
                             <hr>
 
                             <div class="row justify-content-end">
-                                <div class="col-lg-3 fs-4">
-                                    Total price:
+                                <div class="col-lg-3">
+                                    Spolu:
                                 </div>
 
                                 <div class="col-lg-3">

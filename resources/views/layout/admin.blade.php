@@ -43,17 +43,6 @@
 @yield('js')
 
 <script>
-    $('.datepicker-range').each(function () {
-        $(this).flatpickr({
-            'mode': 'range',
-            'altInput': true,
-            'altFormat': 'd. m. Y',
-            'dateFormat': 'Y-m-d',
-            'locale': 'sk',
-            'defaultDate': [ $(this).data('start-date'), $(this).data('end-date') ],
-        });
-    })
-
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({

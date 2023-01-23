@@ -31,12 +31,12 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                             <a href="{{ route('superadmin.orders.show') }}" class="dropdown-item">
-                                <i class="mdi mdi-magnify action-icon"></i> Show
+                                <i class="mdi mdi-magnify action-icon"></i> Zobraziť
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('superadmin.orders.invoice') }}" class="dropdown-item" target="_blank">
-                                <i class="mdi mdi-file-pdf-box action-icon"></i> Invoice
+                                <i class="mdi mdi-file-pdf-box action-icon"></i> Faktúra
                             </a>
                         </li>
                         <li class="dropdown-divider"></li>

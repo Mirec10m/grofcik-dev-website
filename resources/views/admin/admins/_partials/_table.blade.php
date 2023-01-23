@@ -4,7 +4,7 @@
         <th>#</th>
         <th>Používateľ</th>
         <th>Email</th>
-        <th>Regsitrácia</th>
+        <th>Registrácia</th>
         <th data-orderable="false">Akcie</th>
     </tr>
     </thead>
