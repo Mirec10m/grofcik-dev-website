@@ -51,7 +51,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::post("/settings/menu", [ SettingsController::class, 'menu'])->name("settings.menu");
 
     // Users
-    Route::resource("/users", UsersController::class)->except([ 'show' ]);
+    if ( config('settings.unlocked.users') ) {
+        Route::resource("/users", UsersController::class)->except([ 'show' ]);
+    }
     Route::resource("/admins", AdminsController::class)->except([ 'show' ]);
 
     /*

@@ -245,3 +245,12 @@ html[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-brand-box {
 .mb-20px {
     margin-bottom: 20px;
 }
+
+.form-group:has(.tinymce.is-invalid) .mce-tinymce,
+div:has(.filestyle.is-invalid) .bootstrap-filestyle>input,
+div:has(select.is-invalid) .select2-selection {
+    border: 1px solid #f06548 !important;
+}
+div:has(.is-invalid) .pickr>button {
+    box-shadow: 0 0 0 1px red;
+}

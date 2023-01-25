@@ -7,6 +7,11 @@
 Pripravená "krabica" postavená na frameworku **Laravel 9.x**, určená na vývoj menších a stredne veľkých webov a e-shopov.
 Administračné rozhranie je postavené na šablóne **Velzon 2.3.0**
 
+## Demi Box - Sekcie
+
+Demi Box má predpripravené sekcie v administratívnom používateľskom rozhraní. Pre odomknutie takejto sekcie stačí v **config/settings.php** súbore v poli **unlocked** zmeniť boolovské hodnoty pre konkrétnu sekcie.
+- **users** (Zoznam používateľov)
+
 ## Demi Box - Funkcionalita
 
 Demi Box ponúka určitú predpripravenú funkcionalitu:

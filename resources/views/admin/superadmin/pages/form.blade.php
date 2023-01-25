@@ -21,6 +21,25 @@
                                 <div class="col-sm-6">
                                     <h5 class="card-title mb-0">Language Tabs</h5>
                                 </div>
+
+                                <div class="col-sm-6 text-right">
+                                    <div class="form-check form-switch form-switch-info form-switch-lg">
+                                        <label class="form-label">With validation</label>
+                                        <input id="with-validation" type="checkbox" class="form-check-input">
+                                    </div>
+                                </div>
+
+                                <script>
+                                    document.getElementById('with-validation').addEventListener('change', function () {
+                                        let checked = this.checked;
+                                        let selector = checked ? '.nav-tabs .nav-link,input,textarea,select' : '.is-invalid';
+                                        let method = checked ? 'add' : 'remove';
+
+                                        document.querySelectorAll(selector).forEach(function (e) {
+                                            e.classList[method]('is-invalid');
+                                        });
+                                    });
+                                </script>
                             </div>
 
                             <div class="row">

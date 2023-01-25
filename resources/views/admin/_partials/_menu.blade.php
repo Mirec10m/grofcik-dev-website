@@ -48,9 +48,11 @@
                         </a>
                         <div class="collapse menu-dropdown" id="sidebar-users">
                             <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
-                                </li>
+                                @if( config('settings.unlocked.users') )
+                                    <li class="nav-item">
+                                        <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                    </li>
+                                @endif
                                 <li class="nav-item">
                                     <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
                                 </li>
