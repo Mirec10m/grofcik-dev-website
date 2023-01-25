@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="p-2">
-                        <form action="{{ route('password.update') }}">
+                        <form action="{{ route('password.update') }}" method="post">
 
                             @csrf
 
