@@ -47,9 +47,22 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
+                        <style>
+                            .footer {
+                                z-index: 100000;
+                            }
+                            .footer-demi-link {
+                                color: #e64a39;
+                            }
+                            .footer-demi-link:hover {
+                                color: #e64a39;
+                                text-decoration: underline !important;
+                            }
+                        </style>
+
                         <p class="mb-0 text-muted">
                             © {{ \Carbon\Carbon::now()->year }} DemiAdmin. Developed by
-                            <a href="https://www.demi.sk/" target="_blank">
+                            <a href="https://www.demi.sk/" target="_blank" class="footer-demi-link">
                                 <b>Demi Studio</b>.
                             </a>
                         </p>
