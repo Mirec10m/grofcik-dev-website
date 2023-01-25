@@ -1,3 +1,5 @@
+$demi: #e64a39;
+
 // Button Loading Effect
 .button-loading, .button-loading:hover, .button-loading:active {
     color: transparent !important;
@@ -27,4 +29,16 @@
 
 .auth-one-bg {
     background-image: none;
+}
+
+.footer {
+    z-index: 100000;
+}
+.footer-demi-link {
+    color: $demi;
+
+    &:hover {
+        color: $demi;
+        text-decoration: underline !important;
+    }
 }

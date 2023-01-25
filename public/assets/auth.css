@@ -46,3 +46,16 @@
   background-image: none;
 }
 
+.footer {
+  z-index: 100000;
+}
+
+.footer-demi-link {
+  color: #e64a39;
+}
+
+.footer-demi-link:hover {
+  color: #e64a39;
+  text-decoration: underline !important;
+}
+

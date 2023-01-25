@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Úprava položky - ' . str(/*$item->name_sk*/'Lorem ipsum')->limit(30), 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Položka - ' . str(/*$item->name_sk*/'Lorem ipsum')->limit(30), 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
                 'Examples' => route('superadmin.examples.index'),
             ]])
@@ -22,7 +22,7 @@
                                 @csrf
                                 @method('put')
 
-                                @include('admin.superadmin.examples._partials._form', [ 'card_title' => "Editovať položku - Lorem ipsum" /*$item->name_sk*/ ])
+                                @include('admin.superadmin.examples._partials._form', [ 'card_title' => "Editovať položku" ])
 
                                 @include('admin._partials._buttons')
                             </form>

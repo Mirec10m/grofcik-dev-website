@@ -81,7 +81,7 @@
                                             <span class="text-uppercase">{{ $key }}</span>
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <textarea name="description_{{ $key }}" class="form-control tinymce {{ $errors->has("description_$key") ? 'parsley-error' : '' }}">{{ old("description_$key", isset($item) ? $item->{"description_$key"} : '') }}</textarea>
+                                        <textarea name="description_{{ $key }}" class="form-control tinymce {{ $errors->has("description_$key") ? 'is-invalid' : '' }}">{{ old("description_$key", isset($item) ? $item->{"description_$key"} : '') }}</textarea>
                                         @include('admin._partials._errors', ['column' => "description_$key"])
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                         <label class="form-label">
                             Kategória <span class="text-danger">*</span>
                         </label>
-                        <select name="category_id" class="form-control js-example-basic-single">
+                        <select name="category_id" class="form-control js-example-basic-single {{ $errors->has('category_id') ? 'is-invalid' : '' }}">
                             <option value="">Vyberte kategóriu</option>
                             @for($i = 0; $i < 5; $i++)
                                 <option value="{{ $i + 1 }}{{-- $category->id --}}" {{-- old('category_id') == $category->id ? 'selected' : (isset($item) && $item->category_id == $category->id ? 'selected' : '') --}}>

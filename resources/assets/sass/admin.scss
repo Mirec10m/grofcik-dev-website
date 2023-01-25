@@ -1,5 +1,5 @@
 //$primary: #d4455d;
-//$demi: #e64a39;
+$demi: #e64a39;
 
 // Button Loading Effect
 .button-loading, .button-loading:hover, .button-loading:active {
@@ -120,7 +120,7 @@
     border-top: 1px solid;
 }
 .footer-demi-text {
-    color: #e64a39;
+    color: $demi;
     transition: color .15s ease;
 
     &:hover {
@@ -244,4 +244,13 @@ html[data-sidebar-size="sm-hover"] .navbar-menu:not(:hover) .navbar-brand-box {
 
 .mb-20px {
     margin-bottom: 20px;
+}
+
+.form-group:has(.tinymce.is-invalid) .mce-tinymce,
+div:has(.filestyle.is-invalid) .bootstrap-filestyle>input,
+div:has(select.is-invalid) .select2-selection {
+    border: 1px solid #f06548 !important;
+}
+div:has(.is-invalid) .pickr>button {
+    box-shadow: 0 0 0 1px red;
 }

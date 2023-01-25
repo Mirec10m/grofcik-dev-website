@@ -18,18 +18,14 @@
 
                     <div class="text-center mt-2">
                         <h5 class="text-primary">Zabudnuté heslo?</h5>
-                        <p class="text-muted">Zadajte prosím Váš e-mail pre obnovu zabudnutého hesla.</p>
 
                         <lord-icon src="https://cdn.lordicon.com/rhvddzym.json" trigger="loop" colors="primary:#0ab39c" class="avatar-xl">
                         </lord-icon>
-
                     </div>
 
-                    @if(session('status'))
-                        <div class="alert alert-borderless alert-success text-center mb-2 mx-2" role="alert">
-                            Práve Vám bol poslaný e-mail s odkazom na obnovenie hesla!
-                        </div>
-                    @endif
+                    <div class="alert alert-borderless alert-warning text-center mb-2 mx-2" role="alert">
+                        {{ session('status') ? 'Práve Vám bol poslaný e-mail s odkazom na obnovenie hesla!' : 'Pre obnovu hesla zadajte prosím Váš e-mail!' }}
+                    </div>
 
                     <div class="p-2">
                         <form action="{{ route('password.email') }}" method="post">
@@ -49,6 +45,14 @@
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <p class="mb-0">Spomenul som si na moje heslo...
+                    <a href="{{ route('login') }}" class="fw-semibold text-primary text-decoration-underline">
+                        Prihlásiť sa
+                    </a>
+                </p>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Úprava administrátora - ' . str($admin->full_name)->limit(30), 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Administrátor - ' . str($admin->full_name)->limit(30), 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
                 'Administrátori' => route('admins.index'),
             ]])
@@ -22,7 +22,7 @@
                                 @csrf
                                 @method('put')
 
-                                @include('admin.admins._partials._form', [ 'card_title' => "Editovať administrátora - $admin->full_name" ])
+                                @include('admin.admins._partials._form', [ 'card_title' => "Editovať administrátora" ])
 
                                 @include('admin._partials._buttons')
                             </form>
