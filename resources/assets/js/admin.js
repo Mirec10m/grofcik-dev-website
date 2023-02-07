@@ -86,9 +86,13 @@ function callApiDashboard () {
     });
 
     $.ajax({
-        url: 'https://www.demi.sk/api/dashboard',
+        url: 'https://www.demi.sk/api/settings',
+        data: {
+            settings_key: 'dashboard-text',
+            settings_locale: 'sk' // Edit Locale for different language
+        },
         method: 'get',
-        success: data => printDashboard(data.dashboard ?? default_dashboard),
+        success: data => printDashboard(data.value ?? default_dashboard),
         error: () => printDashboard(default_dashboard),
     });
 }
