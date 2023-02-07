@@ -27,27 +27,28 @@
                                 @include('admin._partials._buttons')
                             </form>
 
+                            <div id="image-view">
+                                <div class="border-top mb-3"></div>
 
-                            <div class="border-top mb-3"></div>
-
-                            <div class="row mb-3">
-                                <div class="col-sm-12">
-                                    <h5 class="card-title mb-0">Obrázok</h5>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                @if(1)
-                                    <div class="col-sm-3">
-                                        @include('admin._partials._image', [
-                                            'thumb' => asset('img/image-placeholder.jpg'),
-                                            'image' => asset('img/image-placeholder.jpg'),
-                                            'delete' => 'javascript:void(0)',
-                                            'entity' => 'image-placeholder.jpg',
-                                            'gallery' => 'gallery_id',
-                                        ])
+                                <div class="row mb-3">
+                                    <div class="col-sm-12">
+                                        <h5 class="card-title mb-0">Obrázok</h5>
                                     </div>
-                                @endif
+                                </div>
+
+                                <div class="row">
+                                    @if(1)
+                                        <div class="col-sm-3">
+                                            @include('admin._partials._image', [
+                                                'thumb' => asset('img/image-placeholder.jpg'),
+                                                'image' => asset('img/image-placeholder.jpg'),
+                                                'delete' => 'javascript:void(0)',
+                                                'entity' => 'image-placeholder.jpg',
+                                                'gallery' => 'gallery_id',
+                                            ])
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>

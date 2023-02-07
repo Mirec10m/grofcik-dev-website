@@ -154,7 +154,7 @@
         </div>
     </div>
 
-    <div class="tab-pane p-3" id="image" role="tabpanel">
+    <div class="tab-pane p-3" id="image" data-show-image="true" role="tabpanel">
         <div class="row mb-4">
             <div class="col-sm-6">
                 <h5 class="card-title mb-0">{{ $card_title }} - Obrázok</h5>
