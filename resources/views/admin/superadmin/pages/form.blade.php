@@ -9,7 +9,7 @@
         <div class="container-fluid">
             @include('admin._partials._breadcrumbs', [ 'title' => 'Formulár', 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
-                'Examples' => null,
+                'Superadmin' => null,
             ]])
 
             <div class="row">

@@ -9,6 +9,7 @@
         <div class="container-fluid">
             @include('admin._partials._breadcrumbs', [ 'title' => "Objednávka - $order->number", 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
+                'Superadmin' => null,
                 'Orders' => route('superadmin.orders.index'),
             ]])
 

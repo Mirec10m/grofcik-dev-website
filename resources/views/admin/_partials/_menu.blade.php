@@ -42,23 +42,27 @@
                 @if( auth()->user()->admin )
                     <li class="menu-title"><i class="ri-more-fill"></i> <span>Administrácia</span></li>
 
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
-                            <i class="mdi mdi-account"></i> <span>Používatelia</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidebar-users">
-                            <ul class="nav nav-sm flex-column">
-                                @if( config('settings.unlocked.users') )
-                                    <li class="nav-item">
-                                        <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
-                                    </li>
-                                @endif
-                                <li class="nav-item">
-                                    <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    @if( config('demibox.users.show') )
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebar-users" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="mdi mdi-account"></i> <span>Používatelia</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebar-users">
+                                <ul class="nav nav-sm flex-column">
+                                    @if( config('demibox.users.show') )
+                                        <li class="nav-item">
+                                            <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                        </li>
+                                        @if( config('demibox.users.admins') )
+                                            <li class="nav-item">
+                                                <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
+                                            </li>
+                                        @endif
+                                    @endif
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
                 @endif
 
                 @if( auth()->user()->super_admin )
