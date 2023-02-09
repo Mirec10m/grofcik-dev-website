@@ -33,6 +33,11 @@
 
 @include('web._partials._footer')
 
+@if(config('demibox.cookies.show'))
+    @include('web._partials._cookies_bar')
+    @include('web._partials._cookies_modal')
+@endif
+
 <!-- SCRIPTS -->
 <script src="{{ asset('js/script.min.js') }}" type="text/javascript"></script>
 @yield('js')

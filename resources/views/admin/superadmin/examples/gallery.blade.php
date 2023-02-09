@@ -9,6 +9,7 @@
         <div class="container-fluid">
             @include('admin._partials._breadcrumbs', [ 'title' => 'Galéria položky - ' . str(/*$item->name_sk*/'Lorem ipsum')->limit(30), 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
+                'Superadmin' => null,
                 'Examples' => route('superadmin.examples.index'),
             ]])
 

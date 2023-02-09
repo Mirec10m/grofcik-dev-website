@@ -311,6 +311,13 @@ Príklad:
     <input id="color" name="color" type="hidden" value="">
     <div class="colorpicker" data-input="#color"></div>
 
+### Demi Box - Frontend komponenty
+
+Demi Box obsahuje veľa predpripravených komponentov na frontend, ktoré stačí nakonfigurovať v **config/demibox.php**
+
+#### Demi Box - Cookies
+
+Pre použitie predpripravených cookies na frontende stačí nakonfigurovať v cookies poli atribút *show* na hodnotu *true*.
 
 ### Demi Box - Ostatné knižnice
 

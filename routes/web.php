@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Auth\LogoutController;
 
+require_once "demibox.php";
+
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 
@@ -49,12 +51,6 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     Route::post("/settings/settings", [ SettingsController::class, 'settings'])->name("settings.settings");
 
     Route::post("/settings/menu", [ SettingsController::class, 'menu'])->name("settings.menu");
-
-    // Users
-    if ( config('settings.unlocked.users') ) {
-        Route::resource("/users", UsersController::class)->except([ 'show' ]);
-    }
-    Route::resource("/admins", AdminsController::class)->except([ 'show' ]);
 
     /*
      * Examples of forms, lightbox, etc.

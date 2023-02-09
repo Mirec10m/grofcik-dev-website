@@ -16,6 +16,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     .sass('resources/assets/sass/admin.scss', 'public/assets')
 
     .styles([ // WEB .css files
+        'resources/assets/templates/frontend_default/css/bootstrap.min.css', // DEFAULT
         'public/assets/style.css' // this .css file must be last
     ], 'public/css/style.min.css')
 
@@ -46,6 +47,8 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
 
     .scripts([ // WEB .js files
+        'resources/assets/templates/frontend_default/js/jquery-3.6.3.min.js', // DEFAULT
+        'resources/assets/templates/frontend_default/js/bootstrap.bundle.min.js', // DEFAULT
         'resources/assets/js/frontend.js' // this .js file must be last
     ], 'public/js/script.min.js')
 

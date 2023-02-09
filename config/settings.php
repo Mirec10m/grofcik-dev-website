@@ -9,8 +9,4 @@ return [
         //'es' => 'Español',
     ],
 
-    'unlocked' => [
-        'users' => true,
-    ],
-
 ];
