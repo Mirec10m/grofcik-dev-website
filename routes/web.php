@@ -18,6 +18,17 @@ use App\Http\Controllers\Auth\LogoutController;
 
 require_once "demibox.php";
 
+Route::get('/test', function () {
+
+    \App\PostCategory::create([ 'name_sk' => "Testovacia kategória 1", 'slug_sk' => "testovacia-kategoria-1" ]);
+    \App\PostCategory::create([ 'name_sk' => "Testovacia kategória 2", 'slug_sk' => "testovacia-kategoria-2" ]);
+
+    \App\PostTag::create([ 'name_sk' => "Testovacia značka 1", 'slug_sk' => "testovacia-znacka-1" ]);
+    \App\PostTag::create([ 'name_sk' => "Testovacia značka 2", 'slug_sk' => "testovacia-znacka-2" ]);
+    \App\PostTag::create([ 'name_sk' => "Testovacia značka 3", 'slug_sk' => "testovacia-znacka-3" ]);
+
+});
+
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 

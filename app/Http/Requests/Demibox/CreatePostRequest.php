@@ -23,16 +23,20 @@ class CreatePostRequest extends FormRequest
      */
     public function rules() : array
     {
+        $post = $this->route('post');
+        $id = $post ? $post->id : null;
+
+        config('demibox.blog.categories');
+
         return [
             'name_sk' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
+            'slug_sk' => "required|string|max:255|unique:posts,slug_sk,$id",
             'published_sk' => 'in:1,0',
-            'published_en' => 'in:1,0',
-            'description_sk' => 'required|string|max:255',
-            'description_en' => 'required|string|max:255',
-            'post_category_id' => 'required|exists:post_categories,id', // dependent on config
-            'tags' => 'required|array', // dependent on config
-            'tags.*' => 'required|exists:post_tags,id', // dependent on config
+            'short_sk' => 'required|string|max:255',
+            'profile' => 'required|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif',
+            'post_category_id' => config('demibox.blog.categories') ? 'required|exists:post_categories,id' : '',
+            'tags' => config('demibox.blog.tags') ? 'required|array' : '',
+            'tags.*' => config('demibox.blog.tags') ? 'required|exists:post_tags,id' : '',
         ];
     }
 }

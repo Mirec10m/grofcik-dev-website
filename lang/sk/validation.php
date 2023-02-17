@@ -155,6 +155,7 @@ return [
 
         // Localized
         'name_sk' => 'Meno/Názov SK',
+        'slug_sk' => 'Slug SK',
         'type_sk' => 'Typ SK',
         'short_sk' => 'Krátky popis SK',
         'description_sk' => 'Podrobný popis SK',
@@ -170,6 +171,8 @@ return [
         'discount' => 'Zľava',
         'profile' => 'Profilový obrázok',
         'category_id' => 'Kategória',
+        'post_category_id' => 'Kategória',
+        'tags' => 'Značky',
         'in_stock' => 'Na sklade',
         'stored_date' => 'Dátum naskladnenia',
         'visible' => 'Zobraziť',

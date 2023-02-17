@@ -8,6 +8,7 @@ use App\Http\Requests\Demibox\UpdatePostRequest;
 use App\Post;
 use App\PostCategory;
 use App\PostTag;
+use App\Traits\UploadTrait;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Foundation\Application;
@@ -15,6 +16,8 @@ use Illuminate\Http\RedirectResponse;
 
 class PostsController extends AdminController
 {
+
+    use UploadTrait;
 
     public function index() : Factory | View | Application
     {
@@ -35,9 +38,13 @@ class PostsController extends AdminController
     {
         $post = Post::create($request->all());
 
-        // dependent on config -> create tags connection
+        if ( config('demibox.blog.tags') ) {
+            $post->tags()->attach($request->tags);
+        }
 
-        $this->_setFlashMessage('success', 'Vytvorený', "Článok <b>name_sk</b> bol vytvorený");
+        $this->upload_image($request, 'profile', 'posts', $post, 'profile');
+
+        $this->_setFlashMessage('success', 'Vytvorený', "Článok <b>$post->name_sk</b> bol vytvorený");
 
         return redirect()->route('posts.index');
     }
@@ -54,9 +61,13 @@ class PostsController extends AdminController
     {
         $post->update($request->all());
 
-        // dependent on config -> update tags connection
+        if ( config('demibox.blog.tags') ) {
+            $post->tags()->sync($request->tags);
+        }
 
-        $this->_setFlashMessage('success', 'Zmenený', "Článok <b>name_sk</b> bol zmenený");
+        $this->upload_image($request, 'profile', 'posts', $post, 'profile');
+
+        $this->_setFlashMessage('success', 'Zmenený', "Článok <b>$post->name_sk</b> bol zmenený");
 
         return back();
     }
@@ -65,7 +76,7 @@ class PostsController extends AdminController
     {
         $post->delete();
 
-        $this->_setFlashMessage('success', 'Vymazaný', "Článok <b>name_sk</b> bol vymazaný");
+        $this->_setFlashMessage('success', 'Vymazaný', "Článok <b>$post->name_sk</b> bol vymazaný");
 
         return back();
     }

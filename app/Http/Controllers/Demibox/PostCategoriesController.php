@@ -30,9 +30,9 @@ class PostCategoriesController extends AdminController
     {
         $post_category = PostCategory::create($request->all());
 
-        $this->_setFlashMessage('success', 'Vytvorená', "Kategória <b>name_sk</b> bola vytvorená");
+        $this->_setFlashMessage('success', 'Vytvorená', "Kategória <b>$post_category->name_sk</b> bola vytvorená");
 
-        return redirect()->route('post_categories.index');
+        return redirect()->route('post-categories.index');
     }
 
     public function edit(PostCategory $post_category) : Factory | View | Application
@@ -44,7 +44,7 @@ class PostCategoriesController extends AdminController
     {
         $post_category->update($request->all());
 
-        $this->_setFlashMessage('success', 'Zmenená', "Kategória <b>name_sk</b> bola zmenená");
+        $this->_setFlashMessage('success', 'Zmenená', "Kategória <b>$post_category->name_sk</b> bola zmenená");
 
         return back();
     }
@@ -53,7 +53,7 @@ class PostCategoriesController extends AdminController
     {
         $post_category->delete();
 
-        $this->_setFlashMessage('success', 'Vymazaná', "Kategória <b>name_sk</b> bola vymazaná");
+        $this->_setFlashMessage('success', 'Vymazaná', "Kategória <b>$post_category->name_sk</b> bola vymazaná");
 
         return back();
     }

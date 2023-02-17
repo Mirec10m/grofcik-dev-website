@@ -344,9 +344,9 @@ html[data-sidebar-size=sm-hover] .navbar-menu:not(:hover) .navbar-brand-box {
   margin-bottom: 20px;
 }
 
-.form-group:has(.tinymce.is-invalid) .mce-tinymce,
-div:has(.filestyle.is-invalid) .bootstrap-filestyle > input,
-div:has(select.is-invalid) .select2-selection {
+.form-group:has(> .tinymce.is-invalid) .mce-tinymce,
+div:has(> .filestyle.is-invalid) .bootstrap-filestyle > input,
+div:has(> select.is-invalid) .select2-selection {
   border: 1px solid #f06548 !important;
 }
 

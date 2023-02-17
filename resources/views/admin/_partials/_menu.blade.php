@@ -49,15 +49,38 @@
                             </a>
                             <div class="collapse menu-dropdown" id="sidebar-users">
                                 <ul class="nav nav-sm flex-column">
-                                    @if( config('demibox.users.show') )
+                                    <li class="nav-item">
+                                        <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                    </li>
+                                    @if( config('demibox.users.admins') )
                                         <li class="nav-item">
-                                            <a href="{{ route('users.index') }}" class="nav-link"> Zoznam používateľov </a>
+                                            <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
                                         </li>
-                                        @if( config('demibox.users.admins') )
-                                            <li class="nav-item">
-                                                <a href="{{ route('admins.index') }}" class="nav-link"> Zoznam administrátorov </a>
-                                            </li>
-                                        @endif
+                                    @endif
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
+
+                    @if( config('demibox.blog.show') )
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebar-blog" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="mdi mdi-account"></i> <span>Blog</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebar-blog">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('posts.index') }}" class="nav-link"> Zoznam článkov </a>
+                                    </li>
+                                    @if( config('demibox.blog.categories') )
+                                        <li class="nav-item">
+                                            <a href="{{ route('post-categories.index') }}" class="nav-link"> Zoznam kategórií </a>
+                                        </li>
+                                    @endif
+                                    @if( config('demibox.blog.tags') )
+                                        <li class="nav-item">
+                                            <a href="{{ route('post-tags.index') }}" class="nav-link"> Zoznam značiek </a>
+                                        </li>
                                     @endif
                                 </ul>
                             </div>

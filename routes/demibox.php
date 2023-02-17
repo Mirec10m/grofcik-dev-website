@@ -14,7 +14,7 @@ if ( config('demibox.cookies.show') ) {
     Route::post("/cookies", [CookiesController::class, 'submit'])->name("cookies.submit");
 }
 
-Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group(function(){
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function(){
     if ( config('demibox.users.show') ) {
         Route::resource("/users", UsersController::class)->except([ 'show' ]);
 
@@ -26,10 +26,10 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
     if ( config('demibox.blog.show') ) {
         Route::resource("/posts", PostsController::class)->except([ 'show' ]);
 
-        if ( config('demibox.users.categories') ) {
+        if ( config('demibox.blog.categories') ) {
             Route::resource("/post-categories", PostCategoriesController::class)->except([ 'show' ]);
         }
-        if ( config('demibox.users.tags') ) {
+        if ( config('demibox.blog.tags') ) {
             Route::resource("/post-tags", PostTagsController::class)->except([ 'show' ]);
         }
     }

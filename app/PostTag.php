@@ -9,7 +9,7 @@ class PostTag extends BaseModel
 
     protected $fillable = [
         'name_sk',
-        'name_en',
+        'slug_sk',
     ];
 
     public function posts() : BelongsToMany

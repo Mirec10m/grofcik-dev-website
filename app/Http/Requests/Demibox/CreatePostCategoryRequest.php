@@ -23,9 +23,12 @@ class CreatePostCategoryRequest extends FormRequest
      */
     public function rules() : array
     {
+        $post_category = $this->route('post_category');
+        $id = $post_category ? $post_category->id : null;
+
         return [
             'name_sk' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
+            'slug_sk' => "required|string|max:255|unique:post_categories,slug_sk,$id",
         ];
     }
 }

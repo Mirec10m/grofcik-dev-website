@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('post_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name_sk', 255)->nullable();
-            $table->string('name_en', 255)->nullable();
+            $table->string('slug_sk', 255)->nullable()->unique();
             $table->timestamps();
         });
     }
