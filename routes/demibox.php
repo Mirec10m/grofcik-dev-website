@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demibox\CookiesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Demibox\PostsController;
+use App\Http\Controllers\Demibox\PostCategoriesController;
+use App\Http\Controllers\Demibox\PostTagsController;
 
 
 // Cookies Routes
@@ -17,6 +20,17 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
         if ( config('demibox.users.admins') ) {
             Route::resource("/admins", AdminsController::class)->except([ 'show' ]);
+        }
+    }
+
+    if ( config('demibox.blog.show') ) {
+        Route::resource("/posts", PostsController::class)->except([ 'show' ]);
+
+        if ( config('demibox.users.categories') ) {
+            Route::resource("/post-categories", PostCategoriesController::class)->except([ 'show' ]);
+        }
+        if ( config('demibox.users.tags') ) {
+            Route::resource("/post-tags", PostTagsController::class)->except([ 'show' ]);
         }
     }
 });

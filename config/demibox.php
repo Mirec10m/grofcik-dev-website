@@ -7,6 +7,12 @@ return [
         'admins' => true,
     ],
 
+    'blog' => [
+        'show' => true,
+        'categories' => true,
+        'tags' => true,
+    ],
+
     'cookies' => [
         'show' => true,
     ],
