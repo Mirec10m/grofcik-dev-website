@@ -42,6 +42,14 @@ class PostsController extends AdminController
             $post->tags()->attach($request->tags);
         }
 
+        foreach ($request->items as $key => $item) {
+            $post_item = $post->items()->create($item);
+
+            if ($item['type'] == 'image') {
+                $this->upload_image($request, "items.$key.image_file", 'post_items', $post_item);
+            }
+        }
+
         $this->upload_image($request, 'profile', 'posts', $post, 'profile');
 
         $this->_setFlashMessage('success', 'Vytvorený', "Článok <b>$post->name_sk</b> bol vytvorený");
@@ -63,6 +71,14 @@ class PostsController extends AdminController
 
         if ( config('demibox.blog.tags') ) {
             $post->tags()->sync($request->tags);
+        }
+
+        foreach ($request->items as $key => $item) {
+            // create new items
+                // if image upload
+            // update existing items
+                // if image upload
+            // delete removed items
         }
 
         $this->upload_image($request, 'profile', 'posts', $post, 'profile');

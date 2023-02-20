@@ -7,6 +7,13 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link {{ has_errors($errors, []) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#content" role="tab" aria-selected="false">
+            <i class="mdi mdi-format-list-bulleted mr-6"></i>
+            Obsah
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link {{ has_errors($errors, ['profile']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#image" role="tab" aria-selected="false">
             <i class="mdi mdi-image mr-6"></i>
             Obrázok

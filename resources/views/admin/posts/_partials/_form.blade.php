@@ -66,6 +66,73 @@
         </div>
     </div>
 
+    <div class="tab-pane p-3" id="content" role="tabpanel">
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h5 class="card-title mb-0">{{ $card_title }} - Obsah</h5>
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <a href="{{ route('posts.index') }}" class="btn btn-primary waves-effect waves-light float-end">
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam článkov
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-9">
+                @include('admin._partials._lang_tabs', [ 'inputs' => ['name', 'published', 'slug', 'short'] ])
+
+                <div class="tab-content mb-4">
+                    @foreach(config('settings.languages') as $key => $lang)
+                        <div class="tab-pane p-3 {{ $loop->first ? 'active' : '' }}" id="{{ $key }}" role="tabpanel">
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">
+                                        Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
+                                    </label>
+                                    <input name="name_{{ $key }}" type="text" value="{{ old("name_$key", isset($post) ? $post->{"name_$key"} : '') }}" class="form-control {{ $errors->has("name_$key") ? 'is-invalid' : '' }}">
+                                    @include('admin._partials._errors', ['column' => "name_$key"])
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label class="form-label">
+                                        Zobraziť <span class="text-uppercase">{{ $key }}</span>
+                                    </label>
+                                    <div class="form-check form-switch form-switch-info form-switch-lg" dir="ltr">
+                                        <input name="published_{{ $key }}" type="hidden" value="0">
+                                        <input name="published_{{ $key }}" type="checkbox" class="form-check-input {{ $errors->has("published_$key") ? 'is-invalid' : '' }}" value="1" {{ old("published_$key") == 1 ? 'checked' : (isset($post) && $post->{"published_$key"} ? 'checked' : '') }}>
+                                    </div>
+                                    @include('admin._partials._errors', ['column' => "published_$key"])
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">
+                                        Slug <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
+                                    </label>
+                                    <input name="slug_{{ $key }}" type="text" value="{{ old("slug_$key", isset($post) ? $post->{"slug_$key"} : '') }}" class="form-control {{ $errors->has("slug_$key") ? 'is-invalid' : '' }}">
+                                    @include('admin._partials._errors', ['column' => "slug_$key"])
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <label class="form-label">
+                                        Krátky popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov) <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea name="short_{{ $key }}" class="form-control {{ $errors->has("short_$key") ? 'is-invalid' : '' }}">{{ old("short_$key", isset($post) ? $post->{"short_$key"} : '') }}</textarea>
+                                    @include('admin._partials._errors', ['column' => "short_$key"])
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="tab-pane p-3" id="image" data-show-image="true" role="tabpanel">
         <div class="row mb-4">
             <div class="col-sm-6">

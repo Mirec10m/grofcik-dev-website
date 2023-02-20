@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends BaseModel
 {
@@ -32,7 +33,12 @@ class Post extends BaseModel
         return $this->belongsToMany(PostTag::class)->withTimestamps()->withPivot('created_at');
     }
 
-    public function getProfileImageAttribute()
+    public function items() : HasMany
+    {
+        return $this->hasMany(PostItem::class);
+    }
+
+    public function getProfileImageAttribute() : Image | bool
     {
         return $this->images->where('profile', 1)->sortByDesc('created_at')->first() ?? false;
     }
