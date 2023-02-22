@@ -43,6 +43,191 @@
 @yield('js')
 
 <script>
+
+    function initPostBlocks () {
+        // Init Sortable.js dragging
+        var nestedSortables = [].slice.call(document.querySelectorAll(".nested-sortable")),
+            nestedSortablesHandles = (nestedSortables && Array.from(nestedSortables).forEach(function(e) {
+                new Sortable(e, {
+                    group: "nested",
+                    handle: ".post-block-handle",
+                    animation: 150,
+                    fallbackOnBody: !0,
+                    swapThreshold: .65,
+                    onMove: function (event) {
+                        if ( $(event.to).parents('.nested-sortable').length > 0 ) return false;
+                    },
+                })
+            }));
+
+        // Init add post block buttons
+        $('.post-blocks-add').click(function () {
+            let post_blocks = $('.post-blocks');
+            let post_items_content = $('.post-items-content')
+            let index = post_blocks.data('items') + 1;
+            let type = $(this).data('type');
+
+            post_blocks.append( buildPostBlock(index, type) );
+            post_items_content.append( buildPostBlockContent(index, type) );
+            post_blocks.data('items', index);
+
+            initPostBlockListeners();
+        });
+
+        initPostBlockListeners();
+    }
+
+    function initPostBlockListeners () {
+        $('.post-block .post-block-info').click(function () {
+            $('.post-item-content').removeClass('active');
+
+            $('.post-item-content[data-post-item="' + $(this).parent().data('post-item') + '"]').addClass('active');
+        });
+    }
+
+    function buildPostBlock (index, type) {
+        let info = {
+            'image': { 'icon': 'ri-image-fill', 'name': 'Obrázok', 'description': 'Veľký obrázok' },
+            'paragraph': { 'icon': 'ri-paragraph',  'name': 'Paragraf',  'description': 'Jeden paragraf s textom' },
+        }[type];
+
+        return (
+            '<div class="list-group-item nested-1 post-block" data-post-item="' + index + '">' +
+                '<div class="post-block-info">' +
+                    '<i class="' + info.icon + ' fs-16 align-middle text-primary me-2"></i>' +
+                    '<div class="post-block-name">' + info.name + '</div>' +
+                    '<div class="post-block-description text-muted">' + info.description + '</div>' +
+                '</div>' +
+                '<div class="post-block-actions">' +
+                    '<i class="ri-drag-move-fill post-block-handle"></i>' +
+                    '<i class="ri-delete-bin-2-line"></i>' +
+                '</div>' +
+            '</div>'
+        )
+    }
+
+    function buildPostBlockContent (index, type) {
+        let langs = {
+            'sk': 'Slovensky',
+            'en': 'Anglicky',
+        }
+
+        return {
+            'image': buildImagePostBlockContent,
+            'paragraph': buildParagraphPostBlockContent,
+        }[type](index, langs);
+    }
+
+    function buildParagraphPostBlockContent (index, langs) {
+        let _lang_tabs = Object.entries(langs).reduce(function (acc, value, i) {
+            return acc + (
+                '<li class="nav-item">' +
+                    '<a class="nav-link ' + (i === 0 ? 'active' : '') + '" data-bs-toggle="tab" href="#' + value[0] + '_' + index + '" role="tab" aria-selected="false">' +
+                        value[1] +
+                    '</a>' +
+                '</li>'
+            );
+        }, '');
+
+        let _lang_panes = Object.entries(langs).reduce(function (acc, value, i) {
+            return acc + (
+                '<div class="tab-pane p-3 ' + (i === 0 ? 'active' : '') + '" id="' + value[0] + '_' + index + '" role="tabpanel">' +
+                    '<div class="row mb-3">' +
+                        '<div class="col-sm-12">' +
+                            '<div class="form-group">' +
+                                '<label>' +
+                                    'Obsah ' +
+                                    '<span class="text-uppercase">' + value[0] + '</span>' +
+                                '</label>' +
+                                '<textarea name="items[' + index + '][paragraph_text_' + value[0] + ']" class="form-control tinymce"></textarea>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }, '');
+
+        return (
+            '<div class="post-item-content row mb-3" data-post-item="' + index + '">' +
+                '<div class="col-sm-12">' +
+                    '<ul class="nav nav-tabs" role="tablist">' +
+                        _lang_tabs +
+                    '</ul>' +
+
+                    '<div class="tab-content mb-4">' +
+                        _lang_panes +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        );
+    }
+
+    function buildImagePostBlockContent (index, langs) {
+        let _lang_tabs = Object.entries(langs).reduce(function (acc, value, i) {
+            return acc + (
+                '<li class="nav-item">' +
+                    '<a class="nav-link ' + (i === 0 ? 'active' : '') + '" data-bs-toggle="tab" href="#' + value[0] + '_' + index + '" role="tab" aria-selected="false">' +
+                        value[1] +
+                    '</a>' +
+                '</li>'
+            );
+        }, '');
+
+        let _lang_panes = Object.entries(langs).reduce(function (acc, value, i) {
+            return acc + (
+                '<div class="tab-pane p-3 ' + (i === 0 ? 'active' : '') + '" id="' + value[0] + '_' + index + '" role="tabpanel">' +
+                    '<div class="row mb-3">' +
+                        '<div class="col-sm-6">' +
+                            '<label class="form-label">' +
+                                'Názov <span class="text-uppercase">' + value[0] + '</span> <span class="text-danger">*</span>' +
+                            '</label>' +
+                            '<input name="items[' + index + '][image_alt_' + value[0] + '" type="text" value="" class="form-control">' +
+                        '</div>' +
+
+                        '<div class="col-sm-6">' +
+                            '<label class="form-label">' +
+                                'Názov <span class="text-uppercase">' + value[0] + '</span> <span class="text-danger">*</span>' +
+                            '</label>' +
+                            '<input name="items[' + index + '][image_alt_' + value[0] + '" type="text" value="" class="form-control">' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div class="row mb-3">' +
+                        '<div class="col-sm-12">' +
+                            '<label class="form-label">' +
+                                'Krátky popis <span class="text-uppercase">' + value[0] + '</span> (max. 255 znakov) <span class="text-danger">*</span>' +
+                            '</label>' +
+                            '<textarea name="items[' + index + '][image_description_' + value[0] + '" class="form-control"></textarea>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
+        }, '');
+
+        return (
+            '<div class="post-item-content row mb-3" data-post-item="' + index + '">' +
+                '<div class="col-sm-12">' +
+                    '<ul class="nav nav-tabs" role="tablist">' +
+                        _lang_tabs +
+                    '</ul>' +
+
+                    '<div class="tab-content mb-4">' +
+                        _lang_panes +
+                    '</div>' +
+
+                    '<div>' +
+                        '<label class="form-label">' +
+                            'Profilový obrázok <span class="text-danger">*</span>' +
+                        '</label>' +
+                        '<input name="items[' + index + '][image_file]" class="form-control filestyle" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        );
+    }
+
+    initPostBlocks();
+
     $(document).ready(function () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({
