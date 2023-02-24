@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Demibox\CookiesController;
-use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\AdminsController;
-use App\Http\Controllers\Demibox\PostsController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Demibox\CookiesController;
 use App\Http\Controllers\Demibox\PostCategoriesController;
+use App\Http\Controllers\Demibox\PostDraftsController;
+use App\Http\Controllers\Demibox\PostsController;
 use App\Http\Controllers\Demibox\PostTagsController;
-
+use Illuminate\Support\Facades\Route;
 
 // Cookies Routes
 if ( config('demibox.cookies.show') ) {
@@ -25,6 +25,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function(){
 
     if ( config('demibox.blog.show') ) {
         Route::resource("/posts", PostsController::class)->except([ 'show' ]);
+
+        Route::post('/posts/draft/save', [ PostDraftsController::class, 'save' ])->name('posts.draft.save');
 
         if ( config('demibox.blog.categories') ) {
             Route::resource("/post-categories", PostCategoriesController::class)->except([ 'show' ]);

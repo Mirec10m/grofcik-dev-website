@@ -85,7 +85,7 @@
                     <button class="btn btn-soft-dark btn-sm dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Pridať blok
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu">
                         <li>
                             <a href="javascript:void(0);" class="dropdown-item post-blocks-add" data-type="paragraph">
                                 <i class="mdi mdi-lead-pencil action-icon"></i> Paragraf
@@ -101,58 +101,30 @@
             </div>
         </div>
 
-        <style>
-            .post-block {
-                border-radius: inherit;
-                border-top-width: 1px !important;
-                border-bottom-width: 1px;
-                display: flex;
-                padding: 0;
-                min-height: 100px;
-            }
-            .post-block-info {
-                padding: 10px;
-                margin-right: auto;
-            }
-            .post-block-name {
-                display: inline-block;
-            }
-            .post-block-description {
-                font-size: 11px;
-                margin-top: 10px;
-            }
-            .post-block-actions {
-                padding: 10px;
-                border-left: 1px solid rgba(64,81,137,.2);
-                display: flex;
-                flex-direction: column;
-            }
-            .post-block-actions i:not(:last-child) {
-                margin-bottom: 5px;
-            }
-
-            .post-item-content {
-                display: none;
-            }
-            .post-item-content.active {
-                display: block;
-            }
-        </style>
-
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-3">
-                        <div class="list-group col nested-list nested-sortable post-blocks" data-items="0">
-
+                        <div class="list-group col nested-list nested-sortable post-blocks" data-items="{{ isset($post) ? $post->items->count() : 0 }}">
+                            @if( isset($post) )
+                                @foreach($post->items->sortBy('order') as $post_item)
+                                    @include('admin.posts._partials._patterns._post_block_pattern', [ 'post_item' => $post_item, 'index' => $loop->iteration ])
+                                @endforeach
+                            @endif
                         </div>
                     </div>
 
                     <div class="col-sm-9">
                         <div class="post-items-content">
-
+                            @if( isset($post) )
+                                @foreach($post->items->sortBy('order') as $post_item)
+                                    @include("admin.posts._partials._patterns._{$post_item->type}_pattern", [ 'post_item' => $post_item, 'index' => $loop->iteration ])
+                                @endforeach
+                            @endif
                         </div>
                     </div>
+
+                    @include('admin.posts._partials._post_item_patterns')
                 </div>
             </div>
         </div>

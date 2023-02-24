@@ -18,8 +18,9 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+                            <form id="post-draft-form" action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" data-draft-url="{{ route('posts.draft.save') }}">
                                 @csrf
+                                <input type="hidden" name="draft_id" value="">
 
                                 @include('admin.posts._partials._form', [ 'card_title' => "Nový článok" ])
 

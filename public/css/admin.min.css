@@ -374,3 +374,54 @@ form:has(> .tab-content > .tab-pane.active[data-show-image=true]) ~ #image-view 
   display: block;
 }
 
+/* POST ITEMS DRAGGING - START */
+
+.post-block {
+  border-radius: inherit;
+  border-top-width: 1px !important;
+  border-bottom-width: 1px;
+  display: flex;
+  padding: 0;
+  min-height: 100px;
+}
+
+.post-block .post-block-info {
+  padding: 10px;
+  flex: 1;
+}
+
+.post-block .post-block-info .post-block-name {
+  display: inline-block;
+}
+
+.post-block .post-block-info .post-block-description {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.post-block .post-block-actions {
+  padding: 10px;
+  border-left: 1px solid rgba(64, 81, 137, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.post-block .post-block-actions .post-block-actions *:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.post-block .post-block-actions .post-block-handle {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.post-item-content {
+  display: none;
+}
+
+.post-item-content.active {
+  display: block;
+}
+
+/* POST ITEMS DRAGGING - END */
+

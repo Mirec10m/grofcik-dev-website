@@ -10,6 +10,7 @@ class PostItem extends BaseModel
 
     protected $fillable = [
         'post_id',
+        'type',
         'order',
         'paragraph_text_sk',
         'image_name_sk',

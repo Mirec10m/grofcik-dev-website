@@ -26,10 +26,6 @@ class CreatePostRequest extends FormRequest
         $post = $this->route('post');
         $id = $post ? $post->id : null;
 
-        config('demibox.blog.categories');
-
-        dd($this->all());
-
         return [
             'name_sk' => 'required|string|max:255',
             'slug_sk' => "required|string|max:255|unique:posts,slug_sk,$id",

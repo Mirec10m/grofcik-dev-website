@@ -73,12 +73,18 @@ class PostsController extends AdminController
             $post->tags()->sync($request->tags);
         }
 
+        $item_ids = array_column($request->items, 'id');
+        $post->items()->whereNotIn('id', $item_ids)->delete();
+
         foreach ($request->items as $key => $item) {
-            // create new items
-                // if image upload
-            // update existing items
-                // if image upload
-            // delete removed items
+            if ( isset($item['id']) ) {
+                $post_item = $post->items()->where('id', $item['id'])->first();
+                $post_item->update($item);
+            } else {
+                $post_item = $post->items()->create($item);
+            }
+
+            $this->upload_image($request, "items.$key.image_file", 'post_items', $post_item);
         }
 
         $this->upload_image($request, 'profile', 'posts', $post, 'profile');
