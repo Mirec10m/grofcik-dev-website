@@ -17,4 +17,14 @@ class PostTag extends BaseModel
         return $this->belongsToMany(Post::class)->withTimestamps()->withPivot('created_at');
     }
 
+    public function getNameAttribute() : mixed
+    {
+        return $this->_translateProperty('name');
+    }
+
+    public function getSlugAttribute() : mixed
+    {
+        return $this->_translateProperty('slug');
+    }
+
 }

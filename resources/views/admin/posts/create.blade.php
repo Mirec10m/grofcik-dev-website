@@ -18,7 +18,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form id="post-draft-form" action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" data-draft-url="{{ route('posts.draft.save') }}">
+                            <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="draft_id" value="">
 

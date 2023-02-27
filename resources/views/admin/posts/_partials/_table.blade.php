@@ -40,6 +40,13 @@
                                 <i class="mdi mdi-lead-pencil action-icon"></i> Editovať
                             </a>
                         </li>
+                        @foreach( config('settings.languages') as $key => $lang )
+                            <li>
+                                <a href="{{ route('posts.show', [ 'post' => $post, 'locale' => $key ]) }}" target="_blank" class="dropdown-item">
+                                    <i class="mdi mdi-view-quilt action-icon"></i> Náhľad <span class="text-uppercase">{{ $key }}</span>
+                                </a>
+                            </li>
+                        @endforeach
                         <li class="dropdown-divider"></li>
                         <li>
                             <form action="{{ route('posts.destroy', $post) }}" method="post" style="display: inline-block; width: 100%;">

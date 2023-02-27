@@ -369,3 +369,7 @@ form:has(> .tab-content > .tab-pane.active[data-show-image=true]) ~ #image-view 
 
 /* POST ITEMS DRAGGING - END */
 
+.mb-40 {
+  margin-bottom: 40px;
+}
+

@@ -17,7 +17,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-sm-12">
-                                    <a href="https://www.linkedin.com/company/demi-studio/" class="dashboard-linkedin" target="_blank">
+                                    <a href="https://www.linkedin.com/company/demi-studio/" class="dashboard-linkedin mb-40" target="_blank">
                                         <img src="https://www.demi.sk/images/icons/linkedin.svg" alt="Logo LinkedIn">
                                         <div>
                                             Sledujte nás na LinkedIn.

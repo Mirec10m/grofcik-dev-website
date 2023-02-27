@@ -28,6 +28,26 @@ class PostItem extends BaseModel
         return $this->belongsTo(Post::class, 'post_id');
     }
 
+    public function getParagraphTextAttribute() : mixed
+    {
+        return $this->_translateProperty('paragraph_text');
+    }
+
+    public function getImageNameAttribute() : mixed
+    {
+        return $this->_translateProperty('image_name');
+    }
+
+    public function getImageAltAttribute() : mixed
+    {
+        return $this->_translateProperty('image_alt');
+    }
+
+    public function getImageDescriptionAttribute() : mixed
+    {
+        return $this->_translateProperty('image_description');
+    }
+
     public function getImageAttribute() : Image | bool
     {
         return $this->images->sortByDesc('created_at')->first() ?? false;

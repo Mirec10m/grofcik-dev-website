@@ -17,4 +17,14 @@ class PostCategory extends BaseModel
         return $this->hasMany(Post::class);
     }
 
+    public function getNameAttribute() : mixed
+    {
+        return $this->_translateProperty('name');
+    }
+
+    public function getSlugAttribute() : mixed
+    {
+        return $this->_translateProperty('slug');
+    }
+
 }

@@ -38,6 +38,26 @@ class Post extends BaseModel
         return $this->hasMany(PostItem::class);
     }
 
+    public function getNameAttribute() : mixed
+    {
+        return $this->_translateProperty('name');
+    }
+
+    public function getPublishedAttribute() : mixed
+    {
+        return $this->_translateProperty('published');
+    }
+
+    public function getSlugAttribute() : mixed
+    {
+        return $this->_translateProperty('slug');
+    }
+
+    public function getShortAttribute() : mixed
+    {
+        return $this->_translateProperty('short');
+    }
+
     public function getProfileImageAttribute() : Image | bool
     {
         return $this->images->where('profile', 1)->sortByDesc('created_at')->first() ?? false;

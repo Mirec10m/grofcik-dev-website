@@ -57,6 +57,17 @@ class PostsController extends AdminController
         return redirect()->route('posts.index');
     }
 
+    public function show(Post $post) : Factory | View | Application
+    {
+        app()->setLocale( request('locale') );
+
+        $view = view('web.posts.show', compact('post'));
+
+        app()->setLocale('sk');
+
+        return $view;
+    }
+
     public function edit(Post $post) : Factory | View | Application
     {
         $post_categories = PostCategory::all(); // dependent on config
@@ -88,6 +99,10 @@ class PostsController extends AdminController
         }
 
         $this->upload_image($request, 'profile', 'posts', $post, 'profile');
+
+        if ( $request->preview ) {
+            return redirect()->route('posts.show', [ 'post' => $post, 'locale' => $request->preview ]);
+        }
 
         $this->_setFlashMessage('success', 'Zmenený', "Článok <b>$post->name_sk</b> bol zmenený");
 

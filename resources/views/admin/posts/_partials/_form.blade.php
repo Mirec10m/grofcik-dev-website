@@ -5,11 +5,7 @@
                 <h5 class="card-title mb-0">{{ $card_title }} - Všeobecné</h5>
             </div>
 
-            <div class="col-sm-6 text-right">
-                <a href="{{ route('posts.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam článkov
-                </a>
-            </div>
+            @include('admin.posts._partials._form_buttons')
         </div>
 
         <div class="row">
@@ -72,11 +68,7 @@
                 <h5 class="card-title mb-0">{{ $card_title }} - Obsah</h5>
             </div>
 
-            <div class="col-sm-6 text-right">
-                <a href="{{ route('posts.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam článkov
-                </a>
-            </div>
+            @include('admin.posts._partials._form_buttons')
         </div>
 
         <div class="row mb-4">
@@ -136,11 +128,7 @@
                 <h5 class="card-title mb-0">{{ $card_title }} - Obrázok</h5>
             </div>
 
-            <div class="col-sm-6 text-right">
-                <a href="{{ route('posts.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam článkov
-                </a>
-            </div>
+            @include('admin.posts._partials._form_buttons')
         </div>
 
         <div class="row mb-3">
@@ -167,11 +155,7 @@
                     <h5 class="card-title mb-0">{{ $card_title }} - Ostatné</h5>
                 </div>
 
-                <div class="col-sm-6 text-right">
-                    <a href="{{ route('posts.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                        <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam článkov
-                    </a>
-                </div>
+                @include('admin.posts._partials._form_buttons')
             </div>
 
             <div class="row mb-3">

@@ -18,9 +18,10 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('posts.update', $post) }}" method="post" enctype="multipart/form-data">
+                            <form id="posts-edit-form" target="_self" action="{{ route('posts.update', $post) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
+                                <input type="hidden" name="preview" value="">
 
                                 @include('admin.posts._partials._form', [ 'card_title' => "Editovať článok" ])
 

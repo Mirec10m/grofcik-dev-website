@@ -24,9 +24,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function(){
     }
 
     if ( config('demibox.blog.show') ) {
-        Route::resource("/posts", PostsController::class)->except([ 'show' ]);
-
-        Route::post('/posts/draft/save', [ PostDraftsController::class, 'save' ])->name('posts.draft.save');
+        Route::resource("/posts", PostsController::class);
 
         if ( config('demibox.blog.categories') ) {
             Route::resource("/post-categories", PostCategoriesController::class)->except([ 'show' ]);

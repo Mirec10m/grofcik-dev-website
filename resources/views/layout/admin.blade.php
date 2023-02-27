@@ -43,43 +43,23 @@
 @yield('js')
 
 <script>
+    function initPostsPreviewButton () {
+        $('.post-preview').click(function () {
+            let form = $('#posts-edit-form');
 
-    function initPostDraftForm () {
-        let form = $('form#post-draft-form');
+            form.attr('target', '_blank');
+            form.find('input[name="preview"]').val( $(this).data('locale') );
 
-        if ( form.length === 0 ) return;
+            form.submit();
 
-        // REWRITE TO 30 000
-        saveDraft(form);
-    }
+            form.attr('target', '_self');
+            form.find('input[name="preview"]').val("");
 
-    function saveDraft (form) {
-        console.log('SAVING DRAFT');
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'Content-Type' : 'application/json',
-            }
-        });
-
-        $.ajax({
-            url: form.data('draft-url'),
-            method: 'post',
-            data: new FormData(form[0]),
-            processData: false,
-            success: data => {
-                console.log(data);
-
-                form.find('input[name="draft_id"]').val(data.draft_id);
-
-                setTimeout(() => saveDraft(form), 5000);
-            },
-            error: () => {},
+            form.find('.button-loading').removeClass('button-loading').prop('disabled', false);
         });
     }
 
-    initPostDraftForm();
+    initPostsPreviewButton();
 
     function initTinymce () {
         if( $(".tinymce").length > 0 ){
