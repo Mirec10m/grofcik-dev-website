@@ -82,6 +82,7 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
         'resources/assets/templates/admin/js/dataTables.responsive.min.js',
         'resources/assets/templates/admin/js/sweetalert2.min.js',
         'resources/assets/templates/admin/js/tinymce.min.js',
+        'resources/assets/templates/admin/js/Sortable.min.js',
         'resources/assets/templates/admin/js/datatables.init.js',
         'resources/assets/templates/admin/js/form-pickers.init.js',
         'resources/assets/templates/admin/js/select2.init.js',

@@ -12,6 +12,7 @@ $(function(){
     initDatatables();
     initGlightbox();
     initMenuPin();
+    initPostBlocks();
 });
 
 function initButtonLoading () {
@@ -333,6 +334,179 @@ function initMenuPin () {
             data: { 'menu_pinned': pinned ? 1 : 0 },
             success: () => void 0,
             error: (e) => console.log(e.responseText),
+        });
+    });
+}
+
+var post_blocks_info;
+function initPostBlocks () {
+    // Init Sortable.js dragging
+    var nestedSortables = [].slice.call(document.querySelectorAll(".nested-sortable")),
+        nestedSortablesHandles = (nestedSortables && Array.from(nestedSortables).forEach(function(e) {
+            new Sortable(e, {
+                group: "nested",
+                handle: ".post-block-handle",
+                animation: 150,
+                fallbackOnBody: !0,
+                swapThreshold: .65,
+                onMove: function (event) {
+                    if ( $(event.to).parents('.nested-sortable').length > 0 ) return false;
+                },
+                onUpdate: reorderPostBlocks,
+            })
+        }));
+
+    post_blocks_info = {
+        'image': { 'icon': 'ri-image-fill', 'name': 'Obrázok', 'description': 'Veľký obrázok' },
+        'paragraph': { 'icon': 'ri-paragraph',  'name': 'Paragraf',  'description': 'Paragraf s textom' },
+    };
+
+    initExistingPostItems();
+
+    initAddPostBlockListener();
+    initRemovePostBlockListener();
+    initShowPostBlockListener();
+}
+
+function initExistingPostItems () {
+    $('.post-blocks>.post-block').each(function () {
+        let type = $(this).find('input[name$="[type]"]').val();
+        let info = post_blocks_info[type];
+        let post_item = $(`.post-item-content[data-post-item=${ $(this).data('post-item') }]`);
+
+        $(this).find(':disabled').prop('disabled', false);
+        $(this).find('.pattern-icon').addClass(info.icon);
+        $(this).find('.pattern-name').html(info.name);
+        $(this).find('.pattern-description').html(info.description);
+        post_item.find(':disabled').prop('disabled', false);
+    });
+}
+
+function reorderPostBlocks () {
+    let order = 1;
+
+    $('.post-blocks .post-block-order').each( (i, e) => $(e).val(order++) );
+}
+
+function initAddPostBlockListener () {
+    $('.post-blocks-add').click(function () {
+        let post_blocks = $('.post-blocks');
+        let post_items_content = $('.post-items-content')
+        let index = post_blocks.data('items') + 1;
+        let type = $(this).data('type');
+
+        let post_block = buildPostBlock(index, type);
+        let post_item = buildPostBlockContent(index, type);
+
+        post_blocks.append(post_block.html());
+        post_items_content.append(post_item.html());
+        post_blocks.data('items', index);
+
+        initShowPostBlockListener();
+        initRemovePostBlockListener();
+        reorderPostBlocks();
+        initTinymce();
+        initFilestyle();
+    });
+}
+
+function initRemovePostBlockListener () {
+    $('.post-blocks-remove').click(function () {
+        let post_item = $(this).data('post-item');
+        let post_blocks = $('.post-blocks');
+
+        $(`.post-item-content[data-post-item="${post_item}"]`).remove();
+        $(`.post-block[data-post-item="${post_item}"]`).remove();
+
+        post_blocks.data('items', post_blocks.data('items') - 1);
+
+        reorderPostBlocks();
+    });
+}
+
+function initShowPostBlockListener () {
+    $('.post-block .post-block-info').click(function () {
+        $('.post-item-content').removeClass('active');
+
+        $('.post-item-content[data-post-item="' + $(this).parent().data('post-item') + '"]').addClass('active');
+    });
+}
+
+function buildPostBlock (index, type) {
+    let info = post_blocks_info[type];
+
+    let clone = $('#post-item-patterns').find('#pattern-post-block').clone();
+    clone.find(':disabled').prop('disabled', false);
+    clone.find('.post-block, .post-blocks-remove').attr('data-post-item', index);
+    clone.find('.pattern-icon').addClass(info.icon);
+    clone.find('.pattern-name').html(info.name);
+    clone.find('.pattern-description').html(info.description);
+    clone.find(`input[name="items[][order]"]`).attr('name', `items[${index}][order]`);
+    clone.find(`input[name="items[][type]"]`).attr('name', `items[${index}][type]`);
+    clone.find(`input[name="items[${index}][type]"]`).attr('value', type);
+
+    return clone;
+}
+
+function buildPostBlockContent (index, type) {
+    let langs = $('#post-item-patterns').data('langs');
+
+    return {
+        'image': buildImagePostBlockContent,
+        'paragraph': buildParagraphPostBlockContent,
+    }[type](index, langs);
+}
+
+function buildParagraphPostBlockContent (index, langs) {
+    let clone = $('#post-item-patterns').find('#pattern-paragraph').clone();
+
+    clone.find('.post-item-content').attr('data-post-item', index);
+    clone.find(':disabled').prop('disabled', false);
+
+    langs.forEach(function (lang) {
+        clone.find('.nav-link').each( (i, e) => $(e).attr('href', `#${lang}_${index}`) );
+        clone.find('.tab-pane').each( (i, e) => $(e).attr('id', `${lang}_${index}`) );
+        clone.find(`textarea[name="items[][paragraph_text_${lang}]"]`).attr('name', `items[${index}][paragraph_text_${lang}]`);
+        clone.find('.unloaded-tinymce').removeClass('unloaded-tinymce').addClass('tinymce');
+    });
+
+    return clone;
+}
+
+function buildImagePostBlockContent (index, langs) {
+    let clone = $('#post-item-patterns').find('#pattern-image').clone();
+
+    clone.find('.post-item-content').attr('data-post-item', index);
+    clone.find(`input[name="items[][image_file]"]`).attr('name', `items[${index}][image_file]`);
+    clone.find('.unloaded-filestyle').removeClass('unloaded-filestyle').addClass('filestyle');
+
+    clone.find(':disabled').prop('disabled', false);
+
+    langs.forEach(function (lang) {
+        clone.find('.nav-link').each( (i, e) => $(e).attr('href', `#${lang}_${index}`) );
+        clone.find('.tab-pane').each( (i, e) => $(e).attr('id', `${lang}_${index}`) );
+        clone.find(`input[name="items[][image_name_${lang}]"]`).attr('name', `items[${index}][image_name_${lang}]`);
+        clone.find(`input[name="items[][image_alt_${lang}]"]`).attr('name', `items[${index}][image_alt_${lang}]`);
+        clone.find(`textarea[name="items[][image_description_${lang}]"]`).attr('name', `items[${index}][image_description_${lang}]`);
+    });
+
+    return clone;
+}
+
+function initFilestyle () {
+    $(".filestyle").each(function() {
+        $(this).filestyle({
+            input: "false" !== $(this).attr("data-input"),
+            htmlIcon: $(this).attr("data-icon"),
+            buttonBefore: "true" === $(this).attr("data-buttonBefore"),
+            disabled: "true" === $(this).attr("data-disabled"),
+            size: $(this).attr("data-size"),
+            text: $(this).attr("data-text"),
+            btnClass: $(this).attr("data-btnClass"),
+            badge: "true" === $(this).attr("data-badge"),
+            dragdrop: "false" !== $(this).attr("data-dragdrop"),
+            badgeName: $(this).attr("data-badgeName"),
+            placeholder: $(this).attr("data-placeholder")
         });
     });
 }

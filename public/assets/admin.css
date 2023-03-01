@@ -70,7 +70,8 @@
   padding: 0 !important;
 }
 
-.nav-tabs > .nav-item > .nav-link.is-invalid {
+.nav-tabs > .nav-item > .nav-link.is-invalid,
+.is-invalid-icon {
   padding-right: calc(1.5em + 1rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23f06548'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f06548' stroke='none'/%3e%3c/svg%3e") !important;
   background-repeat: no-repeat !important;
@@ -288,9 +289,10 @@ html[data-sidebar-size=sm-hover] .navbar-menu:not(:hover) .navbar-brand-box {
   margin-bottom: 20px;
 }
 
-.form-group:has(.tinymce.is-invalid) .mce-tinymce,
-div:has(.filestyle.is-invalid) .bootstrap-filestyle > input,
-div:has(select.is-invalid) .select2-selection {
+.form-group:has(> .tinymce.is-invalid) .mce-tinymce,
+div:has(> .filestyle.is-invalid) .bootstrap-filestyle > input,
+div:has(> select.is-invalid) .select2-selection,
+.is-invalid-border {
   border: 1px solid #f06548 !important;
 }
 
@@ -316,5 +318,60 @@ div:has(.is-invalid) .pickr > button {
 
 form:has(> .tab-content > .tab-pane.active[data-show-image=true]) ~ #image-view {
   display: block;
+}
+
+/* POST ITEMS DRAGGING - START */
+
+.post-block {
+  border-radius: inherit;
+  border-top-width: 1px !important;
+  border-bottom-width: 1px;
+  display: flex;
+  padding: 0;
+  min-height: 100px;
+}
+
+.post-block .post-block-info {
+  padding: 10px;
+  flex: 1;
+}
+
+.post-block .post-block-info .post-block-name {
+  display: inline-block;
+}
+
+.post-block .post-block-info .post-block-description {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.post-block .post-block-actions {
+  padding: 10px;
+  border-left: 1px solid rgba(64, 81, 137, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.post-block .post-block-actions .post-block-actions *:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.post-block .post-block-actions .post-block-handle {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.post-item-content {
+  display: none;
+}
+
+.post-item-content.active {
+  display: block;
+}
+
+/* POST ITEMS DRAGGING - END */
+
+.mb-40 {
+  margin-bottom: 40px;
 }
 

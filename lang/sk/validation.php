@@ -155,9 +155,14 @@ return [
 
         // Localized
         'name_sk' => 'Meno/Názov SK',
+        'slug_sk' => 'Slug SK',
         'type_sk' => 'Typ SK',
         'short_sk' => 'Krátky popis SK',
         'description_sk' => 'Podrobný popis SK',
+        'items.*.paragraph_text_sk' => 'Obsah SK',
+        'items.*.image_name_sk' => 'Názov SK',
+        'items.*.image_alt_sk' => 'Alternatívny Text SK',
+        'items.*.image_description_sk' => 'Krátky popis SK',
 
         // Other
         'name' => 'Meno/Názov',
@@ -170,10 +175,14 @@ return [
         'discount' => 'Zľava',
         'profile' => 'Profilový obrázok',
         'category_id' => 'Kategória',
+        'post_category_id' => 'Kategória',
+        'tags' => 'Značky',
         'in_stock' => 'Na sklade',
         'stored_date' => 'Dátum naskladnenia',
         'visible' => 'Zobraziť',
         'image' => 'Obrázok',
+        'items.*.image_file' => 'Obrázok',
+        'items.*.type' => 'typ bloku',
     ],
 
 ];
