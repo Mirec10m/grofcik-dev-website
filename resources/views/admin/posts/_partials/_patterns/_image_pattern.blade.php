@@ -18,14 +18,20 @@
                             <label class="form-label">
                                 Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                             </label>
-                            <input disabled name="items[{{ $index ?? '' }}][image_name_{{ $key }}]" type="text" value="{{ $post_item?->{"image_name_$key"} }}" class="form-control">
+                            <input disabled name="items[{{ $index ?? '' }}][image_name_{{ $key }}]" type="text" value="{{ $post_item?->{"image_name_$key"} ?? '' }}" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_name_$key") ? 'is-invalid' : '' }}">
+                            @if( $with_errors ?? false )
+                                @include('admin._partials._errors', ['column' => "items.$index.image_name_$key"])
+                            @endif
                         </div>
 
                         <div class="col-sm-6">
                             <label class="form-label">
                                 Alternatívny text <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                             </label>
-                            <input disabled name="items[{{ $index ?? '' }}][image_alt_{{ $key }}]" type="text" value="{{ $post_item?->{"image_alt_$key"} }}" class="form-control">
+                            <input disabled name="items[{{ $index ?? '' }}][image_alt_{{ $key }}]" type="text" value="{{ $post_item?->{"image_alt_$key"} ?? '' }}" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_alt_$key") ? 'is-invalid' : '' }}">
+                            @if( $with_errors ?? false )
+                                @include('admin._partials._errors', ['column' => "items.$index.image_alt_$key"])
+                            @endif
                         </div>
                     </div>
 
@@ -34,7 +40,10 @@
                             <label class="form-label">
                                 Krátky popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov) <span class="text-danger">*</span>
                             </label>
-                            <textarea disabled name="items[{{ $index ?? '' }}][image_description_{{ $key }}]" class="form-control">{{ $post_item?->{"image_description_$key"} }}</textarea>
+                            <textarea disabled name="items[{{ $index ?? '' }}][image_description_{{ $key }}]" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_description_$key") ? 'is-invalid' : '' }}">{{ $post_item?->{"image_description_$key"} ?? '' }}</textarea>
+                            @if( $with_errors ?? false )
+                                @include('admin._partials._errors', ['column' => "items.$index.image_description_$key"])
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -45,9 +54,12 @@
             <div class="col-sm-6">
                 <div>
                     <label class="form-label">
-                        Profilový obrázok <span class="text-danger">*</span>
+                        Obrázok <span class="text-danger">*</span>
                     </label>
-                    <input disabled name="items[{{ $index ?? '' }}][image_file]" class="form-control  {{ isset($post_item) ? 'filestyle' : 'unloaded-filestyle' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
+                    <input disabled name="items[{{ $index ?? '' }}][image_file]" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_file") ? 'is-invalid' : '' }}  {{ isset($post_item) ? 'filestyle' : 'unloaded-filestyle' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
+                    @if( $with_errors ?? false )
+                        @include('admin._partials._errors', ['column' => "items.$index.image_file"])
+                    @endif
                 </div>
             </div>
         </div>

@@ -97,8 +97,12 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-3">
-                        <div class="list-group col nested-list nested-sortable post-blocks" data-items="{{ isset($post) ? $post->items->count() : 0 }}">
-                            @if( isset($post) )
+                        <div class="list-group col nested-list nested-sortable post-blocks" data-items="{{ old('items') ? sizeof(old('items')) : ( isset($post) ? $post->items->count() : 0 ) }}">
+                            @if( old('items') )
+                                @foreach(old('items') as $key => $post_item)
+                                    @include('admin.posts._partials._patterns._post_block_pattern', [ 'post_item' => (object) $post_item, 'index' => $loop->iteration, 'with_errors' => true ])
+                                @endforeach
+                            @elseif( isset($post) )
                                 @foreach($post->items->sortBy('order') as $post_item)
                                     @include('admin.posts._partials._patterns._post_block_pattern', [ 'post_item' => $post_item, 'index' => $loop->iteration ])
                                 @endforeach
@@ -108,7 +112,11 @@
 
                     <div class="col-sm-9">
                         <div class="post-items-content">
-                            @if( isset($post) )
+                            @if( old('items') )
+                                @foreach(old('items') as $key => $post_item)
+                                    @include("admin.posts._partials._patterns._{$post_item['type']}_pattern", [ 'post_item' => (object) $post_item, 'index' => $loop->iteration, 'with_errors' => true ])
+                                @endforeach
+                            @elseif( isset($post) )
                                 @foreach($post->items->sortBy('order') as $post_item)
                                     @include("admin.posts._partials._patterns._{$post_item->type}_pattern", [ 'post_item' => $post_item, 'index' => $loop->iteration ])
                                 @endforeach

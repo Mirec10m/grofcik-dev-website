@@ -20,7 +20,10 @@
                                     Obsah
                                     <span class="text-uppercase">{{ $key }}</span>
                                 </label>
-                                <textarea disabled name="items[{{ $index ?? '' }}][paragraph_text_{{ $key }}]" class="form-control {{ isset($post_item) ? 'tinymce' : 'unloaded-tinymce' }}">{{ $post_item?->{"paragraph_text_$key"} }}</textarea>
+                                <textarea disabled name="items[{{ $index ?? '' }}][paragraph_text_{{ $key }}]" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.paragraph_text_$key") ? 'is-invalid' : '' }} {{ isset($post_item) ? 'tinymce' : 'unloaded-tinymce' }}">{{ $post_item?->{"paragraph_text_$key"} ?? '' }}</textarea>
+                                @if( $with_errors ?? false )
+                                    @include('admin._partials._errors', ['column' => "items.$index.paragraph_text_$key"])
+                                @endif
                             </div>
                         </div>
                     </div>

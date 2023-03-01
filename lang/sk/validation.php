@@ -159,6 +159,10 @@ return [
         'type_sk' => 'Typ SK',
         'short_sk' => 'Krátky popis SK',
         'description_sk' => 'Podrobný popis SK',
+        'items.*.paragraph_text_sk' => 'Obsah SK',
+        'items.*.image_name_sk' => 'Názov SK',
+        'items.*.image_alt_sk' => 'Alternatívny Text SK',
+        'items.*.image_description_sk' => 'Krátky popis SK',
 
         // Other
         'name' => 'Meno/Názov',
@@ -177,6 +181,8 @@ return [
         'stored_date' => 'Dátum naskladnenia',
         'visible' => 'Zobraziť',
         'image' => 'Obrázok',
+        'items.*.image_file' => 'Obrázok',
+        'items.*.type' => 'typ bloku',
     ],
 
 ];

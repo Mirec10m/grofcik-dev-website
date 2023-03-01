@@ -39,11 +39,11 @@ class CreatePostRequest extends FormRequest
             'items' => 'required|array',
             'items.*.type' => 'required|string|max:255',
             'items.*.order' => 'required|integer',
-            'items.*.paragraph_text_sk' => 'required_if:items.*.order,paragraph|string',
-            'items.*.image_name_sk' => 'required_if:items.*.order,image|string|max:255',
-            'items.*.image_alt_sk' => 'required_if:items.*.order,image|string|max:255',
-            'items.*.image_description_sk' => 'required_if:items.*.order,image|string|max:255',
-            'items.*.image_file' => 'required_if:items.*.order,image|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif',
+            'items.*.paragraph_text_sk' => 'required_if:items.*.type,paragraph|string',
+            'items.*.image_name_sk' => 'required_if:items.*.type,image|string|max:255',
+            'items.*.image_alt_sk' => 'required_if:items.*.type,image|string|max:255',
+            'items.*.image_description_sk' => 'required_if:items.*.type,image|string|max:255',
+            'items.*.image_file' => 'required_if:items.*.type,image|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif',
         ];
     }
 }

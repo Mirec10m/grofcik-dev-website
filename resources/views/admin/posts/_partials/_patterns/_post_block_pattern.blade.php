@@ -1,12 +1,12 @@
-<div class="list-group-item nested-1 post-block" data-post-item="{{ $index ?? '' }}">
-    @if( $post_item && $index )
+<div class="list-group-item nested-1 post-block {{ ( $with_errors ?? false ) && $errors->has("items.$index.*") ? 'is-invalid-border' : '' }}" data-post-item="{{ $index ?? '' }}">
+    @if( $post_item && isset($post_item->id) && $index )
         <input disabled name="items[{{ $index }}][id]" type="hidden" value="{{ $post_item->id }}">
     @endif
     <input disabled name="items[{{ $index ?? '' }}][order]" class="post-block-order" type="hidden" value="{{ $post_item?->order }}">
     <input disabled name="items[{{ $index ?? '' }}][type]" type="hidden" value="{{ $post_item?->type }}">
     <div class="post-block-info waves-effect">
         <i class="pattern-icon fs-16 align-middle text-primary me-2"></i>
-        <div class="post-block-name pattern-name"></div>
+        <div class="post-block-name pattern-name {{ ( $with_errors ?? false ) && $errors->has("items.$index.*") ? 'is-invalid-icon' : '' }}"></div>
         <div class="post-block-description text-muted pattern-description"></div>
     </div>
     <div class="post-block-actions">

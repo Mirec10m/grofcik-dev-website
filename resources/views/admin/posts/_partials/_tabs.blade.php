@@ -7,7 +7,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ has_errors($errors, []) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#content" role="tab" aria-selected="false">
+        <a class="nav-link {{ has_errors($errors, ['items', 'items.*']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#content" role="tab" aria-selected="false">
             <i class="mdi mdi-format-list-bulleted mr-6"></i>
             Obsah
         </a>
