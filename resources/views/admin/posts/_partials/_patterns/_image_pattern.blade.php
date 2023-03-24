@@ -18,7 +18,10 @@
                             <label class="form-label">
                                 Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                             </label>
-                            <input disabled name="items[{{ $index ?? '' }}][image_name_{{ $key }}]" type="text" value="{{ $post_item?->{"image_name_$key"} ?? '' }}" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_name_$key") ? 'is-invalid' : '' }}">
+                            <div class="input-group">
+                                <input disabled name="items[{{ $index ?? '' }}][image_name_{{ $key }}]" type="text" value="{{ $post_item?->{"image_name_$key"} ?? '' }}" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_name_$key") ? 'is-invalid' : '' }}">
+                                <span class="input-group-text" id="basic-addon1">.webp</span>
+                            </div>
                             @if( $with_errors ?? false )
                                 @include('admin._partials._errors', ['column' => "items.$index.image_name_$key"])
                             @endif

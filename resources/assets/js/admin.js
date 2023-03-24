@@ -13,6 +13,9 @@ $(function(){
     initGlightbox();
     initMenuPin();
     initPostBlocks();
+    initPostsPreviewButton();
+    initSlugParser();
+
 });
 
 function initButtonLoading () {
@@ -407,6 +410,10 @@ function initAddPostBlockListener () {
         reorderPostBlocks();
         initTinymce();
         initFilestyle();
+
+        // Show post block
+        $('.post-item-content').removeClass('active');
+        $(`.post-item-content[data-post-item="${index}"]`).addClass('active');
     });
 }
 
@@ -510,3 +517,33 @@ function initFilestyle () {
         });
     });
 }
+
+function initSlugParser () {
+    $('.parse-slug').keyup(function () {
+        $( $(this).data('slug-selector') ).val( stringToSlug( $(this).val() ) );
+    });
+}
+
+function stringToSlug (string) {
+    return string.toLowerCase().normalize("NFD").trim()
+        .replace(/[^\w\s-]/g, '') // Remove everything that is not: word, whitespace, hyphens (-)
+        .replace(/[\s_-]+/g, '-') // Replace all whitespaces, underscores, hyphens with hyphen (-)
+        .replace(/^-+|-+$/g, ''); // Remove hyphens at the start or end of string
+}
+
+function initPostsPreviewButton () {
+    $('.post-preview').click(function () {
+        let form = $('#posts-edit-form');
+
+        form.attr('target', '_blank');
+        form.find('input[name="preview"]').val( $(this).data('locale') );
+
+        form.submit();
+
+        form.attr('target', '_self');
+        form.find('input[name="preview"]').val("");
+
+        form.find('.button-loading').removeClass('button-loading').prop('disabled', false);
+    });
+}
+
