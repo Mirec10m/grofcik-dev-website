@@ -7,7 +7,7 @@
 
             <div class="col-sm-6 text-right">
                 <a href="{{ route('post-tags.index') }}" class="btn btn-primary waves-effect waves-light float-end">
-                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam značiek
+                    <i class="mdi mdi-format-list-bulleted pe-2"></i> Zoznam tagov
                 </a>
             </div>
         </div>

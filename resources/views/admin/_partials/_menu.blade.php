@@ -79,7 +79,7 @@
                                     @endif
                                     @if( config('demibox.blog.tags') )
                                         <li class="nav-item">
-                                            <a href="{{ route('post-tags.index') }}" class="nav-link"> Zoznam značiek </a>
+                                            <a href="{{ route('post-tags.index') }}" class="nav-link"> Zoznam tagov </a>
                                         </li>
                                     @endif
                                 </ul>

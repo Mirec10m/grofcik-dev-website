@@ -139,6 +139,45 @@
             @include('admin.posts._partials._form_buttons')
         </div>
 
+        @include('admin._partials._lang_tabs', [ 'inputs' => ['name', 'published', 'slug', 'short'], 'key_append' => '_profile' ])
+
+        <div class="tab-content mb-4">
+            @foreach( config('settings.languages') as $key => $lang )
+                <div class="tab-pane p-3 {{ $loop->first ? 'active' : '' }}" id="{{ $key }}_profile" role="tabpanel">
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label class="form-label">
+                                Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                                <input name="profile_name_{{ $key }}" type="text" value="{{ old("profile_name_$key", isset($post) ? $post->{"profile_name_$key"} : '') }}" class="form-control {{ $errors->has("profile_name_$key") ? 'is-invalid' : '' }}">
+                                <span class="input-group-text" id="basic-addon1">.webp</span>
+                            </div>
+                            @include('admin._partials._errors', ['column' => "profile_name_$key"])
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label">
+                                Alternatívny text <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
+                            </label>
+                            <input name="profile_alt_{{ $key }}" type="text" value="{{ old("profile_alt_$key", isset($post) ? $post->{"profile_alt_$key"} : '') }}" class="form-control {{ $errors->has("profile_alt_$key") ? 'is-invalid' : '' }}">
+                            @include('admin._partials._errors', ['column' => "profile_alt_$key"])
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <label class="form-label">
+                                Krátky popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov) <span class="text-danger">*</span>
+                            </label>
+                            <textarea name="profile_description_{{ $key }}" class="form-control {{ $errors->has("profile_description_$key") ? 'is-invalid' : '' }}">{{ old("profile_description_$key", isset($post) ? $post->{"profile_description_$key"} : '') }}</textarea>
+                            @include('admin._partials._errors', ['column' => "profile_description_$key"])
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
         <div class="row mb-3">
             <div class="col-sm-12 col-md-9">
                 <div class="row mb-3">
@@ -189,10 +228,9 @@
                         @if( config('demibox.blog.tags') )
                             <div class="col-sm-6">
                                 <label class="form-label">
-                                    Značky <span class="text-danger">*</span>
+                                    Tagy <span class="text-danger">*</span>
                                 </label>
                                 <select name="tags[]" class="form-control js-example-basic-multiple {{ $errors->has('tags') ? 'is-invalid' : '' }}" multiple>
-                                    <option value="">Vyberte značky</option>
                                     @foreach($post_tags as $post_tag)
                                         <option value="{{ $post_tag->id }}" {{ in_array($post_tag->id, old('tags', [])) ? 'selected' : (isset($post) && $post->tags->contains('id', $post_tag->id) ? 'selected' : '') }}>
                                             {{ $post_tag->name_sk }}

@@ -1,15 +1,15 @@
 @extends('layout.admin')
 
 @section('page-title')
-    Značky článkov
+    Tagy článkov
 @endsection
 
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Nová značka', 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Nový tag', 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
-                'Značky článkov' => route('post-tags.index'),
+                'Tagy článkov' => route('post-tags.index'),
             ]])
 
             <div class="row">
@@ -21,7 +21,7 @@
                             <form action="{{ route('post-tags.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
-                                @include('admin.post_tags._partials._form', [ 'card_title' => "Nová značka" ])
+                                @include('admin.post_tags._partials._form', [ 'card_title' => "Nový tag" ])
 
                                 @include('admin._partials._buttons')
                             </form>

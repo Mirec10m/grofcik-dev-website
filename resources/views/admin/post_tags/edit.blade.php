@@ -1,15 +1,15 @@
 @extends('layout.admin')
 
 @section('page-title')
-    Značky článkov
+    Tagy článkov
 @endsection
 
 @section('content')
     <div class="page-content">
         <div class="container-fluid">
-            @include('admin._partials._breadcrumbs', [ 'title' => 'Značka - ' . str($post_tag->name_sk)->limit(30), 'crumbs' => [
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Tag - ' . str($post_tag->name_sk)->limit(30), 'crumbs' => [
                 'Úvod' => route('dashboard.index'),
-                'Značky článkov' => route('post-tags.index'),
+                'Tagy článkov' => route('post-tags.index'),
             ]])
 
             <div class="row">
@@ -22,7 +22,7 @@
                                 @csrf
                                 @method('put')
 
-                                @include('admin.post_tags._partials._form', [ 'card_title' => "Editovať značku" ])
+                                @include('admin.post_tags._partials._form', [ 'card_title' => "Editovať tag" ])
 
                                 @include('admin._partials._buttons')
                             </form>

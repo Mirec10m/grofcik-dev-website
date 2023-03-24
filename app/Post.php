@@ -16,6 +16,9 @@ class Post extends BaseModel
         'published_sk',
         'short_sk',
         'post_category_id',
+        'profile_name_sk',
+        'profile_alt_sk',
+        'profile_description_sk',
     ];
 
     public function images() : MorphMany

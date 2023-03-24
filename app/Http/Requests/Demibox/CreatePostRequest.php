@@ -32,8 +32,11 @@ class CreatePostRequest extends FormRequest
             'published_sk' => 'in:1,0',
             'short_sk' => 'required|string|max:255',
             'profile' => 'required|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif',
+            'profile_name_sk' => 'required|string|max:255',
+            'profile_alt_sk' => 'required|string|max:255',
+            'profile_description_sk' => 'required|string|max:255',
             'post_category_id' => config('demibox.blog.categories') ? 'required|exists:post_categories,id' : '',
-            'tags' => config('demibox.blog.tags') ? 'required|array' : '',
+            'tags' => config('demibox.blog.tags') ? 'nullable|array' : '',
             'tags.*' => config('demibox.blog.tags') ? 'required|exists:post_tags,id' : '',
 
             'items' => 'required|array',

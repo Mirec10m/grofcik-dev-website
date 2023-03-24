@@ -35,7 +35,7 @@ class PostTagsController extends AdminController
     {
         $post_tag = PostTag::create($request->all());
 
-        $this->_setFlashMessage('success', 'Vytvorená', "Značka <b>$post_tag->name_sk</b> bola vytvorená");
+        $this->_setFlashMessage('success', 'Vytvorená', "Tag <b>$post_tag->name_sk</b> bol vytvorený");
 
         return redirect()->route('post-tags.index');
     }
@@ -49,7 +49,7 @@ class PostTagsController extends AdminController
     {
         $post_tag->update($request->all());
 
-        $this->_setFlashMessage('success', 'Zmenená', "Značka <b>$post_tag->name_sk</b> bola zmenená");
+        $this->_setFlashMessage('success', 'Zmenená', "Tag <b>$post_tag->name_sk</b> bol zmenený");
 
         return back();
     }
@@ -58,7 +58,7 @@ class PostTagsController extends AdminController
     {
         $post_tag->delete();
 
-        $this->_setFlashMessage('success', 'Vymazaná', "Značka <b>$post_tag->name_sk</b> bola vymazaná");
+        $this->_setFlashMessage('success', 'Vymazaná', "Tag <b>$post_tag->name_sk</b> bol vymazaný");
 
         return back();
     }
