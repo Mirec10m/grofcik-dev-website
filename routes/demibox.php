@@ -4,7 +4,6 @@ use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Demibox\CookiesController;
 use App\Http\Controllers\Demibox\PostCategoriesController;
-use App\Http\Controllers\Demibox\PostDraftsController;
 use App\Http\Controllers\Demibox\PostsController;
 use App\Http\Controllers\Demibox\PostTagsController;
 use Illuminate\Support\Facades\Route;
