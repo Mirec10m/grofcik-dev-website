@@ -56,9 +56,21 @@ class Handler extends ExceptionHandler
 
             if ( $exception->getStatusCode() == 404 ) return response()->view("errors.$ui.404", [], 404);
             if ( $exception->getStatusCode() == 419 ) return response()->view("errors.$ui.419", [], 419);
-            if ( $exception->getStatusCode() == 500 ) return response()->view("errors.$ui.500", [], 500);
+            if ( $exception->getStatusCode() == 500 ) {
+                $this->send_error_to_demi($request, $exception);
+                return response()->view("errors.$ui.500", [], 500);
+            }
         }
 
         return parent::render($request, $exception);
     }
+
+    private function send_error_to_demi($request, Throwable $exception) : void
+    {
+        dd([
+            $request, $exception
+        ]);
+    }
+
+
 }

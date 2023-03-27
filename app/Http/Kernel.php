@@ -69,5 +69,7 @@ class Kernel extends HttpKernel
 
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'super_admin' => \App\Http\Middleware\SuperAdminMiddleware::class,
+        'demibox' => \App\Http\Middleware\DemiboxMiddleware::class,
+
     ];
 }

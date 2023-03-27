@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Post;
 use App\PostCategory;
+use App\PostItem;
 use App\PostTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,14 +18,21 @@ class PostFactory extends Factory
     {
         return [
             'name_sk' => $name_sk = fake('sk')->name,
-            'slug_sk' => str($name_sk)->slug(),
+            'slug_sk' => str($name_sk)->slug()->toString(),
             'published_sk' => 1,
             'short_sk' => fake('sk')->text(100),
-            //'post_category_id',
             'profile_name_sk' => fake('sk')->name,
             'profile_alt_sk' => fake('sk')->text(100),
             'profile_description_sk' => fake('sk')->text(100),
         ];
+    }
+
+    public function configure() : PostFactory
+    {
+        return $this->afterCreating(function (Post $post) {
+            $post->items()->create( PostItem::factory()->paragraph()->make([ 'order' => 1 ])->toArray() );
+            $post->items()->create( PostItem::factory()->image()->make([ 'order' => 2 ])->toArray() );
+        });
     }
 
     public function unpublished() : PostFactory

@@ -16,8 +16,6 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Auth\LogoutController;
 
-require_once "demibox.php";
-
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 
