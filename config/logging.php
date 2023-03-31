@@ -37,7 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['rollbar', 'single'],
+            'channels' => ['demi_log', 'single'],
             'ignore_exceptions' => false,
         ],
 
@@ -100,10 +100,13 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
-        'rollbar' => [
+        'demi_log' => [
             'driver' => 'monolog',
-            'handler' => \Rollbar\Laravel\MonologHandler::class,
-            'access_token' => env('ROLLBAR_TOKEN'),
+            'handler' => \App\Logging\DemiLogHandler::class,
+            'with' => [
+                'from' => 'support@demi.sk',
+                'to' => 'support@demi.sk',
+            ],
             'level' => 'debug',
         ],
     ],
