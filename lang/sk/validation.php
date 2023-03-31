@@ -163,6 +163,9 @@ return [
         'items.*.image_name_sk' => 'Názov SK',
         'items.*.image_alt_sk' => 'Alternatívny Text SK',
         'items.*.image_description_sk' => 'Krátky popis SK',
+        'profile_name_sk' => 'Názov SK',
+        'profile_alt_sk' => 'Alternatívny Text SK',
+        'profile_description_sk' => 'Krátky popis SK',
 
         // Other
         'name' => 'Meno/Názov',

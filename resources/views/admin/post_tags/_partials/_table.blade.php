@@ -29,7 +29,7 @@
                             <form action="{{ route('post-tags.destroy', $post_tag) }}" method="post" style="display: inline-block; width: 100%;">
                                 @csrf
                                 @method('delete')
-                                <button data-type="{{ 'Značka článku' }}" data-entity="{{ $post_tag->name_sk }}" class="alert-delete dropdown-item pointer" type="button">
+                                <button data-type="{{ 'Tag článku' }}" data-entity="{{ $post_tag->name_sk }}" class="alert-delete dropdown-item pointer" type="button">
                                     <i class="mdi mdi-trash-can-outline action-icon"></i> Vymazať
                                 </button>
                             </form>

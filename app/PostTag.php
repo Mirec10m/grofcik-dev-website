@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class PostTag extends BaseModel
 {
+
+    use HasFactory;
 
     protected $fillable = [
         'name_sk',

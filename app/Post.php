@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -10,12 +11,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Post extends BaseModel
 {
 
+    use HasFactory;
+
     protected $fillable = [
         'name_sk',
         'slug_sk',
         'published_sk',
         'short_sk',
         'post_category_id',
+        'profile_name_sk',
+        'profile_alt_sk',
+        'profile_description_sk',
     ];
 
     public function images() : MorphMany

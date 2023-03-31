@@ -43,24 +43,6 @@
 @yield('js')
 
 <script>
-    function initPostsPreviewButton () {
-        $('.post-preview').click(function () {
-            let form = $('#posts-edit-form');
-
-            form.attr('target', '_blank');
-            form.find('input[name="preview"]').val( $(this).data('locale') );
-
-            form.submit();
-
-            form.attr('target', '_self');
-            form.find('input[name="preview"]').val("");
-
-            form.find('.button-loading').removeClass('button-loading').prop('disabled', false);
-        });
-    }
-
-    initPostsPreviewButton();
-
     function initTinymce () {
         if( $(".tinymce").length > 0 ){
             tinymce.init({
