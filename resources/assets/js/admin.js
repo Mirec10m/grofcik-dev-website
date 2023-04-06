@@ -380,6 +380,7 @@ function initExistingPostItems () {
         $(this).find(':disabled').prop('disabled', false);
         $(this).find('.pattern-icon').addClass(info.icon);
         $(this).find('.pattern-name').html(info.name);
+        $(this).find('.pattern-entity-name').attr('data-entity', info.name);
         $(this).find('.pattern-description').html(info.description);
         post_item.find(':disabled').prop('disabled', false);
     });
@@ -412,14 +413,13 @@ function initAddPostBlockListener () {
         initFilestyle();
 
         // Show post block
-        $('.post-item-content').removeClass('active');
-        $(`.post-item-content[data-post-item="${index}"]`).addClass('active');
+        openPostBlock(index);
     });
 }
 
 function initRemovePostBlockListener () {
-    $('.post-blocks-remove').click(function () {
-        let post_item = $(this).data('post-item');
+    let removePostBlock = button => {
+        let post_item = $(button).data('post-item');
         let post_blocks = $('.post-blocks');
 
         $(`.post-item-content[data-post-item="${post_item}"]`).remove();
@@ -428,15 +428,39 @@ function initRemovePostBlockListener () {
         post_blocks.data('items', post_blocks.data('items') - 1);
 
         reorderPostBlocks();
+    }
+
+    $('.post-blocks-remove').click(function () {
+        let button = $(this);
+
+        Swal.fire({
+            title: 'Vymazať záznam - ' + button.data('type'),
+            html: 'Naozaj chcete vymazať záznam <b>' + button.data('entity') + '</b> ?',
+            iconHtml: '<lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>',
+            customClass: { icon: 'border-0' },
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger button-loader w-xs me-2 mb-1",
+            confirmButtonText: "Vymazať",
+            cancelButtonClass: "btn btn-dark w-xs mb-1",
+            cancelButtonText: "Zrušiť",
+            buttonsStyling: false,
+            showCloseButton: true
+        }).then(event => event.isConfirmed ? removePostBlock(button) : void 0);
     });
 }
 
 function initShowPostBlockListener () {
     $('.post-block .post-block-info').click(function () {
-        $('.post-item-content').removeClass('active');
-
-        $('.post-item-content[data-post-item="' + $(this).parent().data('post-item') + '"]').addClass('active');
+        openPostBlock( $(this).parent().data('post-item') );
     });
+}
+
+function openPostBlock (post_item) {
+    $('.post-item-content').removeClass('active');
+    $('.post-block').removeClass('open');
+
+    $(`.post-item-content[data-post-item="${post_item}"]`).addClass('active');
+    $(`.post-block[data-post-item="${post_item}"]`).addClass('open');
 }
 
 function buildPostBlock (index, type) {
@@ -447,6 +471,7 @@ function buildPostBlock (index, type) {
     clone.find('.post-block, .post-blocks-remove').attr('data-post-item', index);
     clone.find('.pattern-icon').addClass(info.icon);
     clone.find('.pattern-name').html(info.name);
+    clone.find('.pattern-entity-name').attr('data-entity', info.name);
     clone.find('.pattern-description').html(info.description);
     clone.find(`input[name="items[][order]"]`).attr('name', `items[${index}][order]`);
     clone.find(`input[name="items[][type]"]`).attr('name', `items[${index}][type]`);

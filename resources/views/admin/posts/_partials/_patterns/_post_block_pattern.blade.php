@@ -19,7 +19,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="javascript:void(0);" class="dropdown-item post-blocks-remove" data-post-item="{{ $index ?? '' }}">
+                            <a href="javascript:void(0);" class="dropdown-item post-blocks-remove pattern-entity-name" data-type="{{ 'Blok' }}" data-entity="" data-post-item="{{ $index ?? '' }}">
                                 <i class="ri-delete-bin-2-line action-icon"></i> Vymazať
                             </a>
                         </li>

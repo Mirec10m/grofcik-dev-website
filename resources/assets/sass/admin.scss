@@ -323,3 +323,7 @@ form:has(>.tab-content>.tab-pane.active[data-show-image="true"]) ~ #image-view {
 .mb-40 {
     margin-bottom: 40px;
 }
+
+.app-menu #scrollbar{
+    padding-bottom: 55px;
+}
