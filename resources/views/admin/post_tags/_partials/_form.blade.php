@@ -24,7 +24,7 @@
                                     <label class="form-label">
                                         Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                                     </label>
-                                    <input name="name_{{ $key }}" type="text" value="{{ old("name_$key", isset($post_tag) ? $post_tag->{"name_$key"} : '') }}" class="form-control {{ $errors->has("name_$key") ? 'is-invalid' : '' }}">
+                                    <input name="name_{{ $key }}" type="text" value="{{ old("name_$key", isset($post_tag) ? $post_tag->{"name_$key"} : '') }}" class="form-control parse-slug {{ $errors->has("name_$key") ? 'is-invalid' : '' }}" data-slug-selector='input[name="slug_{{ $key }}"]'>
                                     @include('admin._partials._errors', ['column' => "name_$key"])
                                 </div>
 

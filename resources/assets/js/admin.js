@@ -382,7 +382,7 @@ function initExistingPostItems () {
         $(this).find('.pattern-name').html(info.name);
         $(this).find('.pattern-entity-name').attr('data-entity', info.name);
         $(this).find('.pattern-description').html(info.description);
-        post_item.find(':disabled').prop('disabled', false);
+        post_item.find(':not(.filestyle, .bootstrap-filestyle *):disabled').prop('disabled', false)
     });
 }
 
@@ -450,8 +450,10 @@ function initRemovePostBlockListener () {
 }
 
 function initShowPostBlockListener () {
-    $('.post-block .post-block-info').click(function () {
-        openPostBlock( $(this).parent().data('post-item') );
+    $('.post-block').click(function (e) {
+        if ( $(e.target).hasClass('ignore-click') || $(e.target).closest('.ignore-click').length > 0 ) return;
+
+        openPostBlock( $(this).data('post-item') );
     });
 }
 

@@ -131,16 +131,6 @@
             </div>
         </div>
 
-        <style>
-            .nested-list .list-group-item {
-                transition: background-color .3s ease, border-color .3s ease;
-            }
-            .nested-list .list-group-item.open {
-                background-color: rgba(64,81,137,.25);
-                border-color: rgba(64,81,137,.15);
-            }
-        </style>
-
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
