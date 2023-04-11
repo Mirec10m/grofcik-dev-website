@@ -14,6 +14,8 @@ class ImagesController extends AdminController
     {
         $this->delete_image($image);
 
+        $this->_setFlashMessage('success', 'Vymazaný', "Obrázok bol vymazaný");
+
         return back();
     }
 

@@ -59,7 +59,7 @@
                     <label class="form-label">
                         Obrázok <span class="text-danger">*</span>
                     </label>
-                    <input disabled name="items[{{ $index ?? '' }}][image_file]" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_file") ? 'is-invalid' : '' }}  {{ isset($post_item) ? 'filestyle' : 'unloaded-filestyle' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
+                    <input disabled name="items[{{ $index ?? '' }}][image_file]" class="form-control {{ ( $with_errors ?? false ) && $errors->has("items.$index.image_file") ? 'is-invalid' : '' }} {{ isset($post_item) ? 'filestyle' : 'unloaded-filestyle' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
                     @if( $with_errors ?? false )
                         @include('admin._partials._errors', ['column' => "items.$index.image_file"])
                     @endif

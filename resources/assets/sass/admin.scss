@@ -267,10 +267,13 @@ div:has(.is-invalid) .pickr>button {
         display: none;
     }
 }
-#image-view {
+.image-view {
     display: none;
 }
-form:has(>.tab-content>.tab-pane.active[data-show-image="true"]) ~ #image-view {
+form:has(>.tab-content>.tab-pane.active#image[data-show-image="true"]) ~ #image-view {
+    display: block;
+}
+form:has(>.tab-content>.tab-pane.active#seo[data-show-image="true"]) ~ #seo-view {
     display: block;
 }
 
@@ -322,4 +325,16 @@ form:has(>.tab-content>.tab-pane.active[data-show-image="true"]) ~ #image-view {
 
 .mb-40 {
     margin-bottom: 40px;
+}
+
+.app-menu #scrollbar{
+    padding-bottom: 55px;
+}
+
+.nested-list .list-group-item {
+    transition: background-color .3s ease, border-color .3s ease;
+}
+.nested-list .list-group-item.open {
+    background-color: rgba(64,81,137,.25);
+    border-color: rgba(64,81,137,.15);
 }

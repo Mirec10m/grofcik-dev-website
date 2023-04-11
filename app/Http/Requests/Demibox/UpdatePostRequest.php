@@ -25,6 +25,7 @@ class UpdatePostRequest extends CreatePostRequest
 
         $rules['profile'] = 'nullable|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif';
         $rules['items.*.image_file'] = 'nullable|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif';
+        $rules['seo.image'] = 'nullable|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif';
 
         return $rules;
     }

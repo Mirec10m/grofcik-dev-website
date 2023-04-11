@@ -151,7 +151,7 @@ return [
         'seo.title_sk' => 'Titulok SK',
         'seo.description_sk' => 'Popis SK',
         'seo.canonical_sk' => 'Kanonická URL SK',
-        'seo.image_sk' => 'Obrázok SK',
+        'seo.image' => 'Obrázok SK',
 
         // Localized
         'name_sk' => 'Meno/Názov SK',
@@ -184,6 +184,7 @@ return [
         'stored_date' => 'Dátum naskladnenia',
         'visible' => 'Zobraziť',
         'image' => 'Obrázok',
+        'items' => 'Bloky',
         'items.*.image_file' => 'Obrázok',
         'items.*.type' => 'typ bloku',
     ],

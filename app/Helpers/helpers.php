@@ -18,3 +18,12 @@ function has_errors ($errors, $needles) : bool
     info($needles);
     return array_reduce($needles, fn ($carry, $needle) => $errors->has($needle) || $carry, false);
 }
+
+function str_starts_with_multiple (string $haystack, array $needles) : bool
+{
+    $starts_with = false;
+
+    foreach ( $needles as $needle ) $starts_with |= str_starts_with($haystack, $needle);
+
+    return $starts_with;
+}
