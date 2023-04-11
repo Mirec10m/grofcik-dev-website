@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Post extends BaseModel
 {
@@ -37,6 +38,11 @@ class Post extends BaseModel
     public function tags() : BelongsToMany
     {
         return $this->belongsToMany(PostTag::class)->withTimestamps()->withPivot('created_at');
+    }
+
+    public function seo() : MorphOne
+    {
+        return $this->morphOne(SEO::class, 'seoable');
     }
 
     public function items() : HasMany

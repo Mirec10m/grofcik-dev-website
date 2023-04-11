@@ -14,14 +14,14 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ has_errors($errors, ['profile']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#image" role="tab" aria-selected="false">
+        <a class="nav-link {{ has_language_errors($errors, ['profile_name', 'profile_alt', 'profile_description']) || has_errors($errors, ['profile']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#image" role="tab" aria-selected="false">
             <i class="mdi mdi-image mr-6"></i>
             Obrázok
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ has_errors($errors, []) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#seo" role="tab" aria-selected="false">
+        <a class="nav-link {{ has_language_errors($errors, ['seo.title', 'seo.canonical', 'seo.description']) || has_errors($errors, ['seo.image']) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#seo" role="tab" aria-selected="false">
             <i class="mdi mdi-cog mr-6"></i>
             SEO
         </a>

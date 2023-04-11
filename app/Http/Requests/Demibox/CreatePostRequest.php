@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Demibox;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\SEORequest;
 
-class CreatePostRequest extends FormRequest
+class CreatePostRequest extends SEORequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,7 +27,7 @@ class CreatePostRequest extends FormRequest
         $post = $this->route('post');
         $id = $post ? $post->id : null;
 
-        return [
+        $rules = [
             'name_sk' => 'required|string|max:255',
             'slug_sk' => "required|string|max:255|unique:posts,slug_sk,$id",
             'published_sk' => 'in:1,0',
@@ -48,5 +49,8 @@ class CreatePostRequest extends FormRequest
             'items.*.image_description_sk' => 'required_if:items.*.type,image|string|max:255',
             'items.*.image_file' => 'required_if:items.*.type,image|image|mimes:jpg,jpeg,jpe,bmp,png,webp,gif',
         ];
+
+        return $this->addSEORules($rules);
     }
+
 }

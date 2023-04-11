@@ -128,6 +128,8 @@
                         </li>
                     </ul>
                 </div>
+
+                @include('admin._partials._errors', ['column' => "items"])
             </div>
         </div>
 
@@ -252,29 +254,28 @@
                             <label class="form-label">
                                 Názov <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                             </label>
-                            <div class="input-group">
-                                <input name="profile_name_{{ $key }}" type="text" value="{{ old("profile_name_$key", isset($post) ? $post->{"profile_name_$key"} : '') }}" class="form-control {{ $errors->has("profile_name_$key") ? 'is-invalid' : '' }}">
-                                <span class="input-group-text" id="basic-addon1">.webp</span>
-                            </div>
-                            @include('admin._partials._errors', ['column' => "profile_name_$key"])
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label class="form-label">
-                                Alternatívny text <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
-                            </label>
-                            <input name="profile_alt_{{ $key }}" type="text" value="{{ old("profile_alt_$key", isset($post) ? $post->{"profile_alt_$key"} : '') }}" class="form-control {{ $errors->has("profile_alt_$key") ? 'is-invalid' : '' }}">
-                            @include('admin._partials._errors', ['column' => "profile_alt_$key"])
+                            <input name="seo[title_{{ $key }}]" type="text" value="{{ old("seo.title_$key", isset($post) && $post->seo ? $post->seo->{"title_$key"} : '') }}" class="form-control {{ $errors->has("seo.title_$key") ? 'is-invalid' : '' }}">
+                            @include('admin._partials._errors', ['column' => "seo.title_$key"])
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-sm-12">
                             <label class="form-label">
-                                Krátky popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov) <span class="text-danger">*</span>
+                                Kanonická url <span class="text-uppercase">{{ $key }}</span> <span class="text-danger">*</span>
                             </label>
-                            <textarea name="profile_description_{{ $key }}" class="form-control {{ $errors->has("profile_description_$key") ? 'is-invalid' : '' }}">{{ old("profile_description_$key", isset($post) ? $post->{"profile_description_$key"} : '') }}</textarea>
-                            @include('admin._partials._errors', ['column' => "profile_description_$key"])
+                            <input name="seo[canonical_{{ $key }}]" type="text" value="{{ old("seo.canonical_$key", isset($post) && $post->seo ? $post->seo->{"canonical_$key"} : '') }}" class="form-control {{ $errors->has("seo.canonical_$key") ? 'is-invalid' : '' }}">
+                            @include('admin._partials._errors', ['column' => "seo.canonical_$key"])
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <label class="form-label">
+                                Popis <span class="text-uppercase">{{ $key }}</span> (max. 255 znakov) <span class="text-danger">*</span>
+                            </label>
+                            <textarea name="seo[description_{{ $key }}]" class="form-control {{ $errors->has("seo.description_$key") ? 'is-invalid' : '' }}">{{ old("seo.description_$key", isset($post) && $post->seo ? $post->seo->{"description_$key"} : '') }}</textarea>
+                            @include('admin._partials._errors', ['column' => "seo.description_$key"])
                         </div>
                     </div>
                 </div>
@@ -287,10 +288,10 @@
                     <div class="col-sm-6">
                         <div>
                             <label class="form-label">
-                                Profilový obrázok <span class="text-danger">*</span>
+                                Obrázok <span class="text-danger">*</span>
                             </label>
-                            <input name="profile" class="form-control filestyle {{ $errors->has('profile') ? 'is-invalid' : '' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
-                            @include('admin._partials._errors', ['column' => 'profile'])
+                            <input name="seo[image]" class="form-control filestyle {{ $errors->has('seo.image') ? 'is-invalid' : '' }}" type="file" data-text="Vybrať súbor" data-btnClass="btn-primary border-left-no-radius">
+                            @include('admin._partials._errors', ['column' => 'seo.image'])
                         </div>
                     </div>
                 </div>

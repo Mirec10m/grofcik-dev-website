@@ -267,10 +267,13 @@ div:has(.is-invalid) .pickr>button {
         display: none;
     }
 }
-#image-view {
+.image-view {
     display: none;
 }
-form:has(>.tab-content>.tab-pane.active[data-show-image="true"]) ~ #image-view {
+form:has(>.tab-content>.tab-pane.active#image[data-show-image="true"]) ~ #image-view {
+    display: block;
+}
+form:has(>.tab-content>.tab-pane.active#seo[data-show-image="true"]) ~ #seo-view {
     display: block;
 }
 

@@ -11,6 +11,8 @@ class SEO extends Model
 {
     use HasFactory;
 
+    protected $table = 'seos';
+
     protected $fillable = [
         'title_sk',
         'description_sk',

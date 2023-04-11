@@ -28,7 +28,7 @@
                                 @include('admin._partials._buttons')
                             </form>
 
-                            <div id="image-view">
+                            <div id="image-view" class="image-view">
                                 <div class="border-top mb-3"></div>
 
                                 <div class="row mb-3">
@@ -43,9 +43,33 @@
                                             @include('admin._partials._image', [
                                                 'thumb' => asset($profile_image->get_type('thumb')),
                                                 'image' => asset($profile_image->get_type('image')),
-                                                'delete' => 'Obrázok',
+                                                'delete' => route('images.delete', $profile_image),
                                                 'entity' => 'Profilový obrázok',
                                                 'gallery' => 'profile',
+                                            ])
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div id="seo-view" class="image-view">
+                                <div class="border-top mb-3"></div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-12">
+                                        <h5 class="card-title mb-0">SEO obrázok</h5>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    @if($post->seo && $seo_image = $post->seo->images->first())
+                                        <div class="col-sm-3">
+                                            @include('admin._partials._image', [
+                                                'thumb' => asset($seo_image->get_type('thumb')),
+                                                'image' => asset($seo_image->get_type('image')),
+                                                'delete' => route('images.delete', $seo_image),
+                                                'entity' => 'SEO obrázok',
+                                                'gallery' => 'seo',
                                             ])
                                         </div>
                                     @endif
