@@ -44,12 +44,12 @@ class AdminSeeder extends Seeder
             ]);
         }
 
-        if(!User::where('email', 'support@demi.sk')->count() > 0 && env('APP_ENV') == 'production'){
+        if(!User::where('email', 'miroslav.grofcik@demi.sk')->count() > 0 && env('APP_ENV') == 'production'){
             DB::table('users')->insert([
-                'name' => 'Demi',
-                'surname' => 'Studio',
-                'email' => 'support@demi.sk',
-                'password' => bcrypt('DeMiSupport96'),
+                'name' => 'Miroslav',
+                'surname' => 'Grofčík',
+                'email' => 'miroslav.grofcik@demi.sk',
+                'password' => bcrypt('password'),
                 'admin' => 1,
                 'super_admin' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
