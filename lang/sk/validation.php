@@ -146,6 +146,47 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        // Seo
+        'seo.title_sk' => 'Titulok SK',
+        'seo.description_sk' => 'Popis SK',
+        'seo.canonical_sk' => 'Kanonická URL SK',
+        'seo.image' => 'Obrázok SK',
+
+        // Localized
+        'name_sk' => 'Meno/Názov SK',
+        'slug_sk' => 'Slug SK',
+        'type_sk' => 'Typ SK',
+        'short_sk' => 'Krátky popis SK',
+        'description_sk' => 'Podrobný popis SK',
+        'items.*.paragraph_text_sk' => 'Obsah SK',
+        'items.*.image_name_sk' => 'Názov SK',
+        'items.*.image_alt_sk' => 'Alternatívny Text SK',
+        'items.*.image_description_sk' => 'Krátky popis SK',
+        'profile_name_sk' => 'Názov SK',
+        'profile_alt_sk' => 'Alternatívny Text SK',
+        'profile_description_sk' => 'Krátky popis SK',
+
+        // Other
+        'name' => 'Meno/Názov',
+        'surname' => 'Priezvisko',
+        'email' => 'E-mail',
+        'password' => 'Heslo',
+        'price' => 'Cena',
+        'price_vat' => 'Cena s DPH',
+        'vat' => 'DPH',
+        'discount' => 'Zľava',
+        'profile' => 'Profilový obrázok',
+        'category_id' => 'Kategória',
+        'post_category_id' => 'Kategória',
+        'tags' => 'Značky',
+        'in_stock' => 'Na sklade',
+        'stored_date' => 'Dátum naskladnenia',
+        'visible' => 'Zobraziť',
+        'image' => 'Obrázok',
+        'items' => 'Bloky',
+        'items.*.image_file' => 'Obrázok',
+        'items.*.type' => 'typ bloku',
+    ],
 
 ];

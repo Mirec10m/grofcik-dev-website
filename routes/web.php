@@ -1,41 +1,54 @@
 <?php
 
+use App\Http\Controllers\Superadmin\DatabaseController;
+use App\Http\Controllers\Superadmin\ExamplesController;
+use App\Http\Controllers\Superadmin\ExamplePagesController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ImagesController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\TinyMceController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/test', function () {
-    \App\Jobs\ErrorTrackingJob::dispatchNow();
-});
+use App\Http\Controllers\Superadmin\OrdersController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\AdminsController;
+use App\Http\Controllers\Auth\LogoutController;
 
 foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 
     // Pages
-    Route::get("$prefix/", ['as' => "web.home.$lang", 'uses' => 'PagesController@index']);
+    Route::get("$prefix/", [ PagesController::class, 'index'])->name("web.home.$lang");
 
     if($lang == 'sk'){
         // Here goes routes with URL in slovakian language
 
         // Email
-        //Route::post("$prefix/kontakt", ['as' => "web.contact.send.$lang", 'uses' => 'PagesController@send']);
+        //Route::get("$prefix/kontakt", [ PagesController::class, 'contact'])->name("web.contact.$lang");
+        //Route::post("$prefix/kontakt", [ PagesController::class, 'send'])->name("web.contact.send.$lang");
+
     }
 
 }
 
-Route::get('/mapa-stranky', ['as' => 'sitemap.render', 'uses' => 'SitemapController@render']);
+Route::get("/mapa-stranky", [ SitemapController::class, 'render'])->name("sitemap.render");
 
 // ADMIN Routes
 Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group(function(){
 
     // Dashboard
-    Route::get('/', ['as' => 'dashboard.index', 'uses' => 'DashboardController@index']);
-    Route::get('/overview', ['as' => 'dashboard.overview', 'uses' => 'DashboardController@overview']);
+    Route::get("/", [ DashboardController::class, 'index'])->name("dashboard.index");
 
     // Settings
-    Route::get('/settings/edit', ['as' => 'settings.edit', 'uses' => 'SettingsController@edit']);
-    Route::post('settings/update', ['as' => 'settings.update', 'uses' => 'SettingsController@update']);
-    Route::get('/settings/password', ['as' => 'settings.password', 'uses' => 'SettingsController@password']);
-    Route::post('settings/change', ['as' => 'settings.change', 'uses' => 'SettingsController@change']);
+    Route::get("/settings", [ SettingsController::class, 'index'])->name("settings.index");
+    Route::post("/settings/profile", [ SettingsController::class, 'profile'])->name("settings.profile");
+    Route::post("/settings/password", [ SettingsController::class, 'password'])->name("settings.password");
+    Route::post("/settings/image", [ SettingsController::class, 'image'])->name("settings.image");
+    Route::post("/settings/settings", [ SettingsController::class, 'settings'])->name("settings.settings");
+
+    Route::post("/settings/menu", [ SettingsController::class, 'menu'])->name("settings.menu");
 
     /*
      * Examples of forms, lightbox, etc.
@@ -44,24 +57,43 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
      * - remove links in _menu from admin
      * - comment or remove these routes
      */
-    Route::get('/examples/index', ['as' => 'examples.index', 'uses' => 'ExamplesController@index']);
-    Route::get('/examples/create', ['as' => 'examples.create', 'uses' => 'ExamplesController@create']);
-    Route::get('/examples/edit', ['as' => 'examples.edit', 'uses' => 'ExamplesController@edit']);
-    Route::post('/examples', ['as' => 'examples.store', 'uses' => 'ExamplesController@store']);
-    Route::get('/examples/gallery', ['as' => 'examples.gallery', 'uses' => 'ExamplesController@gallery']);
-    Route::post('/examples/delete', ['as' => 'examples.delete', 'uses' => 'ExamplesController@delete']);
+    // Route::resource("/examples", ExamplesController::class)->except([ 'show' ]);
+    // Route::get("/examples/{example}/gallery", [ ExamplesController::class, 'gallery'])->name("examples.gallery");
+    // Route::post("/examples/{example}/gallery", [ ExamplesController::class, 'upload'])->name("examples.upload");
 
     // Images
-    Route::post('/images/delete/{id}', ['as' => 'images.delete', 'uses' => "ImagesController@delete"]);
+    Route::post("/images/delete/{image}", [ ImagesController::class, 'delete'])->name("images.delete");
 
     // Ajax
-    Route::post('/images/upload', ['as' => 'tinymce.upload', 'uses' => "TinyMceController@upload"]);
+    Route::post("/images/upload", [ TinyMceController::class, 'upload'])->name("tinymce.upload");
 
     // Super Admin
-    Route::middleware(['super_admin'])->group(function(){
+    Route::middleware(['super_admin'])->prefix('superadmin')->group(function(){
         // Database actions
-        Route::get('/superadmin/migrate', ['as' => 'superadmin.migrate', 'uses' => 'SuperAdminController@migrate']);
-        Route::get('/superadmin/seed', ['as' => 'superadmin.seed', 'uses' => 'SuperAdminController@seed']);
+        Route::post("/migrate", [ DatabaseController::class, 'migrate'])->name("superadmin.migrate");
+        Route::post("/seed", [ DatabaseController::class, 'seed'])->name("superadmin.seed");
+
+        Route::get("/examples", [ ExamplesController::class, 'index'])->name("superadmin.examples.index");
+        Route::get("/examples/create", [ ExamplesController::class, 'create'])->name("superadmin.examples.create");
+        Route::post("/examples", [ ExamplesController::class, 'store'])->name("superadmin.examples.store");
+        Route::get("/examples/id/edit", [ ExamplesController::class, 'edit'])->name("superadmin.examples.edit");
+        Route::put("/examples/id", [ ExamplesController::class, 'update'])->name("superadmin.examples.update");
+        Route::delete("/examples/id", [ ExamplesController::class, 'destroy'])->name("superadmin.examples.destroy");
+        Route::get("/examples/id/gallery", [ ExamplesController::class, 'gallery'])->name("superadmin.examples.gallery");
+        Route::post("/examples/id/gallery", [ ExamplesController::class, 'upload'])->name("superadmin.examples.upload");
+
+        Route::get('/orders', [ OrdersController::class, 'index' ])->name("superadmin.orders.index");
+        Route::get('/orders/id/show', [ OrdersController::class, 'show' ])->name("superadmin.orders.show");
+        Route::get('/orders/id/invoice', [ OrdersController::class, 'invoice' ])->name("superadmin.orders.invoice");
+        Route::delete('/orders/id', [ OrdersController::class, 'destroy' ])->name("superadmin.orders.destroy");
+        Route::post('/orders/id/status', [ OrdersController::class, 'status' ])->name("superadmin.orders.status");
+
+        Route::get("/pages/table", [ ExamplePagesController::class, 'table'])->name("superadmin.pages.table");
+        Route::get("/pages/form", [ ExamplePagesController::class, 'form'])->name("superadmin.pages.form");
+        Route::get("/pages/invoice", [ ExamplePagesController::class, 'invoice'])->name("superadmin.pages.invoice");
+        Route::get("/pages/components", [ ExamplePagesController::class, 'components'])->name("superadmin.pages.components");
+        Route::get("/pages/icons", [ ExamplePagesController::class, 'icons'])->name("superadmin.pages.icons");
+        Route::get("/pages/overview", [ ExamplePagesController::class, 'overview'])->name("superadmin.pages.overview");
 
     });
 });
@@ -70,5 +102,6 @@ Auth::routes([
     'register' => false,
     'reset' => true,
     'confirm' => false,
-    'verify' => false
+    'verify' => false,
 ]);
+Route::get('/logout', LogoutController::class)->name('logout');

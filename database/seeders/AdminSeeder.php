@@ -18,7 +18,6 @@ class AdminSeeder extends Seeder
     {
         if(!User::where('email', 'admin')->count() > 0 && env('APP_ENV') != 'production'){
             DB::table('users')->insert([
-                'username' => 'admin',
                 'name' => 'admin',
                 'surname' => 'admin',
                 'email' => 'admin',
@@ -33,7 +32,6 @@ class AdminSeeder extends Seeder
 
         if(!User::where('email', 'superadmin')->count() > 0 && env('APP_ENV') != 'production'){
             DB::table('users')->insert([
-                'username' => 'superadmin',
                 'name' => 'superadmin',
                 'surname' => 'superadmin',
                 'email' => 'superadmin',
@@ -48,9 +46,8 @@ class AdminSeeder extends Seeder
 
         if(!User::where('email', 'support@demi.sk')->count() > 0 && env('APP_ENV') == 'production'){
             DB::table('users')->insert([
-                'username' => 'demistudio',
-                'name' => 'Demi Studio',
-                'name' => 'Demi Studio',
+                'name' => 'Demi',
+                'surname' => 'Studio',
                 'email' => 'support@demi.sk',
                 'password' => bcrypt('DeMiSupport96'),
                 'admin' => 1,

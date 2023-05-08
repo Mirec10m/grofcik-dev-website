@@ -1,12 +1,7 @@
-@php($error_string = implode('|', $errors->keys()))
-
 <ul class="nav nav-tabs" role="tablist">
-    @foreach(config('settings.languages') as $key => $lang)
+    @foreach( config('settings.languages') as $key => $lang )
     <li class="nav-item">
-        <a class="nav-link {{ $loop->first ? 'active' : '' }} {{ strpos($error_string, '_' . $key) != false ? 'error-color' : '' }}" data-toggle="tab" href="#{{ $key }}" role="tab">
-            @if(strpos($error_string, '_' . $key) != false)
-                <i class="fas fa-exclamation-triangle"></i>
-            @endif
+        <a class="nav-link {{ $loop->first ? 'active' : '' }} {{ has_language_errors($errors, $inputs ?? [], $key) ? 'is-invalid' : '' }}" data-bs-toggle="tab" href="#{{ $key }}{{ $key_append ?? '' }}" role="tab" aria-selected="false">
             {{ $lang }}
         </a>
     </li>

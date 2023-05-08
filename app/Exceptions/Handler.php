@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Psy\Exception\FatalErrorException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -50,6 +52,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        if ( method_exists($exception, 'getStatusCode') ) {
+            $ui = $request->is('admin/*') ? 'admin' : 'web';
+
+            if ( $exception->getStatusCode() == 404 ) return response()->view("errors.$ui.404", [], 404);
+            if ( $exception->getStatusCode() == 419 ) return response()->view("errors.$ui.419", [], 419);
+            if ( $exception->getStatusCode() == 500 ) return response()->view("errors.$ui.500", [], 500);
+        }
+
         return parent::render($request, $exception);
     }
+
 }

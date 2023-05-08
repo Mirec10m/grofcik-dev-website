@@ -1,82 +1,48 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="content">
+    <div class="page-content">
         <div class="container-fluid">
+            @include('admin._partials._breadcrumbs', [ 'title' => 'Úvod', 'crumbs' => []])
 
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title color-primary">Demi Box v 3.0</h4>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">
-                                Vitajte vo Vašej administrácii
-                            </li>
-                        </ol>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="dashboard-demi-text"></div>
 
-                    </div>
-                </div>
-            </div>
+                            <ul class="list-group list-group-horizontal offers"></ul>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Úvod</h4>
-                        <div>
-                            Tento administračný systém bol vytvorený v DeMi Studio, s. r. o.
-                            <br>
-                            <br>
+                            <p>Zostaňte s nami v kontakte:</p>
 
-                            <p class="sub-title">Starostlivosť o Váš web</p>
-                            <div>
-                                Tu si môžete pozrieť ponuku balíkov starostlivosti o Váš web. Každý z našich balíkov starostlivosti okrem iného zahrňuje aj monitorovanie Vášho webu <strong>24/7</strong> pomocou externého softvéru.
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <a href="https://www.linkedin.com/company/demi-studio/" class="dashboard-linkedin mb-40" target="_blank">
+                                        <img src="https://www.demi.sk/images/icons/linkedin.svg" alt="Logo LinkedIn">
+                                        <div>
+                                            Sledujte nás na LinkedIn.
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <br>
-                            <p class="sub-title">Príklad z praxe</p>
-                            <div class="practice-text">
-                                <i>Používateľ / Zákazník príde na web / eshop a pri interakcii s aplikáciou mu vyhodí chybu. Pomocou monitorovacieho softvéru je chyba automaticky odchytená a odoslaná na náš email. K tomuto emailu majú prístup naši programátori, ktorí problém automaticky odstránia aby sa už neopakoval ďalšiemu návštevníkovi Vašich webových stránok. — V prípade, že web nie je monitorovaný, vlastník webu sa o probléme nemusí dozvedieť, až kým mu ho nenahlási niektorý z návštevníkov webových stránok.</i>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    <a href="https://www.demi.sk/" target="_blank">
+                                        <img src="{{ asset('img/admin-logo.svg') }}" class="img-responsive" alt="Demi Studio logo" width="100"/>
+                                    </a>
+                                </div>
                             </div>
-                            <ul class="admin-list offers">
-                            </ul>
 
-                            Zostaňte s nami v kontakte:
-                            <ul class="admin-list">
-                                <li class="relative">
-                                    <a href="https://www.demi.sk/" target="_blank" class="admin-list-logo">
-                                        <img src="{{ asset('img/znak.svg') }}" class="img-responsive" alt="Demi Studio logo" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.facebook.com/Demi-Studio-114844622479287/" target="_blank">
-                                        <i class="fab fa-facebook fa-2x"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/demi__studio/" target="_blank">
-                                        <i class="fab fa-instagram fa-2x"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/company/demi-studio/" target="_blank">
-                                        <i class="fab fa-linkedin fa-2x"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <h6 class="card-title">Potrebujete pomoc?</h6>
+                            <p>
+                                V prípade potreby nás prosím kontaktujte e-mailom.
+                                <br><br>
+                                E-mail: <b>support@demi.sk</b>
+                                <br>
+                                Tel. č.: <b>+421 918 735 863</b>
+                            </p>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="page-title-box">
-                        <h4 class="page-title">Potrebujete pomoc?</h4>
-                        <div>
-                            V prípade potreby nás prosím kontaktujte e-mailom.
-                            <br><br>
-                            E-mail: <b>support@demi.sk</b>
-                            <br>
-                            Tel. č.: <b>+421 918 735 863</b>
                         </div>
                     </div>
                 </div>

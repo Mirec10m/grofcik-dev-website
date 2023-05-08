@@ -1,51 +1,45 @@
-<div class="topbar">
-    <div class="topbar-left">
-        <a href="{{ route('dashboard.index') }}" class="logo">
-            <span><img src="{{ asset('img/admin-logo-white.png') }}" height="40"></span>
-            <i>
-                <img src="{{ asset('img/admin-logo-mark-white.png') }}" height="40">
-            </i>
-        </a>
-    </div>
+<header id="page-topbar">
+    <div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
 
-    <nav class="navbar-custom">
-        <ul class="navbar-right d-flex list-inline float-right mb-0">
-            <li class="dropdown notification-list">
-                <div class="dropdown notification-list nav-pro-img">
-                    <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{ asset('img/user-image.png') }}" alt="user" class="rounded-circle">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                        <a href="{{ route('settings.edit') }}" class="dropdown-item">
-                            <i class="mdi mdi-account-circle m-r-5"></i>
-                            Profil
-                        </a>
-                        <a href="{{ route('settings.password') }}" class="dropdown-item">
-                            <i class="mdi mdi-settings m-r-5"></i>
-                            Zmena hesla
+            <div class="d-flex align-items-center">
+                <div class="dropdown ms-sm-3 header-item topbar-user">
+                    <button type="button" class="btn shadow-none waves-effect h-100 border-0 rounded-0" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle header-profile-user" src="{{ asset( auth()->user()->profile_image ? auth()->user()->profile_image->get_type('thumb') : 'img/user-image.png' ) }}" alt="Header Avatar">
+                            <span class="text-start ms-xl-2">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ auth()->user()->full_name }}</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Administrátor</span>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <h6 class="dropdown-header">Vitajte {{ auth()->user()->name }}!</h6>
+                        <a class="dropdown-item" href="{{ route('settings.index') }}">
+                            <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">Nastavenia</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-item text-primary">
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
 
-                                <button type="submit" class="logout-button">
-                                    <i class="mdi mdi-power text-primary"></i>
-                                    Odhlásiť sa
-                                </button>
-                            </form>
-                        </div>
+                            <button type="submit" class="dropdown-item">
+                                <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                                <span class="align-middle">Odhlásiť sa</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </li>
-        </ul>
-
-        <ul class="list-inline menu-left mb-0">
-            <li class="float-left">
-                <button class="button-menu-mobile open-left waves-effect">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-            </li>
-        </ul>
-    </nav>
-</div>
+            </div>
+        </div>
+    </div>
+</header>

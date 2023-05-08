@@ -1,21 +1,27 @@
 @extends('layout.auth')
-@section('title', '- Verifikácia emailovej adresy')
+
+@section('title', 'Verifikácia emailovej adresy')
 
 @section('content')
-    <div class="wrapper-page">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="text-center m-0">
-                    <a href="https://www.demi.sk/" target="_blank" class="logo logo-admin">
-                        <img src="{{ asset('img/admin-logo.png') }}" height="44" alt="Logo DeMi Studio">
-                    </a>
-                </h3>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="card mt-5">
 
-                <div class="p-3">
-                    <h4 class="text-muted font-18 m-b-5 text-center">Potvrdťe svoju e-mailovú adresu</h4>
+                <div class="card-body p-4">
+                    <div class="text-center mt-4 mb-4 text-white-50">
+                        <div>
+                            <a href="https://www.demi.sk/" class="d-inline-block auth-logo">
+                                <img src="{{ asset('img/admin-logo.svg') }}" alt="" height="100">
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="card-body">
-                        @if(session('resent'))
+                    <div class="text-center mt-2">
+                        <h5 class="text-primary">Potvrdťe svoju e-mailovú adresu</h5>
+                    </div>
+
+                    <div class="p-2 mt-4">
+                        @if( session('resent') )
                             <div class="alert alert-success" role="alert">
                                 Práve Vám bol poslaný e-mail s odkazom na potvrdenie registrácie!
                             </div>
@@ -28,19 +34,8 @@
                             kliknite SEM pre odoslanie ZNOVU.
                         </a>
                     </div>
-
                 </div>
-
             </div>
-        </div>
-
-        <div class="m-t-40 text-center">
-            <p>
-                © {{ \Carbon\Carbon::now()->year }} DeMi-Box. Vytvorila spoločnosť
-                <a href="https://www.demi.sk/" target="_blank">
-                    <b>DeMi Studio</b>.
-                </a>
-            </p>
         </div>
     </div>
 @endsection
