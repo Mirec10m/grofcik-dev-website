@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('body').addClass('loaded');
+})
+
 $(function(){
     initCookies();
 });
