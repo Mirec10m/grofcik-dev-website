@@ -7,7 +7,7 @@ section {
 }
 
 section h2 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
 }
 
@@ -39,9 +39,15 @@ section h2 {
   border-bottom: 1px solid #e3e3e3;
 }
 
-.about-img-wrap {
-  float: right;
+.navbar {
+  padding: 20px 0;
 }
+
+.icon {
+  margin-right: 8px;
+}
+
+/** ABOUT SECTION START **/
 
 .about-img-wrapper {
   max-width: 300px;
@@ -101,20 +107,60 @@ section h2 {
   margin-right: 8px;
 }
 
-.item-title {
+/** ABOUT SECTION END **/
+
+/** SKILLS SECTION START **/
+
+.skills .item-title {
   font-weight: 700;
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-.item-content {
+.skills .item-content {
   color: #666;
 }
 
-.upper-row .item {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+.skills .upper-row .item {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
+
+/** SKILLS SECTION END **/
+
+.experience .item-title {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.experience .item-company {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.experience .item-time,
+.experience .item-location {
+  font-size: 14px;
+}
+
+.experience .item-location {
+  margin-bottom: 10px;
+}
+
+.experience .item-content {
+  color: #666;
+}
+
+.experience .upper-row .item {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+/** EXPERIENCE SECTION START **/
+
+/** EXPERIENCE SECTION END **/
 
 /** COOKIES START **/
 

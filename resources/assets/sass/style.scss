@@ -12,7 +12,7 @@ $shadow: 0px 1px 2px 0px $shadow-color, 1px 2px 4px 0px $shadow-color, 2px 4px 8
 section{
     padding: 80px 0;
     h2{
-        font-size: 24px;
+        font-size: 28px;
         font-weight: 700;
     }
 }
@@ -39,17 +39,19 @@ section{
 .section-border-bottom{
     border-bottom: 1px solid #e3e3e3;
 }
-
-.about-img-wrap{
-    float: right;
+.navbar{
+    padding: 20px 0;
+}
+.icon{
+    margin-right: 8px;
 }
 
+/** ABOUT SECTION START **/
 .about-img-wrapper{
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .about{
     h1{
         font-size: 30px;
@@ -94,23 +96,60 @@ section{
         }
     }
 }
+/** ABOUT SECTION END **/
 
-.item{
-    &-title{
-        font-weight: 700;
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-    &-content{
-        color: $grey-text;
-    }
-}
-.upper-row{
+/** SKILLS SECTION START **/
+.skills{
     .item{
-        margin-bottom: 20px;
-        padding-bottom: 20px;
+        &-title{
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        &-content{
+            color: $grey-text;
+        }
+    }
+    .upper-row{
+        .item{
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+        }
     }
 }
+/** SKILLS SECTION END **/
+.experience{
+    .item{
+        &-title{
+            font-weight: 700;
+            margin-bottom: 0;
+            font-size: 22px;
+        }
+        &-company{
+            color: $grey-text;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        &-time, &-location{
+            font-size: 14px;
+        }
+        &-location{
+            margin-bottom: 10px;
+        }
+        &-content{
+            color: $grey-text;
+        }
+    }
+    .upper-row{
+        .item{
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}
+/** EXPERIENCE SECTION START **/
+
+/** EXPERIENCE SECTION END **/
 
 /** COOKIES START **/
 .cookies-bar {

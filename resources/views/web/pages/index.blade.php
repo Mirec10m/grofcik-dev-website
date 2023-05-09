@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <section id="skills" class="section-border-bottom">
+    <section id="skills" class="skills section-border-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4">
@@ -146,7 +146,7 @@
         </div>
     </section>
 
-    <section id="experience" class="section-border-bottom">
+    <section id="experience" class="experience section-border-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4">
@@ -155,6 +155,107 @@
                     </h2>
                 </div>
 
+                <div class="col-12 col-lg-8">
+                    <div class="row upper-row">
+                        <div class="col-12">
+                            <div class="item section-border-bottom">
+                                <div class="item-title">
+                                    Software developer
+                                </div>
+                                <div class="item-company">
+                                    DeMi Studio, s. r. o.
+                                </div>
+                                <div class="item-time">
+                                    <i class="fa-solid fa-calendar-days icon"></i>
+                                    2017 - now
+                                </div>
+                                <div class="item-location">
+                                    <i class="fa-solid fa-location-dot icon"></i>
+                                    Remote / Contract work
+                                </div>
+                                <div class="item-content">
+                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row upper-row">
+                        <div class="col-12">
+                            <div class="item section-border-bottom">
+                                <div class="item-title">
+                                    Software developer
+                                </div>
+                                <div class="item-company">
+                                    SoftPoint, s. r. o.
+                                </div>
+                                <div class="item-time">
+                                    <i class="fa-solid fa-calendar-days icon"></i>
+                                    2016 - 2017
+                                </div>
+                                <div class="item-location">
+                                    <i class="fa-solid fa-location-dot icon"></i>
+                                    Nitra, Slovakia
+                                </div>
+                                <div class="item-content">
+                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row upper-row">
+                        <div class="col-12">
+                            <div class="item section-border-bottom">
+                                <div class="item-title">
+                                    Web developer
+                                </div>
+                                <div class="item-company">
+                                    GaRT, s. r. o.
+                                </div>
+                                <div class="item-time">
+                                    <i class="fa-solid fa-calendar-days icon"></i>
+                                    2015 - 2016
+                                </div>
+                                <div class="item-location">
+                                    <i class="fa-solid fa-location-dot icon"></i>
+                                    Bratislava, Slovakia / Remote
+                                </div>
+                                <div class="item-content">
+                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="item">
+                                <div class="item-title">
+                                    Web developer
+                                </div>
+                                <div class="item-company">
+                                    SmartEdge, s. r. o.
+                                </div>
+                                <div class="item-time">
+                                    <i class="fa-solid fa-calendar-days icon"></i>
+                                    2014 - 2015
+                                </div>
+                                <div class="item-location">
+                                    <i class="fa-solid fa-location-dot icon"></i>
+                                    Bratislava, Slovakia / Remote
+                                </div>
+                                <div class="item-content">
+                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
