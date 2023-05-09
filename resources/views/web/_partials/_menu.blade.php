@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg section-border-bottom" id="hello">
+<nav class="navbar sticky-top background-white navbar-expand-lg section-border-bottom" id="hello">
     <div class="container">
         <a class="logo" href="{{ route('web.home.' . app()->getLocale()) }}">
             Miro<span class="text-primary">.</span>
@@ -9,19 +9,19 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#hello">Hello</a>
+                    <a class="nav-link active" href="#about" data-scroll-to="#about">Hello</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="#skills" data-scroll-to="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#experience">Experience</a>
+                    <a class="nav-link" href="#experience" data-scroll-to="#experience">Experience</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
+                    <a class="nav-link" href="#education" data-scroll-to="#education">Education</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="#contact" data-scroll-to="#contact">Contact</a>
                 </li>
             </ul>
         </div>

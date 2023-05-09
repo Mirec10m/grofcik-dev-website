@@ -3,8 +3,33 @@ $(document).ready(function(){
 })
 
 $(function(){
+    initNavbar();
+    initNavbarActiveLinks();
     initCookies();
 });
+
+function initNavbar () {
+    $('.nav-link').click(function(){
+        const scrollTo = $(this).data('scroll-to');
+
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(scrollTo).offset().top - 80
+        }, 500);
+    });
+}
+
+function initNavbarActiveLinks () {
+    $(window).scroll(function(){
+        $('section').each(function(){
+            if($(window).scrollTop() > ($(this).offset().top - 81)){
+
+                const id = $(this).attr('id');
+                $('.nav-link').removeClass('active');
+                $('a.nav-link[href^="#' + id +'"]').addClass('active');
+            }
+        });
+    });
+}
 
 function initCookies () {
     if ( $('#cookies-bar').length === 0 || $('#cookies-modal').length === 0 ) return;
