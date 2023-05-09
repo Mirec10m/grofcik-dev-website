@@ -20,17 +20,8 @@ foreach(config('settings.languages') as $lang => $name){
     $prefix = $lang === config('app.locale') ? '' : $lang;
 
     // Pages
-    Route::get("$prefix/", [ PagesController::class, 'index'])->name("web.home.$lang");
-
-    if($lang == 'sk'){
-        // Here goes routes with URL in slovakian language
-
-        // Email
-        //Route::get("$prefix/kontakt", [ PagesController::class, 'contact'])->name("web.contact.$lang");
-        //Route::post("$prefix/kontakt", [ PagesController::class, 'send'])->name("web.contact.send.$lang");
-
-    }
-
+    Route::get("$prefix/", [PagesController::class, 'index'])->name("web.home.$lang");
+    Route::post("$prefix/send", [PagesController::class, 'send'])->name("web.send.$lang");
 }
 
 Route::get("/mapa-stranky", [ SitemapController::class, 'render'])->name("sitemap.render");

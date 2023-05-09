@@ -355,34 +355,45 @@
                 </div>
 
                 <div class="col-12 col-lg-8">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="form-group mb-30">
-                                <input placeholder="E-mail" name="email" type="email" class="form-control">
-                                @include('web._partials._error', ['column' => 'email'])
+                    @if( isset($status) || $errors->any() )
+                        <div id="scroll-to-form"></div>
+                        @if( isset($status) && isset($message) )
+                            <div class="{{ $status }}-message">{{ $message }}</div>
+                        @endif
+                    @endif
+
+                    <form action="{{ route( 'web.send.' . app()->getLocale()) }}" method='POST' id="contact-form">
+                        @csrf
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group mb-30">
+                                    <input placeholder="E-mail" name="email" type="email" class="form-control">
+                                    @include('web._partials._error', ['column' => 'email'])
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group mb-30">
+                                    <input placeholder="Phone" name="phone" type="text" class="form-control">
+                                    @include('web._partials._error', ['column' => 'phone'])
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-6">
-                            <div class="form-group mb-30">
-                                <input placeholder="Phone" name="phone" type="text" class="form-control">
-                                @include('web._partials._error', ['column' => 'phone'])
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-30">
+                                    <textarea placeholder="Message" name="message" class="form-control" rows="5"></textarea>
+                                    @include('web._partials._error', ['column' => 'message'])
+                                </div>
+
+                                <button type="submit" class="btn btn-submit">Send</button>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group mb-30">
-                                <textarea placeholder="Message" name="message" class="form-control" rows="5"></textarea>
-                                @include('web._partials._error', ['column' => 'message'])
-                            </div>
-
-                            <button type="submit" class="btn btn-submit">Send</button>
-                        </div>
-                    </div>
-
+                    </form>
                 </div>
+
             </div>
         </div>
     </section>

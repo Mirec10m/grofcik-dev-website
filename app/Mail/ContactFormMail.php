@@ -30,6 +30,8 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact');
+        return $this
+            ->subject('grofcik.dev - Kontaktný formulár')
+            ->view('emails.contact');
     }
 }
