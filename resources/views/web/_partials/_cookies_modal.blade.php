@@ -10,7 +10,7 @@
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="contact" aria-selected="false">
+                        <a class="nav-link" id="about-tab" data-bs-toggle="tab" href="#about-tab-content" role="tab" aria-controls="about" aria-selected="false">
                             {{ trans('demibox.cookies.modal-about') }}
                         </a>
                     </li>
@@ -67,13 +67,12 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="about-tab-content" role="tabpanel" aria-labelledby="about-tab">
                         <div class="container">
                             <div class="row px-3 mb-3">
                                 <div class="col-lg-12">
                                     <p>
                                         {{ trans('demibox.cookies.modal-about-text-1') }}
-                                        <a href="#" class="cookies-gdpr-link">{{ trans('demibox.cookies.modal-about-gdpr') }}</a>{{ trans('demibox.cookies.modal-about-text-2') }}
                                     </p>
                                 </div>
                             </div>

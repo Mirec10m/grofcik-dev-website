@@ -16,7 +16,16 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
     .sass('resources/assets/sass/admin.scss', 'public/assets')
 
     .styles([ // WEB .css files
-        'resources/assets/templates/frontend_default/css/bootstrap.min.css', // DEFAULT
+        'resources/assets/templates/bootstrap_5/css/bootstrap.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap.rtl.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-grid.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-grid.rtl.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-reboot.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-reboot.rtl.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-utilities.min.css',
+        'resources/assets/templates/bootstrap_5/css/bootstrap-utilities.rtl.min.css',
+        'resources/assets/icons/fontawesome/css/all.css',
+        'resources/assets/icons/fontawesome/css/brands.css',
         'public/assets/style.css' // this .css file must be last
     ], 'public/css/style.min.css')
 
@@ -47,8 +56,10 @@ mix.sass('resources/assets/sass/style.scss', 'public/assets')
 
 
     .scripts([ // WEB .js files
-        'resources/assets/templates/frontend_default/js/jquery-3.6.3.min.js', // DEFAULT
-        'resources/assets/templates/frontend_default/js/bootstrap.bundle.min.js', // DEFAULT
+        'resources/assets/templates/frontend_default/js/jquery-3.6.3.min.js',
+        //'resources/assets/templates/bootstrap_5/js/bootstrap.min.js',
+        //'resources/assets/templates/bootstrap_5/js/bootstrap.esm.min.js',
+        'resources/assets/templates/bootstrap_5/js/bootstrap.bundle.min.js',
         'resources/assets/js/frontend.js' // this .js file must be last
     ], 'public/js/script.min.js')
 

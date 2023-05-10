@@ -5,21 +5,17 @@
 <body>
 
 <div>
-    <b>Meno:</b>
-    {{ $data['name'] }}
-</div>
-
-<div>
     <b>E-mail:</b>
     {{ $data['email'] }}
 </div>
 
+<div>
+    <b>Phone:</b>
+    {{ $data['phone'] }}
+</div>
+
 <br>
 
-<h2>Subject:</h2>
-{{ $data['subject'] }}
-
-<br>
 <p>
     {{ $data['message'] }}
 </p>

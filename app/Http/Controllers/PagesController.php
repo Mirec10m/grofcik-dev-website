@@ -18,23 +18,15 @@ class PagesController extends Controller
         return view('web.pages.index');
     }
 
-    public function contact() : Factory | View | Application
-    {
-        return view('web.pages.contact');
-    }
-
     public function send(ContactFormRequest $request) : RedirectResponse
     {
         $recipient = env('MAIL_RECIPIENT', 'support@demi.sk');
 
         Mail::to($recipient)->send(new ContactFormMail($request->all()));
 
-        $not_sent = ! Mail::flushMacros();
-
-        return redirect()->route('web.contact.' . app()->getLocale() )
+        return redirect()->route('web.home.' . app()->getLocale() )
             ->with([
-                'status' => $not_sent ? 'error' : 'success',
-                'message' => trans( $not_sent ? 'texts.Your message could not be send' : 'texts.Your message was sent successfully'),
+                'message' => trans('texts.Your message was sent successfully'),
             ]);
     }
 
