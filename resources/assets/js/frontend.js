@@ -8,7 +8,23 @@ $(function(){
     initCookies();
     initScrollToForm();
     initModalMessage();
+    initCustomCheckbox();
 });
+
+function initCustomCheckbox () {
+    $('.custom-checkbox').click(function(){
+        const targetId = $(this).data('target');
+
+        if($(this).hasClass('showed')){
+            $(this).removeClass('showed');
+            $(targetId).val('0');
+        }
+        else{
+            $(this).addClass('showed');
+            $(targetId).val('1');
+        }
+    })
+}
 
 function initModalMessage () {
     $(document).ready(function(){

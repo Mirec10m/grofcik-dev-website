@@ -2,6 +2,10 @@
   font-family: Lato, sans-serif;
 }
 
+a:focus {
+  outline: none;
+}
+
 section {
   padding: 80px 0;
 }
@@ -9,6 +13,10 @@ section {
 section h2 {
   font-size: 28px;
   font-weight: 700;
+}
+
+.font-12 {
+  font-size: 12px;
 }
 
 .nav-link {
@@ -93,6 +101,22 @@ section h2 {
   color: #c80900;
 }
 
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
 @media only screen and (max-width: 992px) {
   .about-img-wrapper {
     margin-bottom: 40px;
@@ -107,6 +131,27 @@ section h2 {
   section h2 {
     margin-bottom: 30px;
   }
+}
+
+.custom-checkbox {
+  display: inline-block;
+  border: 1px solid #dee2e6;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 8px;
+  float: left;
+}
+
+.custom-checkbox i {
+  display: none;
+  line-height: 26px;
+}
+
+.custom-checkbox.showed i {
+  display: block !important;
 }
 
 /** ABOUT SECTION START **/
@@ -260,10 +305,6 @@ section h2 {
   border: 1px solid #22577A;
 }
 
-.contact .mb-30 {
-  margin-bottom: 30px;
-}
-
 .contact .form-control {
   border-radius: 0;
   padding: 10px 20px;
@@ -370,12 +411,12 @@ section h2 {
 }
 
 .cookies-modal .cookies-nav > .nav-item > .nav-link.active {
-  border-bottom: 3px solid #0d6efd;
-  color: #0d6efd !important;
+  border-bottom: 3px solid #22577A;
+  color: #22577A !important;
 }
 
 .cookies-modal .cookies-nav > .nav-item > .nav-link:hover {
-  color: #0d6efd !important;
+  color: #22577A !important;
 }
 
 .cookies-switch {

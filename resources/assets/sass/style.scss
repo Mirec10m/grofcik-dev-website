@@ -9,6 +9,10 @@ $shadow: 0px 1px 2px 0px $shadow-color, 1px 2px 4px 0px $shadow-color, 2px 4px 8
     font-family: Lato,sans-serif;
 }
 
+a:focus{
+    outline: none;
+}
+
 section{
     padding: 80px 0;
     h2{
@@ -17,6 +21,9 @@ section{
     }
 }
 
+.font-12{
+    font-size: 12px;
+}
 .nav-link{
     cursor: pointer;
 }
@@ -83,6 +90,18 @@ section{
 .error-color{
     color: #c80900;
 }
+.mb-30 {
+    margin-bottom: 30px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.grecaptcha-badge{
+    display: none !important;
+}
 
 @media only screen and (max-width: 992px) {
     .about-img-wrapper{
@@ -97,6 +116,27 @@ section{
         h2{
             margin-bottom: 30px;
         }
+    }
+}
+
+.custom-checkbox{
+    display: inline-block;
+    border: 1px solid #dee2e6;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 8px;
+    float: left;
+    i{
+        display: none;
+        line-height: 26px;
+    }
+}
+.custom-checkbox.showed{
+    i{
+        display: block !important;
     }
 }
 
@@ -239,9 +279,6 @@ section{
             border: 1px solid $primary-color;
         }
     }
-    .mb-30 {
-        margin-bottom: 30px;
-    }
     .form-control{
         border-radius: 0;
         padding: 10px 20px;
@@ -323,11 +360,11 @@ section{
         color: #000;
 
         &.active {
-            border-bottom: 3px solid #0d6efd;
-            color: #0d6efd !important;
+            border-bottom: 3px solid $primary-color;
+            color: $primary-color !important;
         }
         &:hover {
-            color: #0d6efd !important;
+            color: $primary-color !important;
         }
     }
 }

@@ -10,13 +10,27 @@
     <meta property="og:image:height"    content="400" />
 @endsection
 
+@section('captcha')
+    <script src="https://www.google.com/recaptcha/api.js?render=6Leii_klAAAAALA4ux1HsB6SOUJm2ETT00XbMH8R"></script>
+@endsection
+
+@section('js')
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Leii_klAAAAALA4ux1HsB6SOUJm2ETT00XbMH8R', {action: 'email'}).then(function(token) {
+                $('#contact-form').prepend('<input type="hidden" name="captcha" value="' + token + '">');
+            });
+        });
+    </script>
+@endsection
+
 @section('content')
     <section class="section-border-bottom hello" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="about-img-wrapper">
-                        <img src="{{ asset('img/slack.jpg') }}" alt="Photo of me" class="img-fluid">
+                        <img src="{{ asset('img/slack.jpg') }}" alt="Photo of Miroslav Grofcik" class="img-fluid">
                     </div>
                 </div>
 
@@ -75,7 +89,7 @@
                                 <i class="fa-brands fa-github icon"></i>
                                 Github
                             </a>
-                            <a href="#" class="btn btn-second">
+                            <a href="{{ asset('pdf/Personal-CV.pdf') }}" download="CV - Miroslav Grofcik" class="btn btn-second">
                                 <i class="fa-solid fa-file-lines icon"></i>
                                 Download CV
                             </a>
@@ -174,8 +188,9 @@
                                     Remote / Contract work
                                 </div>
                                 <div class="item-content">
-                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    In 2017 I founded my own company and started to freelance. I worked on projects
+                                    such as websites, eCommerce, CRM systems, ERP systems, TMS systems,
+                                    and custom CMS system.
                                 </div>
                             </div>
                         </div>
@@ -199,8 +214,9 @@
                                     Nitra, Slovakia
                                 </div>
                                 <div class="item-content">
-                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    In SoftPoint I was developing small / medium size projects. I was working on
+                                    developing websites, eCommerce projects, and smaller CRM/ERP systems integrated
+                                    into these projects.
                                 </div>
                             </div>
                         </div>
@@ -221,11 +237,11 @@
                                 </div>
                                 <div class="item-location">
                                     <i class="fa-solid fa-location-dot icon"></i>
-                                    Bratislava, Slovakia / Remote
+                                    Bratislava, Slovakia
                                 </div>
                                 <div class="item-content">
-                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    In GaRT I was developing websites and eCommerce projects. I also participated
+                                    in the development of a private CMS system and its modules, written in pure PHP.
                                 </div>
                             </div>
                         </div>
@@ -249,8 +265,8 @@
                                     Bratislava, Slovakia / Remote
                                 </div>
                                 <div class="item-content">
-                                    Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                    lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                    In SmartEdge I started as an intern to improve my Laravel skills in real projects.
+                                    I was working on small projects - developing websites or website adjustments.
                                 </div>
                             </div>
                         </div>
@@ -382,14 +398,14 @@
                         <div class="row">
                             <div class="col-12 col-lg-6">
                                 <div class="form-group mb-30">
-                                    <input placeholder="E-mail" name="email" type="email" class="form-control">
+                                    <input placeholder="E-mail*" name="email" value="{{ old('email') }}" type="email" class="form-control">
                                     @include('web._partials._error', ['column' => 'email'])
                                 </div>
                             </div>
 
                             <div class="col-12 col-lg-6">
                                 <div class="form-group mb-30">
-                                    <input placeholder="Phone" name="phone" type="text" class="form-control">
+                                    <input placeholder="Phone*" name="phone" value="{{ old('phone') }}" type="text" class="form-control">
                                     @include('web._partials._error', ['column' => 'phone'])
                                 </div>
                             </div>
@@ -398,11 +414,34 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group mb-30">
-                                    <textarea placeholder="Message" name="message" class="form-control" rows="5"></textarea>
+                                    <textarea placeholder="Message*" name="message" class="form-control" rows="5">{{ old('message') }}</textarea>
                                     @include('web._partials._error', ['column' => 'message'])
                                 </div>
 
-                                <button type="submit" class="btn btn-submit">Send</button>
+                                <div class="form-group mb-10 clearfix">
+                                    <input name="gdpr" id="gdpr" type="hidden" value="0">
+                                    <span class="custom-checkbox" data-target="#gdpr"><i class="fa fa-check"></i></span>
+                                    <label class="checkbox-label font-12">
+                                        I consent to the processing of my personal data<span class="error-color">*</span>
+                                    </label>
+                                    @include('web._partials._error', ['column' => "gdpr"])
+                                </div>
+
+                                <div class="form-group mb-30">
+                                    <label class="checkbox-label line-height-small font-12">
+                                        This site is protected by reCAPTCHA and the Google
+                                        <a class="color-primary color-primary-hover" href="https://policies.google.com/privacy" target="_blank">
+                                            Privacy Policy
+                                        </a>
+                                        and
+                                        <a class="color-primary color-primary-hover" href="https://policies.google.com/terms" target="_blank">
+                                            Terms of Service
+                                        </a>
+                                        apply.
+                                    </label>
+                                </div>
+
+                                <button type="submit" id="contact-form-submit" class="btn btn-submit">Send</button>
                             </div>
                         </div>
                     </form>

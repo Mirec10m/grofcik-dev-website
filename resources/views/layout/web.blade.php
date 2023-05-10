@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="robots" content="index,follow">
-    <meta name="description" content="">
+    <meta name="description" content="Personal CV website of Miroslav Grofčík, software developer and founder of Demi Studio, s. r. o,">
     <meta name="author" content="DeMi Studio, s.r.o.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,7 +18,7 @@
         @yield('title')
     </title>
 
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
