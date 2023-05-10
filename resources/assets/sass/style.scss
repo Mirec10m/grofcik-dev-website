@@ -60,6 +60,20 @@ section{
 .icon{
     margin-right: 8px;
 }
+.mr-0{
+    margin-right: 0 !important;
+}
+.success-color{
+    color: #64F58D;
+}
+
+.modal-title{
+    font-size: 26px;
+    font-weight: 700;
+    i{
+        margin-right: 5px;
+    }
+}
 
 /** ABOUT SECTION START **/
 .about-img-wrapper{

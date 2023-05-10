@@ -7,7 +7,14 @@ $(function(){
     initNavbarActiveLinks();
     initCookies();
     initScrollToForm();
+    initModalMessage();
 });
+
+function initModalMessage () {
+    $(document).ready(function(){
+        $('#successModal').modal('show');
+    })
+}
 
 function initNavbar () {
     $('.nav-link').click(function(){

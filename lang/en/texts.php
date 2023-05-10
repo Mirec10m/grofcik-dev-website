@@ -4,6 +4,5 @@
      */
 
 return [
-
-
+    'Your message was sent successfully' => 'Your message was sent successfully!',
 ];

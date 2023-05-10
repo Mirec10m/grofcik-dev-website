@@ -24,15 +24,9 @@ class PagesController extends Controller
 
         Mail::to($recipient)->send(new ContactFormMail($request->all()));
 
-        if (Mail::failures()) {
-            // return response showing failed emails
-        }
-        $not_sent = ! Mail::flushMacros();
-
         return redirect()->route('web.home.' . app()->getLocale() )
             ->with([
-                'status' => $not_sent ? 'error' : 'success',
-                'message' => trans( $not_sent ? 'texts.Your message could not be send' : 'texts.Your message was sent successfully'),
+                'message' => trans('texts.Your message was sent successfully'),
             ]);
     }
 
