@@ -9610,6 +9610,32 @@ section h2 {
   margin-right: 5px;
 }
 
+.list-no-marker {
+  list-style-type: none;
+  padding: 0;
+  margin: 6px 0;
+}
+
+.error-color {
+  color: #c80900;
+}
+
+@media only screen and (max-width: 992px) {
+  .about-img-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .upper-item {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+
+  section h2 {
+    margin-bottom: 30px;
+  }
+}
+
 /** ABOUT SECTION START **/
 
 .about-img-wrapper {

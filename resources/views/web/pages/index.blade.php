@@ -121,7 +121,7 @@
 
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <div class="item">
+                            <div class="item upper-item">
                                 <div class="item-title">
                                     Other
                                 </div>
