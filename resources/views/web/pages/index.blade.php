@@ -127,7 +127,7 @@
                                     Frontend
                                 </div>
                                 <div class="item-content">
-                                    Vue 3 (composition API), HTML, CSS, JS, Sass/Less, Bootstrap
+                                    Vue 3 (composition API), TypeScript, HTML, CSS, JS, Sass/Less, Bootstrap
                                 </div>
                             </div>
                         </div>
