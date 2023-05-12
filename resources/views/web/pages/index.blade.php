@@ -48,37 +48,37 @@
 
                         <div class="about-info">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-3 col-sm-2">
                                     <b>Phone</b>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-10">
                                     +421 918 735 863
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-3 col-sm-2">
                                     <b>E-mail</b>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-10">
                                     miroslav.grofcik@demi.sk
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-3 col-sm-2">
                                     <b>Location</b>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-10">
                                     Europe
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-3 col-sm-2">
                                     <b>Speaking</b>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-10">
                                     English, Spanish, Slovak
                                 </div>
                             </div>
