@@ -41,8 +41,12 @@
                         </h1>
 
                         <p class="text-grey">
-                            I am a software developer with 8+ years of experience in web development and software
-                            development. I like to code both backend and frontend. I am currently located in Europe
+                            I am a software developer with
+                            {{ \Carbon\Carbon::now()->diffInYears(\Carbon\Carbon::parse('2014-01-01')) }}+
+                            years of experience in software development and web
+                            development. I like to code both backend and frontend.
+                            I have experience with leading the development team on projects.
+                            I am currently located in Europe
                             and working remotely.
                         </p>
 
@@ -79,7 +83,7 @@
                                     <b>Speaking</b>
                                 </div>
                                 <div class="col-9 col-sm-10">
-                                    English, Spanish, Slovak
+                                    English, Spanish, Slovak, Czech
                                 </div>
                             </div>
                         </div>
@@ -127,7 +131,8 @@
                                     Frontend
                                 </div>
                                 <div class="item-content">
-                                    Vue 3 (composition API), TypeScript, HTML, CSS, JS, Sass/Less, Bootstrap
+                                    Vue 3 (composition API), React, NextJS, TypeScript, Tailwind, Bootstrap, Sass/Less,
+                                    HTML, CSS, JS
                                 </div>
                             </div>
                         </div>
@@ -140,7 +145,7 @@
                                     Other
                                 </div>
                                 <div class="item-content">
-                                    Docker, Git, Composer, Gitlab CI/CD, Github Actions, JSON, XML, Unix
+                                    Docker, Git, Composer, Gitlab CI/CD, Github Actions, JSX, JSON, XML, Unix
                                 </div>
                             </div>
                         </div>
@@ -188,9 +193,9 @@
                                     Remote / Contract work
                                 </div>
                                 <div class="item-content">
-                                    In 2017 I founded my own company and started to freelance. I worked on projects
+                                    In 2017, I founded my own company. Since then I have worked on projects
                                     such as websites, eCommerce, CRM systems, ERP systems, TMS systems,
-                                    and custom CMS system.
+                                    custom CMS systems, APIs, and SaaS platforms.
                                 </div>
                             </div>
                         </div>
